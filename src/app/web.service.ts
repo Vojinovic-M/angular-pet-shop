@@ -1,60 +1,53 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { FlightModel } from '../models/flight.model';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PetModel } from '../models/pet.model';
 import { PageModel } from '../models/page.model';
-import { RasaModel } from '../models/rasa.model';
+import {RasaModel} from "../models/rasa.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebService {
+  private static instance: WebService;
 
-  private static instance: WebService
-  private baseUrl: string
-  private client: HttpClient
+  private readonly baseUrl = 'http://localhost:8080/api/pets'; // Update this URL as needed
 
-  private constructor() {
-    this.baseUrl = "https://flight.pequla.com/api"
-    this.client = inject(HttpClient)
+  constructor(private http: HttpClient) {
+    // if (!WebService.instance) {
+    //   WebService.instance = this;
+    // }
+    // return WebService.instance;
   }
 
-  public static getInstance() {
-    if (this.instance == undefined)
-      this.instance = new WebService()
-    return this.instance
+  // Fetch recommended pets (e.g., featured or most popular)
+  public getRecommendedPets(): Observable<PageModel<PetModel>> {
+    return this.http.get<PageModel<PetModel>>(`${this.baseUrl}/recommended`);
   }
 
-  public getFlights(page = 0, size = 10, sort = "scheduledAt,desc") {
-    const url = `${this.baseUrl}/flight?page=${page}&size=${size}&sort=${sort}&type=departure`
-    return this.client.get<PageModel<FlightModel>>(url)
+  // Fetch a paginated list of pets
+  public getPets(page: number = 0): Observable<PageModel<PetModel>> {
+    return this.http.get<PageModel<PetModel>>(`${this.baseUrl}?page=${page}`);
   }
 
-  public getRecommendedFlights() {
-    return this.getFlights(0, 3)
+  // Fetch details of a single pet by ID
+  public getPetById(id: string): Observable<PetModel> {
+    return this.http.get<PetModel>(`${this.baseUrl}/${id}`);
   }
 
-  public getFlightById(id: number) {
-    const url = `${this.baseUrl}/flight/${id}`
-    return this.client.get<FlightModel>(url)
+  // Optional utility method: Format dates
+  public formatDate(date: string | Date): string {
+    return new Date(date).toLocaleDateString();
   }
 
-  public getDestinationImage(dest: string) {
-    return 'https://img.pequla.com/destination/' + dest.split(" ")[0].toLowerCase() + '.jpg'
+  // Optional utility method: Handle missing or null values
+  public formatValue(value: string | null | undefined): string {
+    return value ? value : 'N/A';
   }
 
-  public formatDate(iso: string | null) {
-    if (iso == null) return 'On Time'
-    return new Date(iso).toLocaleString('sr-RS')
-  }
-
-  public formatValue(str: string | null) {
-    if (str == null) return 'N/A'
-    return str
-  }
-
-  public sendRasaMessage(value: string) {
+public sendRasaMessage(value: string) {
     const url = 'http://localhost:5005/webhooks/rest/webhook'
-    return this.client.post<RasaModel[]>(url,
+    return this.http.post<RasaModel[]>(url,
       {
         sender: 'ICRNASTAVA',
         refreshToken: '',

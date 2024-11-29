@@ -29,7 +29,7 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: find flight by the destination
+- story: find pet by the destination
   steps:
   - intent: find_flights_by_destination
   - action: action_flight_list_by_destination

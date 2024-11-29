@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { WebService } from '../web.service';
 import { PageModel } from '../../models/page.model';
-import { FlightModel } from '../../models/flight.model';
+import { PetModel } from '../../models/pet.model';
 import { NgFor, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,43 +11,39 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [RouterLink, NgIf, HttpClientModule, RouterLink, NgFor],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+  styleUrl: './list.component.css',
 })
 export class ListComponent {
+  public webService!: WebService;
+  public data: PageModel<PetModel> | null = null;
 
-  public webService: WebService
-  public data: PageModel<FlightModel> | null = null
-
-  constructor() {
-    this.webService = WebService.getInstance()
-    this.getFlightData()
+  // @ts-ignore
+  constructor(webService: WebService) {
+    this.webService = webService;
+    this.getPetData();
   }
 
-  public getFlightData(page = 0) {
-    this.webService.getFlights(page)
-      .subscribe(rsp => this.data = rsp)
+  public getPetData(page = 0) {
+    this.webService.getPets(page).subscribe((rsp) => (this.data = rsp));
   }
 
   public first() {
-    this.getFlightData()
+    this.getPetData();
   }
 
   public previous() {
-    if (this.data == undefined) return
-    if (this.data.first) return
-    this.getFlightData(this.data.number - 1)
+    if (this.data == null || this.data.first) return;
+    this.getPetData(this.data.number - 1);
   }
 
   public next() {
-    if (this.data == undefined) return
-    if (this.data.last) return
-    this.getFlightData(this.data.number + 1)
+    if (this.data == null || this.data.last) return;
+    this.getPetData(this.data.number + 1);
   }
 
   public last() {
-    if (this.data == undefined) return
-    if (this.data.last) return
-    this.getFlightData(this.data.totalPages - 1)
+    if (this.data == null || this.data.last) return;
+    this.getPetData(this.data.totalPages - 1);
   }
-
 }
+
