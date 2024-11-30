@@ -9,7 +9,8 @@
       "size": "Large",
       "origin": "USA",
       "priceRange": "$800-$1200",
-      "reviews": ["Loyal and friendly!", "Great with kids."]
+      "reviews": ["Loyal and friendly!", "Great with kids."],
+      "image": "https://plus.unsplash.com/premium_photo-1723709016897-3cc15635e618?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "size": "Small",
       "origin": "Iran",
       "priceRange": "$500-$800",
-      "reviews": ["Adorable and easy to care for."]
+      "reviews": ["Adorable and easy to care for."],
+      "image": "https://thumbs.dreamstime.com/z/ai-generated-illustration-portrait-persian-cat-isolated-white-background-ai-generated-illustration-portrait-302680618.jpg?ct=jpeg"
     }
   ],
   "pageable": {

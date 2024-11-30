@@ -18,7 +18,10 @@ export class PetComponent {
   constructor(private route: ActivatedRoute, private webService: WebService) {
     route.params.subscribe((params) => {
       const id = params['id'];
-      this.webService.getPetById(id).subscribe((rsp) => (this.pet = rsp));
+      this.webService.getPetById(id).subscribe((rsp) => {
+        this.pet = rsp
+        console.log(this.pet);
+      });
     });
   }
 }

@@ -7,7 +7,7 @@
       <li class="breadcrumb-item">
         <a routerLink="/list">Pets</a>
       </li>
-      <li class="breadcrumb-item active" aria-current="page">{{ pet.name }}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ pet.id }}</li>
     </ol>
   </nav>
   <div class="card mb-3">
@@ -22,6 +22,12 @@
           <p class="card-text">{{ pet.description }}</p>
         </div>
         <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Name:</strong> {{ pet.name }}
+          </li>
+          <li class="list-group-item">
+            <strong>Description:</strong> {{ pet.description }}
+          </li>
           <li class="list-group-item">
             <strong>Age:</strong> {{ pet.age }}
           </li>

@@ -7,5 +7,6 @@ export interface PetModel {
   "size": number,
   "origin": string,
   "price": number,
-  image: string
+  image: string,
+  imageUrl: string;
 }

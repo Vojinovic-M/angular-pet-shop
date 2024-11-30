@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {catchError, Observable} from 'rxjs';
+import {catchError, map, Observable, of, tap} from 'rxjs';
 import { PetModel } from '../models/pet.model';
 import { PageModel } from '../models/page.model';
 import {RasaModel} from "../models/rasa.model";
@@ -38,14 +38,29 @@ export class WebService {
   //     }));
   // }
 
-  // Fetch details of a single pet by ID
-  public getPetById(id: number): Observable<PetModel> {
-    return this.http.get<PetModel> (`${this.baseUrl}/${id}`)
-      .pipe(catchError(() => {
-        console.log('Backend API failed, loading from local pets.json');
-        return this.http.get<PetModel>(this.petsJsonUrl);
-      }));
+
+  public getPetById(id: string): Observable<PetModel | null> {
+    return this.http.get<PageModel<PetModel>>(this.petsJsonUrl).pipe(
+      map((data) => {
+        const pets = data.content || [];
+        return pets.find((pet) => pet.id === +id) || null;  // Find pet by id
+      }),
+      catchError((error) => {
+        console.error('Error loading pet data: ', error);
+        return of(null);  // Return null if there's an error
+      })
+    );
   }
+
+
+  // Fetch details of a single pet by ID
+  // public getPetById(id: number): Observable<PetModel> {
+  //   return this.http.get<PetModel> (`${this.baseUrl}/${id}`)
+  //     .pipe(catchError(() => {
+  //       console.log('Backend API failed, loading from local pets.json');
+  //       return this.http.get<PetModel>(this.petsJsonUrl);
+  //     }));
+  // }
 
   // Optional utility method: Format dates
   public formatDate(date: string | Date): string {
