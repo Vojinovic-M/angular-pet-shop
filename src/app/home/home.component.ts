@@ -1,5 +1,4 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, Inject, inject, OnInit } from '@angular/core';
 import { PageModel } from '../../models/page.model';
 import { PetModel } from '../../models/pet.model';
@@ -14,7 +13,6 @@ import { WebService } from '../web.service';
   imports: [
     RouterLink,
     NgIf,
-    HttpClientModule,
     NgFor,
     CommonModule,
     SafePipe

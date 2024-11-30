@@ -3,13 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PetModel } from '../../models/pet.model';
 import { WebService } from '../web.service';
 import { NgIf } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from '../safe.pipe';
 
 @Component({
   selector: 'app-pet-shop',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgIf, SafePipe],
+  imports: [ RouterLink, NgIf, SafePipe],
   templateUrl: './pet.component.html',
   styleUrl: './pet.component.css'
 })

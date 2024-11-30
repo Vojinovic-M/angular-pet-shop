@@ -1,0 +1,45 @@
+{
+  "content": [
+    {
+      "id": 1,
+      "name": "Buddy",
+      "type": "Dog",
+      "description": "Friendly Golden Retriever",
+      "age": 3,
+      "size": "Large",
+      "origin": "USA",
+      "priceRange": "$800-$1200",
+      "reviews": ["Loyal and friendly!", "Great with kids."]
+    },
+    {
+      "id": 2,
+      "name": "Mittens",
+      "type": "Cat",
+      "description": "Playful Persian Cat",
+      "age": 2,
+      "size": "Small",
+      "origin": "Iran",
+      "priceRange": "$500-$800",
+      "reviews": ["Adorable and easy to care for."]
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": true
+    },
+    "pageSize": 10,
+    "pageNumber": 0,
+    "unpaged": false,
+    "offset": 0,
+    "paged": true
+  },
+  "totalPages": 1,
+  "totalElements": 2,
+  "last": true,
+  "size": 10,
+  "number": 0,
+  "sort": {
+    "empty": true
+  },
+  "first": true
+}

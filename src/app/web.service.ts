@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {catchError, Observable} from 'rxjs';
 import { PetModel } from '../models/pet.model';
 import { PageModel } from '../models/page.model';
 import {RasaModel} from "../models/rasa.model";
@@ -8,31 +8,43 @@ import {RasaModel} from "../models/rasa.model";
 @Injectable({
   providedIn: 'root',
 })
+
 export class WebService {
-  private static instance: WebService;
-
   private readonly baseUrl = 'http://localhost:8080/api/pets'; // Update this URL as needed
+  private readonly petsJsonUrl = 'assets/pets.json';
 
-  constructor(private http: HttpClient) {
-    // if (!WebService.instance) {
-    //   WebService.instance = this;
-    // }
-    // return WebService.instance;
-  }
+  constructor(private http: HttpClient) {}
 
   // Fetch recommended pets (e.g., featured or most popular)
   public getRecommendedPets(): Observable<PageModel<PetModel>> {
-    return this.http.get<PageModel<PetModel>>(`${this.baseUrl}/recommended`);
+    return this.http.get<PageModel<PetModel>> (`${this.baseUrl}/recommended`)
+      .pipe(catchError(() => {
+        console.log('Backend API failed, loading from local pets.json');
+        return this.http.get<PageModel<PetModel>>(this.petsJsonUrl);
+        })
+      );
   }
 
-  // Fetch a paginated list of pets
-  public getPets(page: number = 0): Observable<PageModel<PetModel>> {
-    return this.http.get<PageModel<PetModel>>(`${this.baseUrl}?page=${page}`);
+
+  getPets(page: number): Observable<PageModel<PetModel>> {
+    return this.http.get<PageModel<PetModel>>('/assets/pets.json');
   }
+  // Fetch a paginated list of pets
+  // public getPets(page: number = 0): Observable<PageModel<PetModel>> {
+  //   return this.http.get<PageModel<PetModel>> (`${this.baseUrl}?page=${page}`)
+  //     .pipe(catchError(() => {
+  //       console.log('Backend API failed, loading from local pets.json');
+  //       return this.http.get<PageModel<PetModel>>(this.petsJsonUrl);
+  //     }));
+  // }
 
   // Fetch details of a single pet by ID
-  public getPetById(id: string): Observable<PetModel> {
-    return this.http.get<PetModel>(`${this.baseUrl}/${id}`);
+  public getPetById(id: number): Observable<PetModel> {
+    return this.http.get<PetModel> (`${this.baseUrl}/${id}`)
+      .pipe(catchError(() => {
+        console.log('Backend API failed, loading from local pets.json');
+        return this.http.get<PetModel>(this.petsJsonUrl);
+      }));
   }
 
   // Optional utility method: Format dates
