@@ -1,21 +1,32 @@
 <div *ngIf="pets">
-  <div class="row mb-4">
+  <div class="row mb-3">
     <div class="col-sm-4" *ngFor="let pet of pets.content">
       <div class="card">
-        <img [src]="pet.image" class="card-img-top" [alt]="pet.name">
+        <img [ngSrc]="pet.imageUrl"
+             class="card-img-top"
+             width="150"
+             height="150"
+             [alt]="pet.name">
         <div class="card-body">
           <h3 class="card-title">{{ pet.name }}</h3>
           <p class="card-text">{{ pet.breed }} - {{ pet.description }}</p>
         </div>
-        <div class="card-body">
+        <div class="card-btn">
           <a class="btn btn-primary sm-2" routerLink="{{ '/pet/' + pet.id }}">
             <i class="fa-solid fa-up-right-from-square"></i> Details
           </a>
-          <a class="btn btn-success sm-2" routerLink="/list">
+          <a class="btn btn-success sm-2" routerLink="/pets/list">
             <i class="fa-solid fa-magnifying-glass"></i> Browse All
           </a>
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="hero-section">
+  <img src="assets/child-pet.jpg" class="hero-image" alt="Pet Shop Navissos">
+  <div class="hero-overlay">
+    <h1 class="hero-title">Welcome to Navissos</h1>
+    <p class="hero-subtitle">Your trusted pet shop in the heart of Niš, Serbia</p>
   </div>
 </div>

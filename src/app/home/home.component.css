@@ -1,5 +1,48 @@
-.image{
-  position:relative;
-  overflow:hidden;
-  padding-bottom:100%;
+.card-img-top {
+  width: 100%; /* Prilagodite širinu slike širini roditeljskog elementa */
+  /*height: 100%; !* Zadržite proporcije *!*/
+  object-fit: cover; /* Izrežite slike tako da lepo izgledaju */
+  max-height: 200px; /* Maksimalna visina thumbnail-a */
+  border-radius: 8px; /* Zaobljeni uglovi za lepši dizajn */
+}
+
+.card {
+  height: 100%;
+}
+
+.card-btn {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.hero-section {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-image {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
 }
