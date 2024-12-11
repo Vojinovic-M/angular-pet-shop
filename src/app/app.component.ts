@@ -6,11 +6,12 @@ import {HttpClient, HttpClientModule, HttpErrorResponse} from '@angular/common/h
 import { MessageModel } from '../models/message.model';
 import { RasaModel } from '../models/rasa.model';
 import { NgFor, NgIf } from '@angular/common';
+import {ThemeToggleComponent} from "./theme-toggle/theme-toggle.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, RouterLink, FormsModule, HttpClientModule, NgIf, NgFor],
+  imports: [FormsModule, RouterOutlet, RouterLink, FormsModule, HttpClientModule, NgIf, NgFor, ThemeToggleComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
