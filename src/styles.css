@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --bs-body-bg: #fff5ca !important;
+  --bs-tertiary-bg-rgb: 8,115,186 !important; /* Navbar background */
+}
+body {
+  color: #264653;
+  font-family: 'Roboto', sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+.card {
+  background-color: #8fc1e1 !important; /* Light peachy tone for contrast */
+  color: #24305e !important; /* Match text with your navbar background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a soft shadow for depth */
+}
+.card-title {
+  font-weight: bold;
+}
+
+
+.navbar a {
+  color: white !important; /* Navbar links */
+}
+.navbar a:hover {
+  color: #ffd700 !important; /* A vibrant yellow hover effect */
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #423d20;
+  color: #cdcdcd;
+  --bs-tertiary-bg-rgb: 20,40,70 !important;
+  .card {
+    background-color: #133c55 !important;
+    color: #cdcdcd !important;
+  }
+}

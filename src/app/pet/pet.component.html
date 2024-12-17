@@ -1,0 +1,51 @@
+<div *ngIf="pet">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/pet/list">Pets</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">{{ pet.id }}</li>
+    </ol>
+  </nav>
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-8">
+        <div class="image-canvas">
+          <img [src]="pet.imageUrl" [alt]="pet.name">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <h3 class="card-title">{{ pet.name }}</h3>
+          <p class="card-text">{{ pet.breed }}</p>
+          <p class="card-text">{{ pet.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Name:</strong> {{ pet.name }}
+          </li>
+          <li class="list-group-item">
+            <strong>Description:</strong> {{ pet.description }}
+          </li>
+          <li class="list-group-item">
+            <strong>Age:</strong> {{ pet.age }}
+          </li>
+          <li class="list-group-item">
+            <strong>Breed:</strong> {{ pet.breed }}
+          </li>
+        </ul>
+        <div class="card-body">
+          <a routerLink="/" class="btn btn-primary m-1">
+            <i class="fa-solid fa-house"></i> Homepage
+          </a>
+          <button type="button" class="btn btn-success m-1">
+            <i class="fa-regular fa-floppy-disk"></i> Save to Favourites
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

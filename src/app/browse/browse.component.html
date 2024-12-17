@@ -1,0 +1,34 @@
+<div *ngIf="data">
+  <nav>
+    <ul class="pagination">
+      <li class="page-item"><button class="page-link" type="button" (click)="first()" [disabled]="data.first">First</button></li>
+      <li class="page-item"><button class="page-link" type="button" (click)="previous()" [disabled]="data.first">Previous</button></li>
+      <li class="page-item"><button class="page-link" type="button" disabled>{{ data.number + 1 }}</button></li>
+      <li class="page-item"><button class="page-link" type="button" (click)="next()" [disabled]="data.last">Next</button></li>
+      <li class="page-item"><button class="page-link" type="button" (click)="last()" [disabled]="data.last">Last</button></li>
+    </ul>
+  </nav>
+  <div class="row mb-3">
+    <div class="col-sm-4" *ngFor="let pet of data.content">
+      <div class="card">
+        <img [ngSrc]="pet.imageUrl"
+             class="card-img-top"
+             width="150"
+             height="150"
+             [alt]="pet.name">
+        <div class="card-body">
+          <h3 class="card-title">{{ pet.name }}</h3>
+          <p class="card-text">{{ pet.breed }} - {{ pet.description }}</p>
+        </div>
+        <div class="card-btn">
+          <a class="btn btn-primary sm-2" routerLink="{{ '/pet/' + pet.id }}">
+            <i class="fa-solid fa-up-right-from-square"></i> Details
+          </a>
+<!--          <a class="btn btn-success sm-2" routerLink="/pet/list">-->
+<!--            <i class="fa-solid fa-magnifying-glass"></i> Browse All-->
+<!--          </a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

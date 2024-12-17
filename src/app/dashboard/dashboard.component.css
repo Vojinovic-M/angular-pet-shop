@@ -1,0 +1,11 @@
+.dashboard {
+  text-align: center;
+  margin: 20px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
