@@ -5,7 +5,7 @@
         <a routerLink="/">Home</a>
       </li>
       <li class="breadcrumb-item">
-        <a routerLink="/list">Pets</a>
+        <a routerLink="/pets/list">Pets</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">{{ pet.id }}</li>
     </ol>
@@ -13,7 +13,9 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-8">
-        <img [src]="pet.imageUrl" class="img-fluid rounded-start" [alt]="pet.name">
+        <div class="image-canvas">
+          <img [src]="pet.imageUrl" [alt]="pet.name">
+        </div>
       </div>
       <div class="col-md-4">
         <div class="card-body">

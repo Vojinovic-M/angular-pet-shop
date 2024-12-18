@@ -8,19 +8,22 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <app-theme-toggle></app-theme-toggle>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/browse">Browse</a></li>
           <li class="nav-item"><a class="nav-link" routerLink="/pets/list">Pets List</a></li>
           <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
         </ul>
+
       </div>
     </div>
   </nav>
   <router-outlet />
   <div class="chatbot-container position-fixed bottom-0 end-0 p-3">
     <!-- Toggle Button -->
-    <button class="btn btn-primary rounded-circle p-3" (click)="toggleChat()" *ngIf="!isChatVisible">
+    <button class="btn btn-primary square p-3" (click)="toggleChat()" *ngIf="!isChatVisible">
       <i class="fa-solid fa-comments"></i>
     </button>
 

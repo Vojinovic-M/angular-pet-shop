@@ -1,0 +1,16 @@
+.card-img-top {
+  width: 100%; /* Prilagodite širinu slike širini roditeljskog elementa */
+  /*height: 100%; !* Zadržite proporcije *!*/
+  object-fit: cover; /* Izrežite slike tako da lepo izgledaju */
+  max-height: 200px; /* Maksimalna visina thumbnail-a */
+  border-radius: 8px; /* Zaobljeni uglovi za lepši dizajn */
+}
+
+.card {
+  height: 100%;
+}
+
+.card-btn {
+  margin-bottom: 15px;
+  text-align: center;
+}
