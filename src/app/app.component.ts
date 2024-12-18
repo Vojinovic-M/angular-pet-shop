@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {Router, RouterLink, RouterOutlet} from '@angular/router';
-import { WebService } from './web.service';
+import { WebService } from './services/web.service';
 import {HttpClient, HttpClientModule, HttpErrorResponse} from '@angular/common/http';
 import { MessageModel } from '../models/message.model';
 import { RasaModel } from '../models/rasa.model';
@@ -10,7 +10,7 @@ import { NgFor, NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, FormsModule, HttpClientModule, NgIf, NgFor],
+  imports: [FormsModule, RouterOutlet, RouterLink, FormsModule, HttpClientModule, NgIf, NgFor],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -30,6 +30,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
   constructor(webService: WebService) {
     this.webService = webService;
 }
+
+
+
 
   ngOnInit(): void {
     // Check if there are any messages saved
@@ -79,7 +82,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
           rsp.map(msg => {
             // Handle bot message (including images, pet cards, etc.)
             if (msg.image) {
-              return `<img src="${msg.image}" width="200">`;
+              return `<img ngSrc="${msg.image}" width="200" height="200" alt="">`;
             }
             if (msg.attachment) {
               let html = '';
@@ -121,4 +124,6 @@ export class AppComponent implements OnInit, AfterViewChecked {
           });
     }
   }
+
+  protected readonly outerWidth = outerWidth;
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PetModel } from '../../models/pet.model';
-import { WebService } from '../web.service';
+import { WebService } from '../services/web.service';
 import { NgIf } from '@angular/common';
-import { SafePipe } from '../safe.pipe';
+import { SafePipe } from '../pipes/safe.pipe';
 
 @Component({
   selector: 'app-pet-shop',

@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "name": "Mittens",
+      "name": "Mutin",
       "type": "Cat",
       "description": "Playful Persian Cat",
       "age": 2,
@@ -22,7 +22,19 @@
       "origin": "Iran",
       "priceRange": "$500-$800",
       "reviews": ["Adorable and easy to care for."],
-      "image": "https://thumbs.dreamstime.com/z/ai-generated-illustration-portrait-persian-cat-isolated-white-background-ai-generated-illustration-portrait-302680618.jpg?ct=jpeg"
+      "image": "https://media.gettyimages.com/id/173240099/photo/surprise-kitty-cute-black-cat-screaming.jpg?s=2048x2048&w=gi&k=20&c=dG14lA1rJe8TnVE4cg-_eJOV_hTFWTszfII67ej2p6I="
+    },
+    {
+      "id": 3,
+      "name": "Hash",
+      "type": "Cat",
+      "description": "Romantic Maine Coon",
+      "age": 5,
+      "size": "Big",
+      "origin": "Albania",
+      "priceRange": "$5000-$8000",
+      "reviews": ["Adorable but difficult to care for!"],
+      "image": "https://www.katdootje.nl/wp-content/uploads/kartierr_Maincoon_cat_very_clear_eyes_ultra_realistic_in_a_gian_1a6833b6-35d2-43bf-9cc0-6bc4d1898999.png.webp"
     }
   ],
   "pageable": {
