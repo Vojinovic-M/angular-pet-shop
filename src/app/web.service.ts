@@ -1,60 +1,80 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { FlightModel } from '../models/flight.model';
+import { Injectable } from '@angular/core';
+import {catchError, map, Observable, of, tap} from 'rxjs';
+import { PetModel } from '../models/pet.model';
 import { PageModel } from '../models/page.model';
-import { RasaModel } from '../models/rasa.model';
+import {RasaModel} from "../models/rasa.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class WebService {
+  private readonly baseUrl = 'http://localhost:8080/api/pets'; // Update this URL as needed
+  private readonly petsJsonUrl = 'assets/pets.json';
 
-  private static instance: WebService
-  private baseUrl: string
-  private client: HttpClient
+  constructor(private http: HttpClient) {}
 
-  private constructor() {
-    this.baseUrl = "https://flight.pequla.com/api"
-    this.client = inject(HttpClient)
+  // Fetch recommended pets (e.g., featured or most popular)
+  public getRecommendedPets(): Observable<PageModel<PetModel>> {
+    return this.http.get<PageModel<PetModel>> (`${this.baseUrl}/recommended`)
+      .pipe(catchError(() => {
+        console.log('Backend API failed, loading from local pets.json');
+        return this.http.get<PageModel<PetModel>>(this.petsJsonUrl);
+        })
+      );
   }
 
-  public static getInstance() {
-    if (this.instance == undefined)
-      this.instance = new WebService()
-    return this.instance
+
+  getPets(page: number): Observable<PageModel<PetModel>> {
+    return this.http.get<PageModel<PetModel>>('/assets/pets.json');
+  }
+  // Fetch a paginated list of pets
+  // public getPets(page: number = 0): Observable<PageModel<PetModel>> {
+  //   return this.http.get<PageModel<PetModel>> (`${this.baseUrl}?page=${page}`)
+  //     .pipe(catchError(() => {
+  //       console.log('Backend API failed, loading from local pets.json');
+  //       return this.http.get<PageModel<PetModel>>(this.petsJsonUrl);
+  //     }));
+  // }
+
+
+  public getPetById(id: string): Observable<PetModel | null> {
+    return this.http.get<PageModel<PetModel>>(this.petsJsonUrl).pipe(
+      map((data) => {
+        const pets = data.content || [];
+        return pets.find((pet) => pet.id === +id) || null;  // Find pet by id
+      }),
+      catchError((error) => {
+        console.error('Error loading pet data: ', error);
+        return of(null);  // Return null if there's an error
+      })
+    );
   }
 
-  public getFlights(page = 0, size = 10, sort = "scheduledAt,desc") {
-    const url = `${this.baseUrl}/flight?page=${page}&size=${size}&sort=${sort}&type=departure`
-    return this.client.get<PageModel<FlightModel>>(url)
+
+  // Fetch details of a single pet by ID
+  // public getPetById(id: number): Observable<PetModel> {
+  //   return this.http.get<PetModel> (`${this.baseUrl}/${id}`)
+  //     .pipe(catchError(() => {
+  //       console.log('Backend API failed, loading from local pets.json');
+  //       return this.http.get<PetModel>(this.petsJsonUrl);
+  //     }));
+  // }
+
+  // Optional utility method: Format dates
+  public formatDate(date: string | Date): string {
+    return new Date(date).toLocaleDateString();
   }
 
-  public getRecommendedFlights() {
-    return this.getFlights(0, 3)
+  // Optional utility method: Handle missing or null values
+  public formatValue(value: string | null | undefined): string {
+    return value ? value : 'N/A';
   }
 
-  public getFlightById(id: number) {
-    const url = `${this.baseUrl}/flight/${id}`
-    return this.client.get<FlightModel>(url)
-  }
-
-  public getDestinationImage(dest: string) {
-    return 'https://img.pequla.com/destination/' + dest.split(" ")[0].toLowerCase() + '.jpg'
-  }
-
-  public formatDate(iso: string | null) {
-    if (iso == null) return 'On Time'
-    return new Date(iso).toLocaleString('sr-RS')
-  }
-
-  public formatValue(str: string | null) {
-    if (str == null) return 'N/A'
-    return str
-  }
-
-  public sendRasaMessage(value: string) {
+public sendRasaMessage(value: string) {
     const url = 'http://localhost:5005/webhooks/rest/webhook'
-    return this.client.post<RasaModel[]>(url,
+    return this.http.post<RasaModel[]>(url,
       {
         sender: 'ICRNASTAVA',
         refreshToken: '',

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import { WebService } from './web.service';
-import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import {HttpClient, HttpClientModule, HttpErrorResponse} from '@angular/common/http';
 import { MessageModel } from '../models/message.model';
 import { RasaModel } from '../models/rasa.model';
 import { NgFor, NgIf } from '@angular/common';
@@ -15,8 +15,8 @@ import { NgFor, NgIf } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewChecked {
-  webService = WebService.getInstance();
-  title = 'interakcija-covek-racunar-2024';
+  public webService!: WebService;
+  title = 'angular-pet-shop';
   year = new Date().getFullYear();
 
   isChatVisible = false;
@@ -26,7 +26,10 @@ export class AppComponent implements OnInit, AfterViewChecked {
   // ViewChild to access the chat-body element directly
   @ViewChild('chatBody', { static: false }) chatBody: ElementRef | undefined;
 
-  constructor() { }
+
+  constructor(webService: WebService) {
+    this.webService = webService;
+}
 
   ngOnInit(): void {
     // Check if there are any messages saved
@@ -74,7 +77,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
           }
 
           rsp.map(msg => {
-            // Handle bot message (including images, flight cards, etc.)
+            // Handle bot message (including images, pet cards, etc.)
             if (msg.image) {
               return `<img src="${msg.image}" width="200">`;
             }
@@ -83,13 +86,13 @@ export class AppComponent implements OnInit, AfterViewChecked {
               for (const item of msg.attachment) {
                 html += `
                   <div class="card card-chat">
-                    <img src="${[this.webService.getDestinationImage(item.destination)]}" class="card-img-top" alt="${item.destination}">
+                    <img class="card-img-top" alt="">
                     <div class="card-body">
-                      <h3 class="card-title">${item.destination}</h3>
-                      <p class="card-text">${this.webService.formatDate(item.scheduledAt)} (${item.flightNumber})</p>
+                       <h3 class="card-title"></h3>
+                       <p class="card-text"></p>
                     </div>
                     <div class="card-body">
-                      <a class="btn btn-primary" href="/flight/${item.id}">
+                      <a class="btn btn-primary" href="/pet/${item.id}">
                         <i class="fa-solid fa-up-right-from-square"></i> Details
                       </a>
                       <a class="btn btn-success ms-1" href="/list">
