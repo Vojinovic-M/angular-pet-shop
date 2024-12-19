@@ -1,0 +1,636 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.2.2",
+  "pathMappings": {
+    "@spartan-ng/ui-breadcrumb-helm": [
+      ".\\libs/ui/ui-breadcrumb-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-icon-helm": [
+      ".\\libs/ui/ui-icon-helm/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "angular-pet-shop": [
+        {
+          "file": ".editorconfig",
+          "hash": "8037249353422744134"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "10175894702052279752"
+        },
+        {
+          "file": ".hintrc",
+          "hash": "12335870984559110492"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "11934160580685414355"
+        },
+        {
+          "file": ".vscode/launch.json",
+          "hash": "17406702432687230417"
+        },
+        {
+          "file": ".vscode/tasks.json",
+          "hash": "10093397977228577162"
+        },
+        {
+          "file": "LICENSE",
+          "hash": "3617328067569024820"
+        },
+        {
+          "file": "README.md",
+          "hash": "8802904200214122992"
+        },
+        {
+          "file": "angular.json",
+          "hash": "6614782111838969270"
+        },
+        {
+          "file": "chatbot/.rasa/cache/cache.db",
+          "hash": "7429153592547310402"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp11rsqekt/oov_words.json",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp11rsqekt/vocabularies.pkl",
+          "hash": "10650280312184462952"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/DIETClassifier.data_example.pkl",
+          "hash": "3447056574284594414"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/DIETClassifier.entity_tag_specs.json",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/DIETClassifier.index_label_id_mapping.json",
+          "hash": "9746596636624228353"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/DIETClassifier.label_data.pkl",
+          "hash": "17812128516036183481"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/DIETClassifier.sparse_feature_sizes.pkl",
+          "hash": "5156970439570093602"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/DIETClassifier.tf_model.data-00000-of-00001",
+          "hash": "14351636538276314212"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/DIETClassifier.tf_model.index",
+          "hash": "3871145709203400130"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp186g839q/checkpoint",
+          "hash": "3847953099883885993"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp5zufjpqe/featurizer.json",
+          "hash": "4442724655152322935"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp5zufjpqe/rule_only_data.json",
+          "hash": "5311176595145421121"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp5zufjpqe/rule_policy.json",
+          "hash": "2679037894108066722"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp6epzzqtz/feature_to_idx_dict.pkl",
+          "hash": "10963451609609676370"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp79qt4anb/oov_words.json",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp79qt4anb/vocabularies.pkl",
+          "hash": "8172027642586278146"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/checkpoint",
+          "hash": "16684241649885020503"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/featurizer.json",
+          "hash": "9429863664208720207"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.data_example.pkl",
+          "hash": "1514649522988138724"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.entity_tag_specs.json",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.fake_features.pkl",
+          "hash": "3190478196355192820"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.label_data.pkl",
+          "hash": "8320213232789648001"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.label_quantiles.pkl",
+          "hash": "7178020333220099403"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.meta.pkl",
+          "hash": "11892150927788441711"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.priority.pkl",
+          "hash": "18128579709034668820"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.tf_model.data-00000-of-00001",
+          "hash": "7621939494047055579"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp7cc1ix4l/unexpected_intent_policy.tf_model.index",
+          "hash": "4241920773737935170"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/checkpoint",
+          "hash": "16450666430439008515"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/featurizer.json",
+          "hash": "1018655140027975058"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.data_example.pkl",
+          "hash": "7561118350084335749"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.entity_tag_specs.json",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.fake_features.pkl",
+          "hash": "11605953635761988888"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.label_data.pkl",
+          "hash": "11036758195790132239"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.meta.pkl",
+          "hash": "15927546402298793052"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.priority.pkl",
+          "hash": "7335560060985733464"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.tf_model.data-00000-of-00001",
+          "hash": "2958748613585323890"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmp85lg98li/ted_policy.tf_model.index",
+          "hash": "2858227692635347801"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmpjksyqs_z/featurizer.json",
+          "hash": "4442724655152322935"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmpjksyqs_z/memorized_turns.json",
+          "hash": "5906002074996843827"
+        },
+        {
+          "file": "chatbot/.rasa/cache/tmpwe144jez/patterns.pkl",
+          "hash": "9444422325801888874"
+        },
+        {
+          "file": "chatbot/actions/__init__.py",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "chatbot/actions/__pycache__/__init__.cpython-39.pyc",
+          "hash": "7848119877942946286"
+        },
+        {
+          "file": "chatbot/actions/__pycache__/actions.cpython-39.pyc",
+          "hash": "3468896869309896407"
+        },
+        {
+          "file": "chatbot/actions/__pycache__/example.cpython-39.pyc",
+          "hash": "5006885613696265019"
+        },
+        {
+          "file": "chatbot/actions/actions.py",
+          "hash": "7884049543625626325"
+        },
+        {
+          "file": "chatbot/actions/example.py",
+          "hash": "12797345463451234211"
+        },
+        {
+          "file": "chatbot/config.yml",
+          "hash": "7174617832820856253"
+        },
+        {
+          "file": "chatbot/credentials.yml",
+          "hash": "13056797507397500160"
+        },
+        {
+          "file": "chatbot/data/nlu.yml",
+          "hash": "5588792367832818395"
+        },
+        {
+          "file": "chatbot/data/rules.yml",
+          "hash": "18208606977532161605"
+        },
+        {
+          "file": "chatbot/data/stories.yml",
+          "hash": "10447389738873663661"
+        },
+        {
+          "file": "chatbot/domain.yml",
+          "hash": "17563171576026693727"
+        },
+        {
+          "file": "chatbot/endpoints.yml",
+          "hash": "8263934794541089183"
+        },
+        {
+          "file": "chatbot/models/20241112-095506-chartreuse-pediment.tar.gz",
+          "hash": "7422465762376034842"
+        },
+        {
+          "file": "chatbot/tests/test_stories.yml",
+          "hash": "910238324866905754"
+        },
+        {
+          "file": "components.json",
+          "hash": "3089158842223537119"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/index.ts",
+          "hash": "9477439861819307914"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-ellipsis.component.ts",
+          "hash": "1213510405337320822"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-item.directive.ts",
+          "hash": "11585371919211506677"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-link.directive.ts",
+          "hash": "18157248275316049716"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-list.directive.ts",
+          "hash": "1840899496956840712"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-page.directive.ts",
+          "hash": "13860588617653870822"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-separator.component.ts",
+          "hash": "4996464279167936157"
+        },
+        {
+          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb.directive.ts",
+          "hash": "14420082489178458691"
+        },
+        {
+          "file": "libs/ui/ui-icon-helm/src/index.ts",
+          "hash": "8493531663304620001"
+        },
+        {
+          "file": "libs/ui/ui-icon-helm/src/lib/hlm-icon.component.spec.ts",
+          "hash": "15089850342358712274"
+        },
+        {
+          "file": "libs/ui/ui-icon-helm/src/lib/hlm-icon.component.ts",
+          "hash": "7882105664021471224"
+        },
+        {
+          "file": "libs/ui/ui-icon-helm/src/lib/hlm-icon.token.ts",
+          "hash": "15872154079361635347"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "2220730046685409667"
+        },
+        {
+          "file": "package.json",
+          "hash": "16640098581389264146",
+          "deps": [
+            "npm:@angular-devkit/build-angular",
+            "npm:@angular/cli",
+            "npm:@angular/compiler-cli",
+            "npm:@spartan-ng/cli",
+            "npm:@types/jasmine",
+            "npm:jasmine-core",
+            "npm:karma",
+            "npm:karma-chrome-launcher",
+            "npm:karma-coverage",
+            "npm:karma-jasmine",
+            "npm:karma-jasmine-html-reporter",
+            "npm:tailwind-merge",
+            "npm:tailwindcss",
+            "npm:tailwindcss-animate",
+            "npm:typescript",
+            "npm:@angular/animations",
+            "npm:@angular/cdk",
+            "npm:@angular/common",
+            "npm:@angular/compiler",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@angular/platform-browser",
+            "npm:@angular/platform-browser-dynamic",
+            "npm:@angular/router",
+            "npm:@ng-icons/core",
+            "npm:@ng-icons/lucide",
+            "npm:@spartan-ng/ui-core",
+            "npm:angular-oauth2-oidc",
+            "npm:axios",
+            "npm:bootstrap",
+            "npm:class-variance-authority",
+            "npm:clsx",
+            "npm:google-auth-library",
+            "npm:rxjs",
+            "npm:tslib",
+            "npm:uuid",
+            "npm:zone.js"
+          ]
+        },
+        {
+          "file": "public/child-pet.jpg",
+          "hash": "15330851884402208658"
+        },
+        {
+          "file": "public/favicon.ico",
+          "hash": "1022458127542458142"
+        },
+        {
+          "file": "src/app/app.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/app.component.html",
+          "hash": "13448636908094460464"
+        },
+        {
+          "file": "src/app/app.component.spec.ts",
+          "hash": "14921204929216825094"
+        },
+        {
+          "file": "src/app/app.component.ts",
+          "hash": "9033810861335174945"
+        },
+        {
+          "file": "src/app/app.config.ts",
+          "hash": "5171170304975548017"
+        },
+        {
+          "file": "src/app/app.routes.ts",
+          "hash": "15941359781443728857"
+        },
+        {
+          "file": "src/app/auth-config.ts",
+          "hash": "15750468254308588457"
+        },
+        {
+          "file": "src/app/components/chat/chat.component.css",
+          "hash": "357775665250214939"
+        },
+        {
+          "file": "src/app/components/chat/chat.component.html",
+          "hash": "9991805053561250401"
+        },
+        {
+          "file": "src/app/components/chat/chat.component.ts",
+          "hash": "3683224312940481606"
+        },
+        {
+          "file": "src/app/components/footer/footer.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/components/footer/footer.component.html",
+          "hash": "8528456994410857236"
+        },
+        {
+          "file": "src/app/components/footer/footer.component.ts",
+          "hash": "11334291607014742778"
+        },
+        {
+          "file": "src/app/components/header/header.component.css",
+          "hash": "9224728077354336032"
+        },
+        {
+          "file": "src/app/components/header/header.component.html",
+          "hash": "4901048856177139496"
+        },
+        {
+          "file": "src/app/components/header/header.component.ts",
+          "hash": "7303704259808566027"
+        },
+        {
+          "file": "src/app/components/theme-toggle/theme-toggle.component.css",
+          "hash": "4935411510952975006"
+        },
+        {
+          "file": "src/app/components/theme-toggle/theme-toggle.component.html",
+          "hash": "5540538348752134071"
+        },
+        {
+          "file": "src/app/components/theme-toggle/theme-toggle.component.ts",
+          "hash": "1821358947999014840"
+        },
+        {
+          "file": "src/app/pages/about/about.component.css",
+          "hash": "17521990734904264989"
+        },
+        {
+          "file": "src/app/pages/about/about.component.html",
+          "hash": "8157684113431459169"
+        },
+        {
+          "file": "src/app/pages/about/about.component.ts",
+          "hash": "1139698921385553673"
+        },
+        {
+          "file": "src/app/pages/browse/browse.component.css",
+          "hash": "6044284968259482545"
+        },
+        {
+          "file": "src/app/pages/browse/browse.component.html",
+          "hash": "2552383984679873347"
+        },
+        {
+          "file": "src/app/pages/browse/browse.component.ts",
+          "hash": "18213409111156147877"
+        },
+        {
+          "file": "src/app/pages/home/home.component.css",
+          "hash": "4205893405319212511"
+        },
+        {
+          "file": "src/app/pages/home/home.component.html",
+          "hash": "5189512053404989172"
+        },
+        {
+          "file": "src/app/pages/home/home.component.ts",
+          "hash": "15699059840639680765"
+        },
+        {
+          "file": "src/app/pages/list/list.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/pages/list/list.component.html",
+          "hash": "15371464813030036634"
+        },
+        {
+          "file": "src/app/pages/list/list.component.ts",
+          "hash": "5401363889012472643"
+        },
+        {
+          "file": "src/app/pages/pet/pet.component.css",
+          "hash": "9328033559014572001"
+        },
+        {
+          "file": "src/app/pages/pet/pet.component.html",
+          "hash": "18172509246007939710"
+        },
+        {
+          "file": "src/app/pages/pet/pet.component.ts",
+          "hash": "5642559595395775609"
+        },
+        {
+          "file": "src/app/pages/user/dashboard/dashboard.component.css",
+          "hash": "1368171850003541"
+        },
+        {
+          "file": "src/app/pages/user/dashboard/dashboard.component.html",
+          "hash": "4131199272569456453"
+        },
+        {
+          "file": "src/app/pages/user/dashboard/dashboard.component.ts",
+          "hash": "9094371377316715898"
+        },
+        {
+          "file": "src/app/pages/user/login/login.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/pages/user/login/login.component.html",
+          "hash": "6205358956064802326"
+        },
+        {
+          "file": "src/app/pages/user/login/login.component.ts",
+          "hash": "11704929831183811415"
+        },
+        {
+          "file": "src/app/pipes/safe.pipe.ts",
+          "hash": "2870769889581712852"
+        },
+        {
+          "file": "src/app/safe.pipe.ts",
+          "hash": "13830697511962553952"
+        },
+        {
+          "file": "src/app/services/auth-google.service.ts",
+          "hash": "18169939818832099691"
+        },
+        {
+          "file": "src/app/services/auth.service.ts",
+          "hash": "13993623842065488775"
+        },
+        {
+          "file": "src/app/services/axios.service.ts",
+          "hash": "5742755898653928738"
+        },
+        {
+          "file": "src/app/services/theme.service.ts",
+          "hash": "12599146287515565639"
+        },
+        {
+          "file": "src/app/services/user.service.ts",
+          "hash": "9335037328429084467"
+        },
+        {
+          "file": "src/app/services/web.service.ts",
+          "hash": "10712079772425192415"
+        },
+        {
+          "file": "src/app/web.service.ts",
+          "hash": "18015987537469453614"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "14522612336811109268"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "15202975640644136107"
+        },
+        {
+          "file": "src/models/flight.model.ts",
+          "hash": "10358052195686632445"
+        },
+        {
+          "file": "src/models/message.model.ts",
+          "hash": "10871515451154628677"
+        },
+        {
+          "file": "src/models/page.model.ts",
+          "hash": "17510321553208519030"
+        },
+        {
+          "file": "src/models/pet.model.ts",
+          "hash": "7544517394415412699"
+        },
+        {
+          "file": "src/models/rasa.model.ts",
+          "hash": "530001658132769325"
+        },
+        {
+          "file": "src/models/user.model.ts",
+          "hash": "6245481319748165063"
+        },
+        {
+          "file": "src/styles.css",
+          "hash": "10245695677357334973"
+        },
+        {
+          "file": "tailwind.config.js",
+          "hash": "14446842345244950296"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "14560978611694835822"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "17103847196503436008"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "11023685540591620072"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

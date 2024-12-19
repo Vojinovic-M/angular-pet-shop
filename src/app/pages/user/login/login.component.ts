@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButton, MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import {AuthGoogleService} from '../services/auth-google.service';
+import {AuthGoogleService} from '../../../services/auth-google.service';
 
 @Component({
   selector: 'app-login',

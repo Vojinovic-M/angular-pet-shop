@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { WebService } from '../services/web.service';
-import { PageModel } from '../../models/page.model';
-import { PetModel } from '../../models/pet.model';
-import { NgFor, NgIf } from '@angular/common';
+import { WebService } from '../../services/web.service';
+import { PageModel } from '../../../models/page.model';
+import { PetModel } from '../../../models/pet.model';
+import {NgFor, NgIf, NgOptimizedImage} from '@angular/common';
 
 @Component({
-  selector: 'app-list',
+  selector: 'app-browse',
   standalone: true,
-  imports: [RouterLink, NgIf, RouterLink, NgFor],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.css',
+  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage],
+  templateUrl: './browse.component.html',
+  styleUrl: './browse.component.css'
 })
-export class ListComponent {
+export class BrowseComponent {
   public webService!: WebService;
   public data: PageModel<PetModel> | null = null;
 
@@ -57,5 +57,8 @@ export class ListComponent {
     if (this.data) {
       this.getPetData(this.data.totalPages - 1); // Fetch the last page
     }
+  }
+
+  ngOnInit(): void {
   }
 }

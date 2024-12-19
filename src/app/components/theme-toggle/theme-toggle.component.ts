@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ThemeService} from "../services/theme.service";
+import {ThemeService} from "../../services/theme.service";
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 
