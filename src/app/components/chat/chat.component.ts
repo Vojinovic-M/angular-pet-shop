@@ -8,15 +8,14 @@ import {RasaModel} from '../../../models/rasa.model';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
-  selector: 'app-chat',
-  standalone: true,
-  imports: [
-    FormsModule,
-    NgForOf,
-    NgIf
-  ],
-  templateUrl: './chat.component.html',
-  styleUrl: './chat.component.css'
+    selector: 'app-chat',
+    imports: [
+        FormsModule,
+        NgForOf,
+        NgIf
+    ],
+    templateUrl: './chat.component.html',
+    styleUrl: './chat.component.css'
 })
 export class ChatComponent {
   public webService!: WebService;

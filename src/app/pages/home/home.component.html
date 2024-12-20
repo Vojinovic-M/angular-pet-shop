@@ -1,3 +1,8 @@
+<h5 class="home-text1 sm-4">At Navissos, we believe every pet deserves the best.<br></h5>
+  <video class="video" autoplay muted>
+    <source src="running-dog.mp4" type="video/mp4">
+  </video>
+
 <div *ngIf="pets">
   <div class="row mb-3">
     <div class="col-sm-4" *ngFor="let pet of pets.content">
@@ -15,18 +20,16 @@
           <a class="btn btn-primary sm-2" routerLink="{{ '/pet/' + pet.id }}">
             <i class="fa-solid fa-up-right-from-square"></i> Details
           </a>
-<!--          <a class="btn btn-success sm-2" routerLink="/pet/list">-->
-<!--            <i class="fa-solid fa-magnifying-glass"></i> Browse All-->
-<!--          </a>-->
+          <!--          <a class="btn btn-success sm-2" routerLink="/pet/list">-->
+          <!--            <i class="fa-solid fa-magnifying-glass"></i> Browse All-->
+          <!--          </a>-->
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="hero-section">
-  <img src="child-pet.jpg" class="hero-image" alt="Pet Shop Navissos" fetchpriority="high">
-  <div class="hero-overlay">
-    <h1 class="hero-title">Welcome to Navissos</h1>
-    <p class="hero-subtitle">Your trusted pet shop in the heart of Niš, Serbia</p>
-  </div>
-</div>
+
+<h5 class="home-text2 sm-4">
+  That's why we continue to put effort<br>
+  into finding homes for the man's best friend<br><br>
+</h5>

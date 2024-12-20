@@ -4,14 +4,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 
 @Component({
-  selector: 'app-theme-toggle',
-  standalone: true,
-  imports: [
-    MatIconModule,
-    MatButtonModule
-  ],
-  templateUrl: './theme-toggle.component.html',
-  styleUrl: './theme-toggle.component.css'
+    selector: 'app-theme-toggle',
+    imports: [
+        MatIconModule,
+        MatButtonModule
+    ],
+    templateUrl: './theme-toggle.component.html',
+    styleUrl: './theme-toggle.component.css'
 })
 export class ThemeToggleComponent {
   isDarkMode: boolean;

@@ -6,11 +6,10 @@ import { PetModel } from '../../../models/pet.model';
 import {NgFor, NgIf, NgOptimizedImage} from '@angular/common';
 
 @Component({
-  selector: 'app-browse',
-  standalone: true,
-  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage],
-  templateUrl: './browse.component.html',
-  styleUrl: './browse.component.css'
+    selector: 'app-browse',
+    imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage],
+    templateUrl: './browse.component.html',
+    styleUrl: './browse.component.css'
 })
 export class BrowseComponent {
   public webService!: WebService;

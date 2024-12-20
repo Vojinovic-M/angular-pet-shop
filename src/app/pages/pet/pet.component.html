@@ -1,21 +1,13 @@
 <div *ngIf="pet">
-  <nav hlmBreadcrumb>
-    <ol hlmBreadcrumbList>
-      <li hlmBreadcrumbItem>
-        <a hlmBreadcrumbLink href="/home">Home</a>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Home</a>
       </li>
-      <li hlmBreadcrumbSeparator></li>
-      <li hlmBreadcrumbItem>
-        <hlm-breadcrumb-ellipsis />
+      <li class="breadcrumb-item">
+        <a routerLink="/browse">Pets</a>
       </li>
-      <li hlmBreadcrumbSeparator></li>
-      <li hlmBreadcrumbItem>
-        <a hlmBreadcrumbLink hlmL href="/components">Components</a>
-      </li>
-      <li hlmBreadcrumbSeparator></li>
-      <li hlmBreadcrumbItem>
-        <span hlmBreadcrumbPage>Breadcrumb</span>
-      </li>
+      <li class="breadcrumb-item active" aria-current="page">{{ pet.id }}</li>
     </ol>
   </nav>
   <div class="card mb-3">

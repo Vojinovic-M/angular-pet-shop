@@ -6,11 +6,10 @@ import { PetModel } from '../../../models/pet.model';
 import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-list',
-  standalone: true,
-  imports: [RouterLink, NgIf, RouterLink, NgFor],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.css',
+    selector: 'app-list',
+    imports: [RouterLink, NgIf, RouterLink, NgFor],
+    templateUrl: './list.component.html',
+    styleUrl: './list.component.css'
 })
 export class ListComponent {
   public webService!: WebService;

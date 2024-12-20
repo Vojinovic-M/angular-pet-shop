@@ -3,37 +3,15 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PetModel } from '../../../models/pet.model';
 import { WebService } from '../../services/web.service';
 import { NgIf } from '@angular/common';
-import {
-  HlmBreadcrumbDirective,
-  HlmBreadcrumbEllipsisComponent, HlmBreadCrumbImports,
-  HlmBreadcrumbItemDirective,
-  HlmBreadcrumbLinkDirective,
-  HlmBreadcrumbListDirective,
-  HlmBreadcrumbPageDirective,
-  HlmBreadcrumbSeparatorComponent,
-} from '@spartan-ng/ui-breadcrumb-helm';
-
 
 @Component({
-  selector: 'app-pet-shop',
-  standalone: true,
+    selector: 'app-pet-shop',
   imports: [
     RouterLink,
-    NgIf,
-    HlmBreadcrumbDirective,
-    HlmBreadcrumbEllipsisComponent,
-    HlmBreadcrumbItemDirective,
-    HlmBreadcrumbLinkDirective,
-    HlmBreadcrumbListDirective,
-    HlmBreadcrumbPageDirective,
-    HlmBreadcrumbSeparatorComponent,
-    HlmBreadcrumbEllipsisComponent,
-    HlmBreadCrumbImports,
-    HlmBreadcrumbItemDirective,
-    HlmBreadcrumbDirective,
+    NgIf
   ],
-  templateUrl: './pet.component.html',
-  styleUrl: './pet.component.css'
+    templateUrl: './pet.component.html',
+    styleUrl: './pet.component.css'
 })
 export class PetComponent {
   public pet: PetModel | null = null;

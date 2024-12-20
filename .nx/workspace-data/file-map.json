@@ -7,6 +7,114 @@
     ],
     "@spartan-ng/ui-icon-helm": [
       ".\\libs/ui/ui-icon-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-accordion-helm": [
+      ".\\libs/ui/ui-accordion-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-alert-helm": [
+      ".\\libs/ui/ui-alert-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-alertdialog-helm": [
+      ".\\libs/ui/ui-alertdialog-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-aspectratio-helm": [
+      ".\\libs/ui/ui-aspectratio-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-avatar-helm": [
+      ".\\libs/ui/ui-avatar-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-badge-helm": [
+      ".\\libs/ui/ui-badge-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-button-helm": [
+      ".\\libs/ui/ui-button-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-calendar-helm": [
+      ".\\libs/ui/ui-calendar-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-card-helm": [
+      ".\\libs/ui/ui-card-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-carousel-helm": [
+      ".\\libs/ui/ui-carousel-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-checkbox-helm": [
+      ".\\libs/ui/ui-checkbox-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-command-helm": [
+      ".\\libs/ui/ui-command-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-dialog-helm": [
+      ".\\libs/ui/ui-dialog-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-formfield-helm": [
+      ".\\libs/ui/ui-formfield-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-hovercard-helm": [
+      ".\\libs/ui/ui-hovercard-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-input-helm": [
+      ".\\libs/ui/ui-input-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-label-helm": [
+      ".\\libs/ui/ui-label-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-menu-helm": [
+      ".\\libs/ui/ui-menu-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-pagination-helm": [
+      ".\\libs/ui/ui-pagination-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-popover-helm": [
+      ".\\libs/ui/ui-popover-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-progress-helm": [
+      ".\\libs/ui/ui-progress-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-radiogroup-helm": [
+      ".\\libs/ui/ui-radiogroup-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-scrollarea-helm": [
+      ".\\libs/ui/ui-scrollarea-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-select-helm": [
+      ".\\libs/ui/ui-select-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-separator-helm": [
+      ".\\libs/ui/ui-separator-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-sheet-helm": [
+      ".\\libs/ui/ui-sheet-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-skeleton-helm": [
+      ".\\libs/ui/ui-skeleton-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-slider-helm": [
+      ".\\libs/ui/ui-slider-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-sonner-helm": [
+      ".\\libs/ui/ui-sonner-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-spinner-helm": [
+      ".\\libs/ui/ui-spinner-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-switch-helm": [
+      ".\\libs/ui/ui-switch-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-table-helm": [
+      ".\\libs/ui/ui-table-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-tabs-helm": [
+      ".\\libs/ui/ui-tabs-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-toggle-helm": [
+      ".\\libs/ui/ui-toggle-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-tooltip-helm": [
+      ".\\libs/ui/ui-tooltip-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-typography-helm": [
+      ".\\libs/ui/ui-typography-helm/src/index.ts"
     ]
   },
   "nxJsonPlugins": [],
@@ -24,18 +132,6 @@
         {
           "file": ".hintrc",
           "hash": "12335870984559110492"
-        },
-        {
-          "file": ".vscode/extensions.json",
-          "hash": "11934160580685414355"
-        },
-        {
-          "file": ".vscode/launch.json",
-          "hash": "17406702432687230417"
-        },
-        {
-          "file": ".vscode/tasks.json",
-          "hash": "10093397977228577162"
         },
         {
           "file": "LICENSE",
@@ -278,60 +374,12 @@
           "hash": "3089158842223537119"
         },
         {
-          "file": "libs/ui/ui-breadcrumb-helm/src/index.ts",
-          "hash": "9477439861819307914"
-        },
-        {
-          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-ellipsis.component.ts",
-          "hash": "1213510405337320822"
-        },
-        {
-          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-item.directive.ts",
-          "hash": "11585371919211506677"
-        },
-        {
-          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-link.directive.ts",
-          "hash": "18157248275316049716"
-        },
-        {
-          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-list.directive.ts",
-          "hash": "1840899496956840712"
-        },
-        {
-          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-page.directive.ts",
-          "hash": "13860588617653870822"
-        },
-        {
-          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb-separator.component.ts",
-          "hash": "4996464279167936157"
-        },
-        {
-          "file": "libs/ui/ui-breadcrumb-helm/src/lib/breadcrumb.directive.ts",
-          "hash": "14420082489178458691"
-        },
-        {
-          "file": "libs/ui/ui-icon-helm/src/index.ts",
-          "hash": "8493531663304620001"
-        },
-        {
-          "file": "libs/ui/ui-icon-helm/src/lib/hlm-icon.component.spec.ts",
-          "hash": "15089850342358712274"
-        },
-        {
-          "file": "libs/ui/ui-icon-helm/src/lib/hlm-icon.component.ts",
-          "hash": "7882105664021471224"
-        },
-        {
-          "file": "libs/ui/ui-icon-helm/src/lib/hlm-icon.token.ts",
-          "hash": "15872154079361635347"
-        },
-        {
           "file": "package-lock.json",
-          "hash": "2220730046685409667"
+          "hash": "2291663258771033234"
         },
         {
           "file": "package.json",
-          "hash": "16640098581389264146",
+          "hash": "8676108835579911561",
           "deps": [
             "npm:@angular-devkit/build-angular",
             "npm:@angular/cli",
@@ -360,17 +408,20 @@
             "npm:@angular/router",
             "npm:@ng-icons/core",
             "npm:@ng-icons/lucide",
+            "npm:@nx/angular",
             "npm:@spartan-ng/ui-core",
             "npm:angular-oauth2-oidc",
             "npm:axios",
             "npm:bootstrap",
             "npm:class-variance-authority",
             "npm:clsx",
+            "npm:embla-carousel-angular",
             "npm:google-auth-library",
+            "npm:ngx-scrollbar",
+            "npm:ngx-sonner",
             "npm:rxjs",
             "npm:tslib",
-            "npm:uuid",
-            "npm:zone.js"
+            "npm:uuid"
           ]
         },
         {
@@ -391,23 +442,61 @@
         },
         {
           "file": "src/app/app.component.spec.ts",
-          "hash": "14921204929216825094"
+          "hash": "14921204929216825094",
+          "deps": [
+            "npm:@angular/core"
+          ]
         },
         {
           "file": "src/app/app.component.ts",
-          "hash": "9033810861335174945"
+          "hash": "13827421037364332855",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/router",
+            "npm:@angular/common"
+          ]
         },
         {
           "file": "src/app/app.config.ts",
-          "hash": "5171170304975548017"
+          "hash": "5171170304975548017",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common",
+            "npm:angular-oauth2-oidc",
+            "npm:@angular/platform-browser"
+          ]
         },
         {
           "file": "src/app/app.routes.ts",
-          "hash": "15941359781443728857"
+          "hash": "15941359781443728857",
+          "deps": [
+            "npm:@angular/router"
+          ]
         },
         {
           "file": "src/app/auth-config.ts",
-          "hash": "15750468254308588457"
+          "hash": "15750468254308588457",
+          "deps": [
+            "npm:angular-oauth2-oidc"
+          ]
+        },
+        {
+          "file": "src/app/components/breadcrumb/breadcrumb.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/components/breadcrumb/breadcrumb.component.html",
+          "hash": "15287702300463693739"
+        },
+        {
+          "file": "src/app/components/breadcrumb/breadcrumb.component.ts",
+          "hash": "600491307765032737",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@ng-icons/lucide"
+          ]
         },
         {
           "file": "src/app/components/chat/chat.component.css",
@@ -419,7 +508,12 @@
         },
         {
           "file": "src/app/components/chat/chat.component.ts",
-          "hash": "3683224312940481606"
+          "hash": "12491844420452539268",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/common"
+          ]
         },
         {
           "file": "src/app/components/footer/footer.component.css",
@@ -431,7 +525,10 @@
         },
         {
           "file": "src/app/components/footer/footer.component.ts",
-          "hash": "11334291607014742778"
+          "hash": "13704231914112169813",
+          "deps": [
+            "npm:@angular/core"
+          ]
         },
         {
           "file": "src/app/components/header/header.component.css",
@@ -443,7 +540,12 @@
         },
         {
           "file": "src/app/components/header/header.component.ts",
-          "hash": "7303704259808566027"
+          "hash": "6641596324486447",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/router"
+          ]
         },
         {
           "file": "src/app/components/theme-toggle/theme-toggle.component.css",
@@ -455,7 +557,11 @@
         },
         {
           "file": "src/app/components/theme-toggle/theme-toggle.component.ts",
-          "hash": "1821358947999014840"
+          "hash": "17627254147568240861",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material"
+          ]
         },
         {
           "file": "src/app/pages/about/about.component.css",
@@ -467,7 +573,11 @@
         },
         {
           "file": "src/app/pages/about/about.component.ts",
-          "hash": "1139698921385553673"
+          "hash": "10538726487958512113",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
         },
         {
           "file": "src/app/pages/browse/browse.component.css",
@@ -479,7 +589,12 @@
         },
         {
           "file": "src/app/pages/browse/browse.component.ts",
-          "hash": "18213409111156147877"
+          "hash": "4783559642904350603",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common"
+          ]
         },
         {
           "file": "src/app/pages/home/home.component.css",
@@ -491,7 +606,12 @@
         },
         {
           "file": "src/app/pages/home/home.component.ts",
-          "hash": "15699059840639680765"
+          "hash": "4256585295099913306",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
         },
         {
           "file": "src/app/pages/list/list.component.css",
@@ -503,7 +623,12 @@
         },
         {
           "file": "src/app/pages/list/list.component.ts",
-          "hash": "5401363889012472643"
+          "hash": "2837580137996188097",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common"
+          ]
         },
         {
           "file": "src/app/pages/pet/pet.component.css",
@@ -511,11 +636,16 @@
         },
         {
           "file": "src/app/pages/pet/pet.component.html",
-          "hash": "18172509246007939710"
+          "hash": "12262916509756661038"
         },
         {
           "file": "src/app/pages/pet/pet.component.ts",
-          "hash": "5642559595395775609"
+          "hash": "15878274526346419969",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common"
+          ]
         },
         {
           "file": "src/app/pages/user/dashboard/dashboard.component.css",
@@ -527,7 +657,12 @@
         },
         {
           "file": "src/app/pages/user/dashboard/dashboard.component.ts",
-          "hash": "9094371377316715898"
+          "hash": "17340146438935317002",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/router"
+          ]
         },
         {
           "file": "src/app/pages/user/login/login.component.css",
@@ -539,43 +674,87 @@
         },
         {
           "file": "src/app/pages/user/login/login.component.ts",
-          "hash": "11704929831183811415"
+          "hash": "16093359993984638246",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/forms",
+            "npm:@angular/material"
+          ]
         },
         {
           "file": "src/app/pipes/safe.pipe.ts",
-          "hash": "2870769889581712852"
+          "hash": "2870769889581712852",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser"
+          ]
         },
         {
           "file": "src/app/safe.pipe.ts",
-          "hash": "13830697511962553952"
+          "hash": "13830697511962553952",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser"
+          ]
         },
         {
           "file": "src/app/services/auth-google.service.ts",
-          "hash": "18169939818832099691"
+          "hash": "18169939818832099691",
+          "deps": [
+            "npm:@angular/core",
+            "npm:angular-oauth2-oidc",
+            "npm:@angular/router"
+          ]
         },
         {
           "file": "src/app/services/auth.service.ts",
-          "hash": "13993623842065488775"
+          "hash": "13993623842065488775",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/router"
+          ]
         },
         {
           "file": "src/app/services/axios.service.ts",
-          "hash": "5742755898653928738"
+          "hash": "5742755898653928738",
+          "deps": [
+            "npm:@angular/core",
+            "npm:axios"
+          ]
         },
         {
           "file": "src/app/services/theme.service.ts",
-          "hash": "12599146287515565639"
+          "hash": "12599146287515565639",
+          "deps": [
+            "npm:@angular/core"
+          ]
         },
         {
           "file": "src/app/services/user.service.ts",
-          "hash": "9335037328429084467"
+          "hash": "9335037328429084467",
+          "deps": [
+            "npm:@angular/core"
+          ]
         },
         {
           "file": "src/app/services/web.service.ts",
-          "hash": "10712079772425192415"
+          "hash": "10712079772425192415",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs",
+            "npm:uuid"
+          ]
         },
         {
           "file": "src/app/web.service.ts",
-          "hash": "18015987537469453614"
+          "hash": "18015987537469453614",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
         },
         {
           "file": "src/index.html",
@@ -583,7 +762,11 @@
         },
         {
           "file": "src/main.ts",
-          "hash": "15202975640644136107"
+          "hash": "15202975640644136107",
+          "deps": [
+            "npm:@angular/platform-browser",
+            "npm:bootstrap"
+          ]
         },
         {
           "file": "src/models/flight.model.ts",
@@ -611,11 +794,14 @@
         },
         {
           "file": "src/styles.css",
-          "hash": "10245695677357334973"
+          "hash": "9749823349368244968"
         },
         {
           "file": "tailwind.config.js",
-          "hash": "14446842345244950296"
+          "hash": "16511824555827361513",
+          "deps": [
+            "npm:@spartan-ng/ui-core"
+          ]
         },
         {
           "file": "tsconfig.app.json",
@@ -623,7 +809,7 @@
         },
         {
           "file": "tsconfig.json",
-          "hash": "17103847196503436008"
+          "hash": "18192040538728080371"
         },
         {
           "file": "tsconfig.spec.json",

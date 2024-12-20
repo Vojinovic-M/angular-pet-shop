@@ -4,11 +4,10 @@ import {Router} from '@angular/router';
 import {AuthGoogleService} from '../../../services/auth-google.service';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [ CommonModule],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+    selector: 'app-dashboard',
+    imports: [CommonModule],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
   private authService = inject(AuthGoogleService);

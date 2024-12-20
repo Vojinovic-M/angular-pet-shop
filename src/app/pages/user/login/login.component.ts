@@ -7,19 +7,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {AuthGoogleService} from '../../../services/auth-google.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  imports: [
-    RouterLink,
-    FormsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  standalone: true
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    imports: [
+        FormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule
+    ]
 })
 export class LoginComponent {
   private authService = inject(AuthGoogleService);

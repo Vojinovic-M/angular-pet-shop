@@ -7,15 +7,14 @@ import {AuthService} from '../../services/auth.service';
 import {AuthGoogleService} from '../../services/auth-google.service';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-    imports: [
-        NgIf,
-        RouterLink,
-        ThemeToggleComponent
-    ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+    selector: 'app-header',
+  imports: [
+    RouterLink,
+    ThemeToggleComponent,
+    NgIf
+  ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   public webService!: WebService;
