@@ -1,4 +1,7 @@
 .dashboard {
+  background-color: #F28705;
+  border-radius: 30px;
+  padding: 50px;
   text-align: center;
   margin: 20px;
 }

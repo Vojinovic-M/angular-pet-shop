@@ -10,12 +10,12 @@ import {AuthGoogleService} from '../../../services/auth-google.service';
     styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  private authService = inject(AuthGoogleService);
+  private authGoogle = inject(AuthGoogleService);
   private router = inject(Router);
-  profile = this.authService.getProfile();
+  profile = this.authGoogle.getProfile();
 
   logOut() {
-    this.authService.logout();
+    this.authGoogle.logout();
     this.router.navigate(['/auth/login']);
   }
 }

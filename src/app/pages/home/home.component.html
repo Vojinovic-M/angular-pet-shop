@@ -3,33 +3,28 @@
     <source src="running-dog.mp4" type="video/mp4">
   </video>
 
-<div *ngIf="pets">
-  <div class="row mb-3">
-    <div class="col-sm-4" *ngFor="let pet of pets.content">
-      <div class="card">
-        <img [ngSrc]="pet.imageUrl"
-             class="card-img-top"
-             width="150"
-             height="150"
-             [alt]="pet.name">
-        <div class="card-body">
-          <h3 class="card-title">{{ pet.name }}</h3>
-          <p class="card-text">{{ pet.breed }} - {{ pet.description }}</p>
-        </div>
-        <div class="card-btn">
-          <a class="btn btn-primary sm-2" routerLink="{{ '/pet/' + pet.id }}">
-            <i class="fa-solid fa-up-right-from-square"></i> Details
-          </a>
-          <!--          <a class="btn btn-success sm-2" routerLink="/pet/list">-->
-          <!--            <i class="fa-solid fa-magnifying-glass"></i> Browse All-->
-          <!--          </a>-->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h5 class="home-text2 sm-4">
-  That's why we continue to put effort<br>
-  into finding homes for the man's best friend<br><br>
-</h5>
+<!--<div *ngIf="pets">-->
+<!--  <div class="row mb-3">-->
+<!--    <div class="col-sm-4" *ngFor="let pet of pets.content">-->
+<!--      <div class="card">-->
+<!--        <img [ngSrc]="pet.imageUrl"-->
+<!--             class="card-img-top"-->
+<!--             width="150"-->
+<!--             height="150"-->
+<!--             [alt]="pet.name">-->
+<!--        <div class="card-body">-->
+<!--          <h3 class="card-title">{{ pet.name }}</h3>-->
+<!--          <p class="card-text">{{ pet.breed }} - {{ pet.description }}</p>-->
+<!--        </div>-->
+<!--        <div class="card-btn">-->
+<!--          <a class="btn btn-primary sm-2" routerLink="{{ '/pet/' + pet.id }}">-->
+<!--            <i class="fa-solid fa-up-right-from-square"></i> Details-->
+<!--          </a>-->
+<!--          &lt;!&ndash;          <a class="btn btn-success sm-2" routerLink="/pet/list">&ndash;&gt;-->
+<!--          &lt;!&ndash;            <i class="fa-solid fa-magnifying-glass"></i> Browse All&ndash;&gt;-->
+<!--          &lt;!&ndash;          </a>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

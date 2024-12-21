@@ -1,34 +1,53 @@
 :root {
---bs-body-bg: #D8E0F2 !important;
+  --bs-body-bg: #f3e9e9 !important;
 }
 
 body {
-color: #264653;
-font-family: 'Roboto', sans-serif !important;
-margin: 0;
-padding: 0;
+  font-family: 'Roboto', sans-serif !important;
+  margin: 0;
+  margin-bottom: 60px !important;
+  padding: 0;
 }
-.card {
-background-color: #D99559 !important;
-color: #f3e9e9 !important;
-box-shadow: 0 4px 6px rgba(0.1, 0.1, 0.1, 0.1);
-}
-.card-title {
-font-weight: bold;
-}
+
 
 
 .dark-theme {
-background-color: #A62E2E;
-color: #cdcdcd;
---bs-tertiary-bg-rgb: 20,40,70 !important;
-path {
-color: #000000;
-}
-.card {
-background-color: #A6633C !important;
-color: #cdcdcd !important;
-border: none;
-text-decoration: none;
+  background-color: #101129;
+  color: #cdcdcd;
+  --bs-tertiary-bg-rgb: #020873 !important;
+mat-card {
+  background-color: #471a1a !important;
+  color: #cdcdcd !important;
+  border: none;
+  text-decoration: none;
 }
 }
+
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+svg {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+:root {
+  --bs-body-bg: #f3e9e9 !important;
+}
+
+body {
+  background-color: var(--bs-body-bg);
+}
+
+

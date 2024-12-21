@@ -61,12 +61,13 @@
 }
 
 .home-text1{
-  text-align: center;
+  text-align: left;
 }
 
 .home-text2 {
-  text-align: center;
-  width: 30%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
+  text-align: right;
+  background-color: #F2A007;
+  border-radius: 10px;
+  margin: auto;
+  display: block;
 }

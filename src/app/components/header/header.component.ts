@@ -5,30 +5,30 @@ import {ThemeToggleComponent} from "../theme-toggle/theme-toggle.component";
 import {WebService} from '../../services/web.service';
 import {AuthService} from '../../services/auth.service';
 import {AuthGoogleService} from '../../services/auth-google.service';
+import {MatButton} from '@angular/material/button';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
     selector: 'app-header',
   imports: [
     RouterLink,
     ThemeToggleComponent,
-    NgIf
+    NgIf,
+    MatButton,
+    MatMenuTrigger,
+    MatMenu,
+    MatMenuItem
   ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  public webService!: WebService;
   private authGoogle = inject(AuthGoogleService);
   private router = inject(Router);
-
   profile = this.authGoogle.getProfile();
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/user/login']);
-  }
-
-  constructor(webService: WebService, private authService: AuthService) {
-    this.webService = webService;
+  logOut() {
+    this.authGoogle.logout();
+    this.router.navigate(['/auth/login']);
   }
 }

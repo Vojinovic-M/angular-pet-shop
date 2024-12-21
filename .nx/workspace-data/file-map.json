@@ -1,122 +1,7 @@
 {
   "version": "6.0",
   "nxVersion": "20.2.2",
-  "pathMappings": {
-    "@spartan-ng/ui-breadcrumb-helm": [
-      ".\\libs/ui/ui-breadcrumb-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-icon-helm": [
-      ".\\libs/ui/ui-icon-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-accordion-helm": [
-      ".\\libs/ui/ui-accordion-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-alert-helm": [
-      ".\\libs/ui/ui-alert-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-alertdialog-helm": [
-      ".\\libs/ui/ui-alertdialog-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-aspectratio-helm": [
-      ".\\libs/ui/ui-aspectratio-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-avatar-helm": [
-      ".\\libs/ui/ui-avatar-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-badge-helm": [
-      ".\\libs/ui/ui-badge-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-button-helm": [
-      ".\\libs/ui/ui-button-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-calendar-helm": [
-      ".\\libs/ui/ui-calendar-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-card-helm": [
-      ".\\libs/ui/ui-card-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-carousel-helm": [
-      ".\\libs/ui/ui-carousel-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-checkbox-helm": [
-      ".\\libs/ui/ui-checkbox-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-command-helm": [
-      ".\\libs/ui/ui-command-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-dialog-helm": [
-      ".\\libs/ui/ui-dialog-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-formfield-helm": [
-      ".\\libs/ui/ui-formfield-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-hovercard-helm": [
-      ".\\libs/ui/ui-hovercard-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-input-helm": [
-      ".\\libs/ui/ui-input-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-label-helm": [
-      ".\\libs/ui/ui-label-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-menu-helm": [
-      ".\\libs/ui/ui-menu-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-pagination-helm": [
-      ".\\libs/ui/ui-pagination-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-popover-helm": [
-      ".\\libs/ui/ui-popover-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-progress-helm": [
-      ".\\libs/ui/ui-progress-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-radiogroup-helm": [
-      ".\\libs/ui/ui-radiogroup-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-scrollarea-helm": [
-      ".\\libs/ui/ui-scrollarea-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-select-helm": [
-      ".\\libs/ui/ui-select-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-separator-helm": [
-      ".\\libs/ui/ui-separator-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-sheet-helm": [
-      ".\\libs/ui/ui-sheet-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-skeleton-helm": [
-      ".\\libs/ui/ui-skeleton-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-slider-helm": [
-      ".\\libs/ui/ui-slider-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-sonner-helm": [
-      ".\\libs/ui/ui-sonner-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-spinner-helm": [
-      ".\\libs/ui/ui-spinner-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-switch-helm": [
-      ".\\libs/ui/ui-switch-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-table-helm": [
-      ".\\libs/ui/ui-table-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-tabs-helm": [
-      ".\\libs/ui/ui-tabs-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-toggle-helm": [
-      ".\\libs/ui/ui-toggle-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-tooltip-helm": [
-      ".\\libs/ui/ui-tooltip-helm/src/index.ts"
-    ],
-    "@spartan-ng/ui-typography-helm": [
-      ".\\libs/ui/ui-typography-helm/src/index.ts"
-    ]
-  },
+  "pathMappings": {},
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
@@ -379,12 +264,11 @@
         },
         {
           "file": "package.json",
-          "hash": "8676108835579911561",
+          "hash": "14631755760131707870",
           "deps": [
             "npm:@angular-devkit/build-angular",
             "npm:@angular/cli",
             "npm:@angular/compiler-cli",
-            "npm:@spartan-ng/cli",
             "npm:@types/jasmine",
             "npm:jasmine-core",
             "npm:karma",
@@ -409,7 +293,6 @@
             "npm:@ng-icons/core",
             "npm:@ng-icons/lucide",
             "npm:@nx/angular",
-            "npm:@spartan-ng/ui-core",
             "npm:angular-oauth2-oidc",
             "npm:axios",
             "npm:bootstrap",
@@ -431,6 +314,10 @@
         {
           "file": "public/favicon.ico",
           "hash": "1022458127542458142"
+        },
+        {
+          "file": "public/running-dog.mp4",
+          "hash": "3716646690162039292"
         },
         {
           "file": "src/app/app.component.css",
@@ -483,22 +370,6 @@
           ]
         },
         {
-          "file": "src/app/components/breadcrumb/breadcrumb.component.css",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "src/app/components/breadcrumb/breadcrumb.component.html",
-          "hash": "15287702300463693739"
-        },
-        {
-          "file": "src/app/components/breadcrumb/breadcrumb.component.ts",
-          "hash": "600491307765032737",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@ng-icons/lucide"
-          ]
-        },
-        {
           "file": "src/app/components/chat/chat.component.css",
           "hash": "357775665250214939"
         },
@@ -517,7 +388,7 @@
         },
         {
           "file": "src/app/components/footer/footer.component.css",
-          "hash": "3244421341483603138"
+          "hash": "4071655167139818567"
         },
         {
           "file": "src/app/components/footer/footer.component.html",
@@ -532,15 +403,15 @@
         },
         {
           "file": "src/app/components/header/header.component.css",
-          "hash": "9224728077354336032"
+          "hash": "14632469185352023627"
         },
         {
           "file": "src/app/components/header/header.component.html",
-          "hash": "4901048856177139496"
+          "hash": "6613222804485629449"
         },
         {
           "file": "src/app/components/header/header.component.ts",
-          "hash": "6641596324486447",
+          "hash": "9696258424977479885",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -598,15 +469,15 @@
         },
         {
           "file": "src/app/pages/home/home.component.css",
-          "hash": "4205893405319212511"
+          "hash": "15388371627660796133"
         },
         {
           "file": "src/app/pages/home/home.component.html",
-          "hash": "5189512053404989172"
+          "hash": "2579279335839350798"
         },
         {
           "file": "src/app/pages/home/home.component.ts",
-          "hash": "4256585295099913306",
+          "hash": "4162076852118882223",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -632,15 +503,15 @@
         },
         {
           "file": "src/app/pages/pet/pet.component.css",
-          "hash": "9328033559014572001"
+          "hash": "13148710643260377448"
         },
         {
           "file": "src/app/pages/pet/pet.component.html",
-          "hash": "12262916509756661038"
+          "hash": "16160601941362366131"
         },
         {
           "file": "src/app/pages/pet/pet.component.ts",
-          "hash": "15878274526346419969",
+          "hash": "11865182433341024062",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
@@ -794,14 +665,7 @@
         },
         {
           "file": "src/styles.css",
-          "hash": "9749823349368244968"
-        },
-        {
-          "file": "tailwind.config.js",
-          "hash": "16511824555827361513",
-          "deps": [
-            "npm:@spartan-ng/ui-core"
-          ]
+          "hash": "15134855383587813411"
         },
         {
           "file": "tsconfig.app.json",

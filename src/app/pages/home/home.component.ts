@@ -1,19 +1,14 @@
-import {CommonModule, NgFor, NgIf, NgOptimizedImage} from '@angular/common';
-import { Component, Inject, inject, OnInit } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { PageModel } from '../../../models/page.model';
 import { PetModel } from '../../../models/pet.model';
-import { RouterLink } from '@angular/router';
 import { WebService } from '../../services/web.service';
 
 
 @Component({
     selector: 'app-home',
     imports: [
-        RouterLink,
-        NgIf,
-        NgFor,
-        CommonModule,
-        NgOptimizedImage
+        CommonModule
     ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css'
