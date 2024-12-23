@@ -16,16 +16,6 @@ export class WebService {
 
   constructor(private http: HttpClient) {}
 
-  // Fetch recommended pets (e.g., featured or most popular)
-  public getRecommendedPets(): Observable<PageModel<PetModel>> {
-    return this.http.get<PageModel<PetModel>> (`${this.baseUrl}/list`)
-      .pipe(catchError(() => {
-        console.log('Backend API failed, loading from local pets.json');
-        return this.http.get<PageModel<PetModel>>(this.petsJsonUrl);
-        })
-      );
-  }
-
    getPetsFROMJSON(page: number): Observable<PageModel<PetModel>> {return this.http.get<PageModel<PetModel>>('/assets/pets.json');}
 
   getPets(page: number): Observable<PageModel<PetModel>> {
@@ -70,9 +60,7 @@ export class WebService {
     return new Date(date).toLocaleDateString()
   }
 
-  public formatValue(value: string | null | undefined): string {
-    return value ? value : 'N/A'
-  }
+
 
   private retrieveRasaSession() {
     if (localStorage.getItem('session'))

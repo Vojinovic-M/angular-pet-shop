@@ -1,0 +1,55 @@
+/* General container styling */
+.shipping-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #0477BF;
+  border-radius: 8px;
+  background-color: #F2F2F2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.shipping-title {
+  text-align: center;
+  color: #0477BF;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Individual shipping item styling */
+.shipping-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid #F2C166;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Shipping type text styling */
+.shipping-type {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #048ABF;
+}
+
+/* Shipping price text styling */
+.shipping-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #F28705;
+}
+
+/* Adjust for mobile view */
+@media (max-width: 768px) {
+  .shipping-container {
+    width: 90%;
+  }
+}

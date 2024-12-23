@@ -1,92 +1,10 @@
-/*!* Hero Section *!*/
-/*.hero-section {*/
-/*  position: relative;*/
-/*  text-align: center;*/
-/*  color: white;*/
-/*  width: 100%;*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  left: 0;*/
-/*  top: 0;*/
-/*  z-index: -2;*/
-/*}*/
-
-/*.hero-overlay {*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  left: 50%;*/
-/*  transform: translate(-50%, -50%);*/
-/*  background: rgba(172, 68, 242, 0.5);*/
-/*  padding: 20px;*/
-/*  border-radius: 8px;*/
-/*}*/
-
-/*.hero-title {*/
-/*  font-size: 3rem;*/
-/*  font-weight: bold;*/
-/*}*/
-
-/*.hero-subtitle {*/
-/*  font-size: 1.5rem;*/
-/*  margin-top: 10px;*/
-/*}*/
-
-/*!* About Section *!*/
-/*.about-section {*/
-/*  padding: 40px 20px;*/
-/*  text-align: center;*/
-/*}*/
-
-/*.about-section h2 {*/
-/*  font-size: 2.5rem;*/
-/*  margin-bottom: 20px;*/
-/*}*/
-
-/*.about-section p {*/
-/*  font-size: 1.1rem;*/
-/*  line-height: 1.6;*/
-/*  margin-bottom: 20px;*/
-/*}*/
-
-/*!* Values Section *!*/
-/*.values-section {*/
-/*  background: #f9f9f9;*/
-/*  padding: 30px 20px;*/
-/*  text-align: center;*/
-/*}*/
-
-/*.values-section h2 {*/
-/*  font-size: 2rem;*/
-/*  margin-bottom: 20px;*/
-/*}*/
-
-/*.values-list {*/
-/*  list-style-type: none;*/
-/*  padding: 0;*/
-/*  font-size: 1.1rem;*/
-/*}*/
-
-/*.values-list li {*/
-/*  margin: 10px 0;*/
-/*}*/
-
-/*.about-page {*/
-/*  background-color: #bf47b9;*/
-/*  width: 100%;*/
-/*  left: 0;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  position: absolute;*/
-/*  text-align: end;*/
-/*  display: flex;*/
-/*}*/
-
 /* General Reset */
 body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+  background-color: #f2f2f2;
 }
 
 /* Hero Section */
@@ -185,5 +103,5 @@ body, html {
 }
 
 div > h2 {
-  color: #048ABF;
+  color: #F28705;
 }

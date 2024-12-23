@@ -17,7 +17,7 @@ import {MatAnchor} from '@angular/material/button';
 
 @Component({
     selector: 'app-browse',
-  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardContent, MatCardActions, MatAnchor, MatCardTitle],
+  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle],
     templateUrl: './browse.component.html',
     styleUrl: './browse.component.css'
 })

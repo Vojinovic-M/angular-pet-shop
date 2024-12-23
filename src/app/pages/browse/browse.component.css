@@ -2,14 +2,18 @@ mat-paginator {
   background: #0477BF;
   width: fit-content;
   text-align: right;
-  border-radius: 40px;
+  border-radius: 20px;
   color: #f2f2f2;
   --mat-paginator-container-text-size: 1em;
 }
 
+mat-paginator button {
+  width: 100%;
+}
+
 mat-card {
   background: #F2C166;
-  border-radius: 40px;
+  border-radius: 30px;
 }
 .mat-card-title {
   text-align: center;
@@ -27,7 +31,7 @@ img {
   margin-left: 5%;
   height: 200px;
   object-fit: cover;
-  border-radius: 10%;
+  border-radius: 10px;
   border: 2px solid #F2f2f2;
 }
 
@@ -42,17 +46,21 @@ title-text-weight {
 }
 
 mat-card {
-  background-color: #F28705 !important;
-  color: #f3e9e9 !important;
+  background-color: #F2f2f2 !important;
+  color: #000 !important;
   box-shadow: 0 4px 6px rgba(0.1, 0.1, 0.1, 0.1);
 }
 .breed {
   font-weight: bold;
   text-align: center;
 }
-.description {
-  font-size: 1.75em;
-  text-align: center;
+.origin {
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+.size {
+  float: right;
 }
 
 .title {
@@ -66,4 +74,9 @@ mat-card {
 }
 .mat-mdc-card-header {
   flex-direction: column-reverse;
+}
+
+.mat-mdc-button:not(:disabled)  {
+  color: #0477BF;
+  text-align: center;
 }

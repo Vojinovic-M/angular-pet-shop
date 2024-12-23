@@ -10,42 +10,41 @@
       <li class="breadcrumb-item active" aria-current="page">{{ pet.id }}</li>
     </ol>
   </nav>
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-8">
+  <mat-card class="pet-card">
+    <div class="card-container">
+      <!-- Left Section -->
+      <div class="left-section">
         <div class="image-canvas">
-          <img [src]="pet.imageUrl" [alt]="pet.name">
+          <img [src]="pet.imageUrl" [alt]="pet.name" />
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card-body">
-          <h3 class="card-title">{{ pet.name }}</h3>
-          <p class="card-text">{{ pet.breed }}</p>
-          <p class="card-text">{{ pet.description }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
+      <div class="right-section">
+        <mat-list>
+          <mat-list-item>
             <strong>Name:</strong> {{ pet.name }}
-          </li>
-          <li class="list-group-item">
+          </mat-list-item>
+          <mat-list-item>
             <strong>Description:</strong> {{ pet.description }}
-          </li>
-          <li class="list-group-item">
+          </mat-list-item>
+          <mat-list-item>
             <strong>Age:</strong> {{ pet.age }}
-          </li>
-          <li class="list-group-item">
+          </mat-list-item>
+          <mat-list-item>
             <strong>Breed:</strong> {{ pet.breed }}
-          </li>
-        </ul>
-        <div class="card-body">
-          <a routerLink="/" class="btn btn-primary m-1">
-            <i class="fa-solid fa-house"></i> Homepage
-          </a>
-          <button type="button" class="btn btn-success m-1">
-            <i class="fa-regular fa-floppy-disk"></i> Save to Favourites
+          </mat-list-item>
+          <mat-list-item>
+            <strong>Price:</strong> {{ pet.price }} EUR
+          </mat-list-item>
+        </mat-list>
+        <div class="button-group">
+          <button mat-stroked-button routerLink="/">
+            <mat-icon>home</mat-icon> Home
+          </button>
+          <button mat-stroked-button color="primary" (click)="addToCart(pet)">
+            <mat-icon>shopping_cart</mat-icon> ADD TO CART
           </button>
         </div>
       </div>
     </div>
-  </div>
+  </mat-card>
 </div>

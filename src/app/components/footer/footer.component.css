@@ -1,11 +1,5 @@
-body {
-  margin-bottom: 60px;
-}
 .footer {
-  position: sticky;
-  text-align: center;
   width: 100%;
-  height: 60px;
   line-height: 60px;
-  color: #8a517e;
+  color: #385b77;
 }

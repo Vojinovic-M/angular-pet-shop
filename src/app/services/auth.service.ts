@@ -25,13 +25,6 @@ export class AuthService {
     });
   }
 
-  loginWithGoogle(googleToken: string) {
-    return this.http.post<{ token: string; user: any }>(
-      `${this.baseUrl}/auth/google`,
-      { googleToken }
-    );
-  }
-
   saveSession(token: string, user: any) {
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
