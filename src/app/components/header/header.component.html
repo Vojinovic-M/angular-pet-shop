@@ -1,89 +1,51 @@
-<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" xmlns="http://www.w3.org/1999/html">
-  <path fill="#048ABF" fill-opacity="1" d="M0,224L48,234.7C96,245,192,267,288,256C384,245,480,203,576,197.3C672,192,768,224,864,240C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-</svg>
-
-
-<!--<mat-drawer-container class="sidenav-container" autosize>-->
-<!--  <mat-drawer #drawer class="sidenav" mode="over">-->
-<!--    <button mat-flat-button routerLink="/">Home</button>-->
-<!--    <button mat-flat-button routerLink="/browse">Browse</button>-->
-<!--    <button mat-flat-button routerLink="/about">About</button>-->
-<!--    <app-theme-toggle></app-theme-toggle>-->
-<!--    <button mat-flat-button [matMenuTriggerFor]="menu1" *ngIf="profile">{{profile?.name || 'User'}}</button>-->
-<!--    <mat-menu #menu1="matMenu">-->
-<!--      <button mat-menu-item *ngIf="profile" routerLink="/user/dashboard">Profile</button>-->
-<!--      <button mat-menu-item *ngIf="profile" (click)="logOut()">Logout</button>-->
-<!--    </mat-menu>-->
-<!--    <button mat-flat-button *ngIf="!profile" routerLink="/user/login">Login</button>-->
-
-<!--  </mat-drawer>-->
-
-<!--  <div class="sidenav-content">-->
-<!--    <button type="button" mat-button (click)="drawer.toggle()">-->
-<!--      <mat-icon>menu</mat-icon>-->
-<!--    </button>-->
-<!--  </div>-->
-
-<!--</mat-drawer-container>-->
-
-
-<!--<mat-toolbar class="navbar-container">-->
-<!--  <button class="title" mat-flat-button routerLink="/">-->
-<!--    <i class="fa-solid fa-paw"></i>Navissos Pet Shop-->
-<!--  </button>-->
-<!--  <span class="example-spacer"></span>-->
-<!--  <ul class="navbar">-->
-<!--    <li class="nav-item"><button mat-flat-button routerLink="/">Home</button></li>-->
-<!--    <li class="nav-item"><button mat-flat-button routerLink="/browse">Browse</button></li>-->
-<!--    <li class="nav-item"><button mat-flat-button routerLink="/about">About</button></li>-->
-<!--    <li class="nav-item"><app-theme-toggle></app-theme-toggle></li>-->
-<!--    <li class="nav-item"><button mat-flat-button [matMenuTriggerFor]="menu1" *ngIf="profile">{{profile?.name || 'User'}}</button></li>-->
-<!--    <mat-menu #menu1="matMenu">-->
-<!--      <button mat-menu-item *ngIf="profile" routerLink="/user/dashboard">Profile</button>-->
-<!--      <button mat-menu-item *ngIf="profile" (click)="logOut()">Logout</button>-->
-<!--    </mat-menu>-->
-<!--    <li class="nav-item"><button mat-flat-button *ngIf="!profile" routerLink="/user/login">Login</button></li>-->
-<!--  </ul>-->
-<!--</mat-toolbar>-->
-
-<mat-sidenav-container class="sidenav-container">
+<div class="container">
+  <div class="wave-container">
+  <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" xmlns="http://www.w3.org/1999/html">
+    <path fill="#048ABF" fill-opacity="1" d="M0,224L48,234.7C96,245,192,267,288,256C384,245,480,203,576,197.3C672,192,768,224,864,240C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+  </svg>
+  </div>
+<div class="header-content">
+<mat-sidenav-container class="h-screen">
   <!-- Sidenav -->
-  <mat-sidenav #sidenav mode="side" class="sidenav" [opened]="isSidenavOpen">
-    <div class="sidenav-header">
+  <mat-sidenav #sidenav mode="over" class="bg-[#048ABF] text-white w-64" [opened]="isSidenavOpen">
+    <div class="flex justify-end p-4">
       <button mat-icon-button (click)="sidenav.close()" aria-label="Close menu">
         <mat-icon>close</mat-icon>
       </button>
     </div>
-    <ul class="sidenav-links">
-      <li><button mat-flat-button routerLink="/">Home</button></li>
-      <li><button mat-flat-button routerLink="/browse">Browse</button></li>
-      <li><button mat-flat-button routerLink="/about">About</button></li>
-      <li><app-theme-toggle></app-theme-toggle></li>
+    <ul class="space-y-4 p-4">
+      <li><button mat-flat-button routerLink="/" class="w-full text-left">Home</button></li>
+      <li><button mat-flat-button routerLink="/browse" class="w-full text-left">Browse</button></li>
+      <li><button mat-flat-button routerLink="/about" class="w-full text-left">About</button></li>
+      <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button>
       <li>
-        <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="profile">
+        <button mat-flat-button class="w-full text-left" [matMenuTriggerFor]="menu" *ngIf="profile">
           {{ profile?.name || 'User' }}
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item routerLink="/user/dashboard">Profile</button>
-          <button mat-menu-item (click)="logOut()">Logout</button>
+          <button mat-menu-item routerLink="/user/dashboard" class="block w-full text-left">Profile</button>
+          <button mat-menu-item (click)="logOut()" class="block w-full text-left">Logout</button>
         </mat-menu>
       </li>
-      <li><button mat-flat-button *ngIf="!profile" routerLink="/user/login">Login</button></li>
+      <li><button mat-flat-button *ngIf="!profile" routerLink="/user/login" class="w-full text-left">>Login</button></li>
     </ul>
   </mat-sidenav>
 
   <!-- Main Content -->
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="toolbar">
-      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Open menu">
+    <mat-toolbar class="navbar hidden md:flex">
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Open menu" class="md:hidden">
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="title"><i class="fa-solid fa-paw"></i> Navissos Pet Shop</span>
-      <ul class="navbar">
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-paw text-2xl"></i>
+        <button routerLink="/" class="navbar-brand font-bold text-lg text-white ">Navissos Pet Shop</button>
+      </div>
+      <ul class="hidden md:flex space-x-4">
         <li><button mat-flat-button routerLink="/">Home</button></li>
         <li><button mat-flat-button routerLink="/browse">Browse</button></li>
         <li><button mat-flat-button routerLink="/about">About</button></li>
-        <li><app-theme-toggle></app-theme-toggle></li>
+        <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button>
         <li>
           <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="profile">
             {{ profile?.name || 'User' }}
@@ -96,9 +58,7 @@
         <li><button mat-flat-button *ngIf="!profile" routerLink="/user/login">Login</button></li>
       </ul>
     </mat-toolbar>
-    <div class="content">
-      <router-outlet></router-outlet>
-      <app-chat/>
-    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+</div>
+</div>

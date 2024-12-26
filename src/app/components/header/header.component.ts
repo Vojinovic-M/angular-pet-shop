@@ -15,6 +15,7 @@ import {
 } from '@angular/material/sidenav';
 import {MatIcon} from '@angular/material/icon';
 import {ChatComponent} from '../chat/chat.component';
+import {CartComponent} from '../../pages/cart/cart.component';
 
 @Component({
     selector: 'app-header',
@@ -30,12 +31,8 @@ import {ChatComponent} from '../chat/chat.component';
     MatSidenavContainer,
     MatSidenav,
     MatSidenavContent,
-    MatDrawerContainer,
-    MatDrawer,
     MatIcon,
-    MatIconButton,
-    RouterOutlet,
-    ChatComponent
+    MatIconButton
   ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'

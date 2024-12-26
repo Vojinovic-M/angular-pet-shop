@@ -8,7 +8,7 @@ import {ChatComponent} from './components/chat/chat.component';
 
 @Component({
     selector: 'app-root',
-    imports: [FormsModule, RouterOutlet, FormsModule, HttpClientModule, FooterComponent, HeaderComponent, ChatComponent],
+  imports: [FormsModule, FormsModule, HttpClientModule, FooterComponent, HeaderComponent, RouterOutlet, ChatComponent],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
