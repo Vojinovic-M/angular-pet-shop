@@ -163,3 +163,9 @@ mat-sidenav button {
   font-weight: bold;
   color: #F2F2F2 !important;
 }
+  .mat-mdc-menu-panel {
+  background-color: #048ABF;
+}
+.mat-mdc-menu-item {
+  color: #F2F2F2;
+}
