@@ -1,11 +1,16 @@
 import {Component, OnInit, ViewChild, AfterViewChecked, ElementRef, inject} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {NavigationEnd, Router, RouterLink, RouterOutlet} from '@angular/router';
 import {HttpClient, HttpClientModule, HttpErrorResponse} from '@angular/common/http';
 import {FooterComponent} from './components/footer/footer.component';
 import {HeaderComponent} from './components/header/header.component';
 import {ChatComponent} from './components/chat/chat.component';
-
+import { IStaticMethods} from 'preline/preline';
+declare global {
+  interface Window {
+    HSStaticMethods: IStaticMethods;
+  }
+}
 @Component({
     selector: 'app-root',
   imports: [FormsModule, FormsModule, HttpClientModule, FooterComponent, HeaderComponent, RouterOutlet, ChatComponent],
@@ -14,10 +19,19 @@ import {ChatComponent} from './components/chat/chat.component';
 })
 export class AppComponent implements OnInit, AfterViewChecked {
   title = 'angular-pet-shop';
+  constructor(private router: Router) {}
 
   ngAfterViewChecked(): void {
   }
 
   ngOnInit(): void {
+    // @ts-ignore
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          window.HSStaticMethods.autoInit();
+        }, 100)
+      }
+    })
   }
 }

@@ -1,41 +1,21 @@
 <div *ngIf="data"><br><br>
+  <div class="flex items-center divide-blue-500">
     <mat-paginator [length]="totalElements"
                    [pageSize]="pageSize"
                    [pageSizeOptions]="[10]"
                    [pageIndex]="currentPage"
                    (page)="onPageChange($event)">
     </mat-paginator>
-
-  <BR><BR>
-<!--  <div *ngIf="data?.content && data.content.length > 0">-->
-<!--    <div class="container responsive-grid ">-->
-<!--      <mat-card *ngFor="let pet of data.content">-->
-<!--        <mat-card-header>-->
-<!--          <mat-card-title class="title" routerLink="{{ '/pet/' + pet.id }}">{{ pet.name }}, {{pet.age}}</mat-card-title>-->
-<!--          <p class="breed">{{ pet.breed }}</p>-->
-<!--        </mat-card-header>-->
-<!--        <img mat-card-image routerLink="{{ '/pet/' + pet.id }}" [ngSrc]="pet.imageUrl"-->
-<!--             class="card-img-top"-->
-<!--             width="200"-->
-<!--             height="200"-->
-<!--             [alt]="pet.name">-->
-<!--        <mat-card-actions>-->
-<!--          <a mat-button class="actions" routerLink="{{ '/pet/' + pet.id }}">-->
-<!--            <i class="fa-solid fa-up-right-from-square"></i> Details-->
-<!--          </a>-->
-<!--        </mat-card-actions>-->
-<!--      </mat-card>-->
-<!--    </div>-->
-<!--  </div>-->
-
+  <mat-divider/>
   <!-- Search Input -->
-  <div class="search-container">
+  <div class="search-container divide-blue-500">
     <input
       type="text"
       placeholder="Search by name or breed..."
       [(ngModel)]="searchTerm"
       (ngModelChange)="applySearch()"
     />
+  </div>
   </div>
 
   <div *ngIf="filteredPets && filteredPets.length > 0">

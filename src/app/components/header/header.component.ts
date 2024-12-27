@@ -33,8 +33,7 @@ import {SearchComponent} from '../search/search.component';
     MatSidenav,
     MatSidenavContent,
     MatIcon,
-    MatIconButton,
-    SearchComponent
+    MatIconButton
   ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'

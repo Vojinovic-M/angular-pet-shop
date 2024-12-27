@@ -16,10 +16,11 @@ import {
 import {MatAnchor} from '@angular/material/button';
 import {SearchComponent} from '../../components/search/search.component';
 import {FormsModule} from '@angular/forms';
+import {MatDivider} from '@angular/material/divider';
 
 @Component({
     selector: 'app-browse',
-  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle, SearchComponent, FormsModule],
+  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle, FormsModule, MatDivider],
     templateUrl: './browse.component.html',
     styleUrl: './browse.component.css'
 })

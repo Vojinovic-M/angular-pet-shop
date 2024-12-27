@@ -5,10 +5,10 @@
   </svg>
   </div>
 <div class="header-content">
-<mat-sidenav-container class="h-screen">
+<mat-sidenav-container>
   <!-- Sidenav -->
-  <mat-sidenav #sidenav mode="over" class="bg-[#048ABF] text-white w-64" [opened]="isSidenavOpen">
-    <div class="flex justify-end p-4">
+  <mat-sidenav #sidenav mode="over" class="bg-[#048ABF] text-white" [opened]="isSidenavOpen">
+    <div class="flex p-4">
       <button mat-icon-button (click)="sidenav.close()" aria-label="Close menu">
         <mat-icon>close</mat-icon>
       </button>
