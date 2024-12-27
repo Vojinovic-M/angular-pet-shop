@@ -14,10 +14,12 @@ import {
   MatCardTitle
 } from '@angular/material/card';
 import {MatAnchor} from '@angular/material/button';
+import {SearchComponent} from '../../components/search/search.component';
+import {FormsModule} from '@angular/forms';
 
 @Component({
     selector: 'app-browse',
-  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle],
+  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle, SearchComponent, FormsModule],
     templateUrl: './browse.component.html',
     styleUrl: './browse.component.css'
 })
@@ -48,28 +50,57 @@ export class BrowseComponent implements OnInit {
   public currentPage = 0;
   public totalElements = 0;
 
+  filteredPets: PetModel[] = [];
+  searchTerm: string = '';
 
   constructor(private webService: WebService) {}
 
-  ngOnInit(): void {
-    this.getPetData(this.currentPage)
+  ngOnInit() {
+    this.loadPets();
   }
 
-  public getPetData(page: number = 0): void {
-    this.webService.getPets(page).subscribe(
-      (data) => {
-        this.data = data;
-        this.currentPage = data.pageable.pageNumber;
-        this.totalElements = data.totalElements;
-        },
-      (error) => {console.log('Error fetching pets: ', error);}
-    )
+  loadPets() {
+    this.webService.getPets(this.currentPage).subscribe((data) => {
+      this.data = data;
+      this.totalElements = data.totalElements;
+      this.filteredPets = data.content;
+    })
   }
 
-  public onPageChange(event: PageEvent): void {
-    const { pageIndex } = event;
-    this.getPetData(pageIndex);
+  onPageChange(event: any) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.loadPets();
   }
+
+  applySearch() {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredPets = this.data.content.filter((pet) =>
+      pet.name.toLowerCase().includes(term) || pet.breed.toLowerCase().includes(term)
+    );
+  }
+
+  // ngOnInit(): void {
+  //   this.getPetData(this.currentPage)
+  // }
+  //
+  // public getPetData(page: number = 0): void {
+  //   this.webService.getPets(page).subscribe(
+  //     (data) => {
+  //       this.data = data;
+  //       this.currentPage = data.pageable.pageNumber;
+  //       this.totalElements = data.totalElements;
+  //       },
+  //     (error) => {console.log('Error fetching pets: ', error);}
+  //   )
+  // }
+
+  // public onPageChange(event: PageEvent): void {
+  //   const { pageIndex } = event;
+  //   this.getPetData(pageIndex);
+  // }
+
+
   // KORISTI ZA JSON
   // public getPetData(page = 0) {
   //   this.webService.getPets(page).subscribe(
@@ -78,26 +109,4 @@ export class BrowseComponent implements OnInit {
   //       console.log('Error fetching pets: ', error);
   //     });
   // }
-
-  public first(): void {
-    this.getPetData(0); // Always fetch the first page
-  }
-
-  public previous(): void {
-    if (this.data && !this.data.first) {
-      this.getPetData(this.data.pageable.pageNumber - 1);
-    }
-  }
-
-  public next(): void {
-    if (this.data && !this.data.last) {
-      this.getPetData(this.data.pageable.pageNumber + 1);
-    }
-  }
-
-  public last(): void {
-    if (this.data) {
-      this.getPetData(this.data.totalPages - 1); // Fetch the last page
-    }
-  }
 }

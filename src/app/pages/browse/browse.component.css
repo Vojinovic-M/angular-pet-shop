@@ -80,3 +80,24 @@ mat-card {
   color: #0477BF;
   text-align: center;
 }
+
+
+
+
+.search-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #048ABF;
+}

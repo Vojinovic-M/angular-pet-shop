@@ -6,14 +6,23 @@ import {WebService} from '../../services/web.service';
 import {AuthService} from '../../services/auth.service';
 import {RasaModel} from '../../../models/rasa.model';
 import {HttpErrorResponse} from '@angular/common/http';
+import {MatIcon} from '@angular/material/icon';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import {MatFormField, MatLabel} from '@angular/material/form-field';
+import {MatInput} from '@angular/material/input';
 
 @Component({
     selector: 'app-chat',
-    imports: [
-        FormsModule,
-        NgForOf,
-        NgIf
-    ],
+  imports: [
+    FormsModule,
+    NgForOf,
+    NgIf,
+    MatIcon,
+    MatIconButton,
+    MatFormField,
+    MatInput,
+    MatLabel
+  ],
     templateUrl: './chat.component.html',
     styleUrl: './chat.component.css'
 })

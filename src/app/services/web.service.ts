@@ -60,8 +60,6 @@ export class WebService {
     return new Date(date).toLocaleDateString()
   }
 
-
-
   private retrieveRasaSession() {
     if (localStorage.getItem('session'))
       localStorage.setItem('session', uuidv4())

@@ -1,27 +1,32 @@
-<div class="chatbot-container position-fixed bottom-0 end-0 p-3">
+<div class="chatbot-container">
   <!-- Toggle Button -->
-  <button class="btn btn-primary square p-3" (click)="toggleChat()" *ngIf="!isChatVisible">
-    <i class="fa-solid fa-comments"></i>
+  <button class="btn-primary" (click)="toggleChat()" *ngIf="!isChatVisible">
+    <mat-icon>chat</mat-icon>
   </button>
 
   <!-- Chatbox -->
-  <div *ngIf="isChatVisible" class="chatbox card chatbox-content">
-    <div class="card-header d-flex justify-content-between">
-      <strong>Rasa Chat Bot</strong>
-      <button class="btn-close" aria-label="Close" (click)="toggleChat()"></button>
+  <div *ngIf="isChatVisible" class="chatbox chatbox-active">
+    <div class="chatbox-header">
+      <strong>Your AI Assistant</strong>
+      <button mat-icon-button (click)="toggleChat()">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
-    <div class="card-body chat-body" #chatBody>
-      <div *ngFor="let message of messages" class="message mb-2">
-        <div *ngIf="message.type === 'user'" class="text-end">
-          <div class="badge bg-primary text-white">{{ message.text }}</div>
+    <div class="chat-body">
+      <div *ngFor="let message of messages" class="message">
+        <div *ngIf="message.type === 'user'" class="user-message">
+          <span class="badge-primary">{{ message.text }}</span>
         </div>
-        <div *ngIf="message.type === 'bot'" class="text-start">
-          <div class="badge bg-secondary text-white msg-content" [innerHTML]="message.text"></div>
+        <div *ngIf="message.type === 'bot'" class="bot-message">
+          <span class="badge-secondary" [innerHTML]="message.text"></span>
         </div>
       </div>
     </div>
-    <div class="card-footer">
-      <input type="text" class="form-control" [(ngModel)]="userMessage" (keyup.enter)="sendMessage()" placeholder="Type a message..."/>
+    <div class="chatbox-footer">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Type a message...</mat-label>
+        <input matInput [(ngModel)]="userMessage" (keyup.enter)="sendMessage()"/>
+      </mat-form-field>
     </div>
   </div>
 </div>

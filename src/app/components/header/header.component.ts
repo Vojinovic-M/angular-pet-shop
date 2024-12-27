@@ -16,6 +16,7 @@ import {
 import {MatIcon} from '@angular/material/icon';
 import {ChatComponent} from '../chat/chat.component';
 import {CartComponent} from '../../pages/cart/cart.component';
+import {SearchComponent} from '../search/search.component';
 
 @Component({
     selector: 'app-header',
@@ -32,7 +33,8 @@ import {CartComponent} from '../../pages/cart/cart.component';
     MatSidenav,
     MatSidenavContent,
     MatIcon,
-    MatIconButton
+    MatIconButton,
+    SearchComponent
   ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'

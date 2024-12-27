@@ -1,0 +1,12 @@
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Search pets..."
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onSearch()">
+  <ul>
+    <li *ngFor="let pet of filteredPets">
+      {{ pet.name}} - {{ pet.breed}}
+    </li>
+  </ul>
+</div>
