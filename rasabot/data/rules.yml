@@ -1,6 +1,10 @@
 version: "3.1"
 
 rules:
+- rule: Greet the user
+  steps:
+  - intent: greet
+  - action: utter_greet
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
@@ -11,3 +15,19 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Say great when user is good
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+
+- rule: User asks to search for pets
+  steps:
+  - intent: search_pet
+  - action: action_search_pet
+
+- rule: User asks to order a pet
+  steps:
+  - intent: order_pet
+  - action: action_order_pet

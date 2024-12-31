@@ -4,30 +4,43 @@ intents:
   - greet
   - goodbye
   - affirm
-  - deny
+  - bot_challenge
   - mood_great
   - mood_unhappy
-  - bot_challenge
+  - deny
+
+  - search_pet
+  - order_pet
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  - text: "Hey!  How can I help you today? You can search for pets or place an order."
 
   utter_did_that_help:
   - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
 
   utter_goodbye:
   - text: "Bye"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_pet_details:
+  - text: "Here are the details for {pet_name}: \nDescription: {description} \nType: {type} \nAge: {age} \nSize: {size} \nPrice: {price} \nReviews: {reviews} \nFor more details, visit {link}"
+
+  utter_ask_for_order:
+  - text: "Would you like to order this pet?"
+
+  utter_happy:
+    - text: "Great to hear!"
+
+  utter_cheer_up:
+    - text: "Don't worry, everything will be okay. God is great and He takes care of us!"
+
+actions:
+  - action_search_pet
+  - action_order_pet
+
 
 session_config:
   session_expiration_time: 60

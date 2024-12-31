@@ -49,43 +49,227 @@ nlu:
     - no way
     - not really
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: search_pet
+  examples: |
+    - I am looking for a dog
+    - Show me dogs that are Illyrian shepherds
+    - Find me a puppy
+    - Show me pets that are small;
+    - Show me dogs that
+
+- intent: mood_great
+  examples: |
+      - I'm feeling great
+      - All is good
+      - I'm happy
+- intent: mood_unhappy
+  examples: |
+      - I'm not feeling well
+      - I'm sad
+      - Things are not going great
+
+- intent: order_pet
+  examples: |
+    - I want to order a pet
+    - Can I buy this pet?
+    - I want to order [Bruno](pet_name)
+    - Place an order for [Dzoni](pet_name)
+    - I want to buy [Roki](pet_name)
+    - I'd like to order [Dzeki](pet_name)
+    - Order [Marek](pet_name)
+      - I'd like to get [Novak](pet_name)
+      - I want to adopt [Nidza](pet_name)
+      - Please order [Kika](pet_name)
+      - Can I order [Marsovac](pet_name)?
+      - I'd love to buy [Toza](pet_name)
+      - Order me a [Mima](pet_name)
+      - Get me a [Niksa](pet_name)
+      - I want to purchase [Micko](pet_name)
+      - I'd like to order [Leo](pet_name)
+      - I want to order [Bruno](pet_name)
+      - I would like to adopt [Dzoni](pet_name)
+      - Can I order [Roki](pet_name)?
+      - I'd love to buy [Dzeki](pet_name)
+      - Order [Marek](pet_name)
+      - I'd like to get [Novak](pet_name)
+      - Please order [Nidza](pet_name)
+      - Can you get me [Kika](pet_name)?
+      - I want to adopt [Marsovac](pet_name)
+      - Place an order for [Toza](pet_name)
+      - I'd like to get [Mima](pet_name)
+      - Order me [Niksa](pet_name)
+      - I'd like to buy [Micko](pet_name)
+      - I'd like to order [Leo](pet_name)
+      - I want to order [Bruno](pet_name)
+      - I would like to adopt [Dzoni](pet_name)
+      - Can I order [Roki](pet_name)?
+      - I'd love to buy [Dzeki](pet_name)
+      - Order [Marek](pet_name)
+      - I'd like to get [Novak](pet_name)
+      - Please order [Nidza](pet_name)
+      - Can you get me [Kika](pet_name)?
+      - I want to adopt [Marsovac](pet_name)
+      - Place an order for [Toza](pet_name)
+      - I'd like to get [Mima](pet_name)
+      - Order me [Niksa](pet_name)
+      - I'd like to buy [Micko](pet_name)
+      - I'd like to order [Leo](pet_name)
+      - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
+    - I want to order a dog.
+    - I'd like to adopt a dog.
+    - Can I order a [Bruno](pet_name)?
+    - I'd like to order [Dzoni](pet_name).
+    - Please add [Roki](pet_name) to my cart.
+    - Order me [Dzeki](pet_name).
+    - I want to buy [Marek](pet_name).
+    - Could you order [Novak](pet_name)?
+    - Please place an order for [Nidza](pet_name).
+    - I'd love to order [Kika](pet_name).
+    - I want [Marsovac](pet_name).
+    - I want [Toza](pet_name) now.
+    - Could you place an order for [Mima](pet_name)?
+    - Please order [Niksa](pet_name).
+    - I need [Micko](pet_name).
+    - Please buy me [Leo](pet_name).
+    - I want to order a dog.
+       - I'd like to adopt a dog.
+       - Can I order a [Bruno](pet_name)?
+       - I'd like to order [Dzoni](pet_name).
+       - Please add [Roki](pet_name) to my cart.
+       - Order me [Dzeki](pet_name).
+       - I want to buy [Marek](pet_name).
+       - Could you order [Novak](pet_name)?
+       - Please place an order for [Nidza](pet_name).
+       - I'd love to order [Kika](pet_name).
+       - I want [Marsovac](pet_name).
+       - I want [Toza](pet_name) now.
+       - Could you place an order for [Mima](pet_name)?
+       - Please order [Niksa](pet_name).
+       - I need [Micko](pet_name).
+       - Please buy me [Leo](pet_name).
+    - I want to order a dog.
+       - I'd like to adopt a dog.
+       - Can I order a [Bruno](pet_name)?
+       - I'd like to order [Dzoni](pet_name).
+       - Please add [Roki](pet_name) to my cart.
+       - Order me [Dzeki](pet_name).
+       - I want to buy [Marek](pet_name).
+       - Could you order [Novak](pet_name)?
+       - Please place an order for [Nidza](pet_name).
+       - I'd love to order [Kika](pet_name).
+       - I want [Marsovac](pet_name).
+       - I want [Toza](pet_name) now.
+       - Could you place an order for [Mima](pet_name)?
+       - Please order [Niksa](pet_name).
+       - I need [Micko](pet_name).
+       - Please buy me [Leo](pet_name).
+    - I want to order a dog.
+       - I'd like to adopt a dog.
+       - Can I order a [Bruno](pet_name)?
+       - I'd like to order [Dzoni](pet_name).
+       - Please add [Roki](pet_name) to my cart.
+       - Order me [Dzeki](pet_name).
+       - I want to buy [Marek](pet_name).
+       - Could you order [Novak](pet_name)?
+       - Please place an order for [Nidza](pet_name).
+       - I'd love to order [Kika](pet_name).
+       - I want [Marsovac](pet_name).
+       - I want [Toza](pet_name) now.
+       - Could you place an order for [Mima](pet_name)?
+       - Please order [Niksa](pet_name).
+       - I need [Micko](pet_name).
+       - Please buy me [Leo](pet_name).
+    - I want to order a dog.
+       - I'd like to adopt a dog.
+       - Can I order a [Bruno](pet_name)?
+       - I'd like to order [Dzoni](pet_name).
+       - Please add [Roki](pet_name) to my cart.
+       - Order me [Dzeki](pet_name).
+       - I want to buy [Marek](pet_name).
+       - Could you order [Novak](pet_name)?
+       - Please place an order for [Nidza](pet_name).
+       - I'd love to order [Kika](pet_name).
+       - I want [Marsovac](pet_name).
+       - I want [Toza](pet_name) now.
+       - Could you place an order for [Mima](pet_name)?
+       - Please order [Niksa](pet_name).
+       - I need [Micko](pet_name).
+       - Please buy me [Leo](pet_name).
+    - I want to order a dog.
+       - I'd like to adopt a dog.
+       - Can I order a [Bruno](pet_name)?
+       - I'd like to order [Dzoni](pet_name).
+       - Please add [Roki](pet_name) to my cart.
+       - Order me [Dzeki](pet_name).
+       - I want to buy [Marek](pet_name).
+       - Could you order [Novak](pet_name)?
+       - Please place an order for [Nidza](pet_name).
+       - I'd love to order [Kika](pet_name).
+       - I want [Marsovac](pet_name).
+       - I want [Toza](pet_name) now.
+       - Could you place an order for [Mima](pet_name)?
+       - Please order [Niksa](pet_name).
+       - I need [Micko](pet_name).
+       - Please buy me [Leo](pet_name).
+    - I want to order a dog.
+       - I'd like to adopt a dog.
+       - Can I order a [Bruno](pet_name)?
+       - I'd like to order [Dzoni](pet_name).
+       - Please add [Roki](pet_name) to my cart.
+       - Order me [Dzeki](pet_name).
+       - I want to buy [Marek](pet_name).
+       - Could you order [Novak](pet_name)?
+       - Please place an order for [Nidza](pet_name).
+       - I'd love to order [Kika](pet_name).
+       - I want [Marsovac](pet_name).
+       - I want [Toza](pet_name) now.
+       - Could you place an order for [Mima](pet_name)?
+       - Please order [Niksa](pet_name).
+       - I need [Micko](pet_name).
+       - Please buy me [Leo](pet_name).
+    - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
+    - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
+    - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
+    - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
+    - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
+    - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
+    - I want to buy a dog.
+    - Can I adopt [Bruno](pet_name)?
+    - I'd like to get [Dzoni](pet_name).
+    - Please purchase [Roki](pet_name).
+    - I would like to adopt [Dzeki](pet_name).
