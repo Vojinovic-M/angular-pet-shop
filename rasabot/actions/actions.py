@@ -67,7 +67,7 @@ class ActionOrderPet(Action):
     return "action_order_pet"
 
   async def run(self, dispatcher, tracker, domain):
-    pet_name = tracker.get_slot("pet_name")
+    pet_name = next(tracker.get_latest_entity_values("pet_name"), None)
     if pet_name:
       dispatcher.utter_message(text=f"Your order for {pet_name} has been placed.")
     else:

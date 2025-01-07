@@ -3,11 +3,11 @@ import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import {MessageModel} from '../../../models/message.model';
 import {WebService} from '../../services/web.service';
-import {AuthService} from '../../services/auth.service';
+import {UserService} from '../../services/user.service';
 import {RasaModel} from '../../../models/rasa.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {MatIcon} from '@angular/material/icon';
-import {MatButton, MatIconButton} from '@angular/material/button';
+import {MatIconButton} from '@angular/material/button';
 import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 
@@ -37,7 +37,7 @@ export class ChatComponent {
 
 
   // @ts-ignore
-  constructor(webService: WebService, private authService: AuthService) {
+  constructor(webService: WebService, private userService: UserService) {
     this.webService = webService;
   }
 

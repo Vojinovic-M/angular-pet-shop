@@ -1,33 +1,47 @@
 import { Injectable } from '@angular/core';
-import {UserModel} from "../../models/user.model";
+import { HttpClient } from '@angular/common/http';
+import {Router} from '@angular/router';
+import {catchError, Observable} from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  private readonly baseUrl = 'http://localhost:8080/user';
 
-  private static instance: UserService;
-  constructor() {
-    if (!localStorage.getItem('users'))
-      this.createDefault()
+  constructor(private http: HttpClient, private router: Router) { }
+
+  login(email: string, password: string) {
+    return this.http.post<{ token: string; user: any }>(
+      `${this.baseUrl}/login`,
+      { email, password },
+      { headers: { 'Content-Type': 'application/json' } }
+    ).pipe(
+      catchError(err => {
+        console.error('Login failed', err);
+        throw err;
+      })
+    );
   }
 
-  private createDefault() {
-    if (localStorage.getItem('users')) {
-      const user: UserModel = {
-        email: "marko.vojinovic.21@singidunum.ac.rs",
-        password: "123456"
-      }
-      localStorage.setItem('users', JSON.stringify(user));
-    }
+
+  saveSession(token: string, user: any) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
-  public static getInstance() {
-    if (this.instance == undefined)
-      this.instance = new UserService();
-    return this.instance;
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token');
   }
 
-  public signup(email: string, password: string) {}
+  getUserName(): string {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    return user.firstName || 'Guest';
+  }
 
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.router.navigate(['/']);
+  }
 }
