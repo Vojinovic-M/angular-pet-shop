@@ -78,10 +78,10 @@ mat-sidenav {
   width: 200px;
   overflow: hidden;
 }
-mat-sidenav .mat-drawer-inner-container {
-  overflow-y: auto;
-  height: 100%;
-}
+/*mat-sidenav .mat-drawer-inner-container {*/
+/*  overflow-y: auto;*/
+/*  height: 100%;*/
+/*}*/
 mat-sidenav-container {
   width: 100%;
   position: relative;

@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import {MessageModel} from '../../../models/message.model';
 import {WebService} from '../../services/web.service';
-import {UserService} from '../../services/user.service';
+import {AuthUserService} from '../../services/auth-user.service';
 import {RasaModel} from '../../../models/rasa.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {MatIcon} from '@angular/material/icon';
@@ -37,7 +37,7 @@ export class ChatComponent {
 
 
   // @ts-ignore
-  constructor(webService: WebService, private userService: UserService) {
+  constructor(webService: WebService, private authUser: AuthUserService) {
     this.webService = webService;
   }
 

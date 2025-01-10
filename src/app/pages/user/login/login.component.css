@@ -1,3 +1,11 @@
-.google-icon {
-  height: 48px;
+.mat-mdc-raised-button {
+  height: 64px !important;
+}
+
+.login-container {
+  background-color: #F2f2f2 !important;
+  border-radius: 20px !important;
+  border: #048ABF 1px solid;
+  padding: 20px !important;
+  margin-top: 100px !important;
 }

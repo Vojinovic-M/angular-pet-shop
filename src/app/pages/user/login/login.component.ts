@@ -6,7 +6,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {AuthGoogleService} from '../../../services/auth-google.service';
 import {MatInput} from '@angular/material/input';
-import {UserService} from '../../../services/user.service';
+import {AuthUserService} from '../../../services/auth-user.service';
 
 @Component({
     selector: 'app-login',
@@ -24,20 +24,21 @@ import {UserService} from '../../../services/user.service';
 })
 export class LoginComponent {
   private authGoogleService = inject(AuthGoogleService);
-  private userService = inject(UserService);
+  private authUserService = inject(AuthUserService);
   private router = inject(Router);
 
   loginData = {email: '', password: ''};
 
   onSubmitLogin(){
-    this.userService.login(this.loginData.email, this.loginData.password).subscribe({
+    this.authUserService.login(this.loginData).subscribe({
       next: (response) => {
-        this.userService.saveSession(response.token, response.user);
-        this.router.navigate(['/']);
+        console.log('Login response:', response);
+        this.authUserService.saveSession(response);
+        this.router.navigate(['/user/dashboard']);
       },
       error: (err) => {
         console.log('Login failed: ',err);
-        alert('Login failed, please check your credentials.');
+        alert('Login failed, please check your credentials or refresh the page.');
       }
     })
   }

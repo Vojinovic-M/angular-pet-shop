@@ -1,6 +1,20 @@
 <div class="dashboard">
-  <h1>Welcome, {{ profile?.name }}</h1>
-  <img [src]="profile.picture" alt="Profile Picture" class="profile-pic" />
-  <p>Email: {{ profile?.email }}</p>
+  <h1>Your Dashboard</h1>
+
+  <div *ngIf="googleProfile() as googleProfile">
+    <h2>Google User</h2>
+    <img [src]="googleProfile.picture" alt="Profile Picture" />
+    <p>Name: {{ googleProfile.name }}</p>
+    <p>Email: {{ googleProfile.email }}</p>
+  </div>
+
+  <div *ngIf="userProfile()">
+    <h2>Regular User</h2>
+    <p>First Name: {{ userProfile().firstName }}</p>
+    <p>Last Name: {{ userProfile().lastName }}</p>
+    <p>Email: {{ userProfile().email }}</p>
+    <p>Phone: {{ userProfile().phone }}</p>
+    <p>Address: {{ userProfile().address }}</p>
+  </div>
   <button mat-flat-button (click)="logOut()">Logout</button>
 </div>

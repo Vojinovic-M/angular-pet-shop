@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
 import {AuthGoogleService} from '../../../services/auth-google.service';
 import {MatButton} from '@angular/material/button';
+import {AuthUserService} from '../../../services/auth-user.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -11,12 +12,19 @@ import {MatButton} from '@angular/material/button';
     styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  private authGoogle = inject(AuthGoogleService);
+  private authGoogleService = inject(AuthGoogleService);
+  private authUserService = inject(AuthUserService);
   private router = inject(Router);
-  profile = this.authGoogle.getProfile();
+
+  googleProfile = this.authGoogleService.getGoogleProfile();
+  userProfile = this.authUserService.getUserProfile();
+
+  constructor() {}
+
 
   logOut() {
-    this.authGoogle.logout();
-    this.router.navigate(['/auth/login']);
+    this.authGoogleService.logout();
+    this.authUserService.logout();
+    this.router.navigate(['/user/login']);
   }
 }

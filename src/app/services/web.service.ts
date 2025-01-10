@@ -65,6 +65,7 @@ export class WebService {
       localStorage.setItem('session', uuidv4())
     return localStorage.getItem('session')
   }
+
 public sendRasaMessage(value: string) {
     const url = 'http://localhost:5005/webhooks/rest/webhook'
     return this.http.post<RasaModel[]>(url,

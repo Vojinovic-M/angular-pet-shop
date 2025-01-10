@@ -8,28 +8,45 @@
 <mat-sidenav-container>
   <!-- Sidenav -->
   <mat-sidenav #sidenav mode="over" class="bg-[#048ABF] text-white" [opened]="isSidenavOpen">
-    <div class="flex p-4">
-      <button mat-icon-button (click)="sidenav.close()" aria-label="Close menu">
-        <mat-icon>close</mat-icon>
-      </button>
-    </div>
+
     <ul class="space-y-4 p-4">
+      <li><button mat-icon-button (click)="sidenav.close()" aria-label="Close menu">
+        <mat-icon>close</mat-icon>
+      </button></li>
       <li><button mat-flat-button routerLink="/" class="w-full text-left">Home</button></li>
       <li><button mat-flat-button routerLink="/browse" class="w-full text-left">Browse</button></li>
       <li><button mat-flat-button routerLink="/about" class="w-full text-left">About</button></li>
       <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button>
+
+
+
+
+
+
+
       <li>
-        <button mat-flat-button class="w-full text-left" [matMenuTriggerFor]="menu" *ngIf="profile">
-          {{ profile?.name || 'User' }}
+        <button mat-flat-button class="w-full text-left" [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
+          {{ googleProfile.name }}
         </button>
+        <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile()">
+          {{ userProfile().firstName }}
+        </button>
+
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/user/dashboard" class="block w-full text-left">Profile</button>
           <button mat-menu-item (click)="logOut()" class="block w-full text-left">Logout</button>
         </mat-menu>
       </li>
-      <li><button mat-flat-button *ngIf="!profile" routerLink="/user/login" class="w-full text-left">>Login</button></li>
+
+      <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile()" routerLink="/user/login" class="w-full text-left">Login</button></li>
     </ul>
   </mat-sidenav>
+
+
+
+
+
+
 
   <!-- Main Content -->
   <mat-sidenav-content>
@@ -38,24 +55,36 @@
         <mat-icon>menu</mat-icon>
       </button>
       <div class="flex items-center space-x-2">
-        <i class="fa-solid fa-paw text-2xl"></i>
+<!--        <i class="fa-solid fa-paw text-2xl"></i>-->
         <button routerLink="/" class="navbar-brand font-bold text-lg text-white ">Navissos Pet Shop</button>
       </div>
       <ul class="hidden md:flex space-x-4">
         <li><button mat-flat-button routerLink="/">Home</button></li>
         <li><button mat-flat-button routerLink="/browse">Browse</button></li>
         <li><button mat-flat-button routerLink="/about">About</button></li>
-        <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button>
+        <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button>
+        <li><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button></li>
+
+
+
+
+
+
+
+
         <li>
-          <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="profile">
-            {{ profile?.name || 'User' }}
+          <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
+            {{ googleProfile.name }}
+          </button>
+          <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile()">
+            {{ userProfile().firstName }}
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item routerLink="/user/dashboard">Profile</button>
             <button mat-menu-item (click)="logOut()">Logout</button>
           </mat-menu>
         </li>
-        <li><button mat-flat-button *ngIf="!profile" routerLink="/user/login">Login</button></li>
+        <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile()" routerLink="/user/login">Login</button></li>
       </ul>
     </mat-toolbar>
   </mat-sidenav-content>
