@@ -26,6 +26,7 @@ export class AuthGoogleService {
     this.oAuthService.loadDiscoveryDocumentAndTryLogin().then(() =>{
       if (this.oAuthService.hasValidIdToken()) {
       const claims = this.oAuthService.getIdentityClaims() as GoogleProfile;
+      console.log(claims);
       this.profileSignal.set(claims);
       localStorage.setItem('profile', JSON.stringify(claims));
       }

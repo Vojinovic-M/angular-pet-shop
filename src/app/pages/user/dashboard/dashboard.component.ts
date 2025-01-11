@@ -4,10 +4,11 @@ import {Router} from '@angular/router';
 import {AuthGoogleService} from '../../../services/auth-google.service';
 import {MatButton} from '@angular/material/button';
 import {AuthUserService} from '../../../services/auth-user.service';
+import {MatCard, MatCardContent, MatCardHeader, MatCardImage, MatCardTitle} from '@angular/material/card';
 
 @Component({
     selector: 'app-dashboard',
-  imports: [CommonModule, MatButton],
+  imports: [CommonModule, MatButton, MatCard, MatCardHeader, MatCardImage, MatCardTitle, MatCardContent],
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.css'
 })
