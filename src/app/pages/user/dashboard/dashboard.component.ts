@@ -5,10 +5,11 @@ import {AuthGoogleService} from '../../../services/auth-google.service';
 import {MatButton} from '@angular/material/button';
 import {AuthUserService} from '../../../services/auth-user.service';
 import {MatCard, MatCardContent, MatCardHeader, MatCardImage, MatCardTitle} from '@angular/material/card';
+import {OrderComponent} from '../../order/order.component';
 
 @Component({
     selector: 'app-dashboard',
-  imports: [CommonModule, MatButton, MatCard, MatCardHeader, MatCardImage, MatCardTitle, MatCardContent],
+  imports: [CommonModule, MatButton, MatCard, MatCardHeader, MatCardImage, MatCardTitle, MatCardContent, OrderComponent],
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.css'
 })

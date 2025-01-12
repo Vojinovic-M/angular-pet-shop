@@ -1,0 +1,13 @@
+<div *ngFor="let order of orders" class="order-card">
+  <p><strong>Order ID:</strong> {{ order.id }}</p>
+  <p><strong>Status:</strong> {{ order.orderStatus }}</p>
+  <button *ngIf="order.orderStatus === 'PENDING'" (click)="changeStatus(order.id, 'IN_PROGRESS')">
+    Mark as In Progress
+  </button>
+  <button *ngIf="order.orderStatus === 'IN_PROGRESS'" (click)="changeStatus(order.id, 'COMPLETED')">
+    Mark as Completed
+  </button>
+  <button *ngIf="order.orderStatus === 'COMPLETED'" disabled>
+    Completed
+  </button>
+</div>
