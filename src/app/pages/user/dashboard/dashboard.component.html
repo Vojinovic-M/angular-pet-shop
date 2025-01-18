@@ -1,10 +1,10 @@
-<div class="dashboard">
-  <h1>Your Dashboard</h1>
-  <mat-card class="profile-card" *ngIf="googleProfile() as googleProfile">
+<div class="dashboard flex">
+  <h1 class="font-thin">Your Dashboard</h1>
+  <mat-card class="profile-card" *ngIf="googleProfile as googleProfile">
     <mat-card-header class="text-center">
       <mat-card-title class="items-center ">Google User</mat-card-title>
     </mat-card-header>
-    <img mat-card-image class="items-center min-h-32 max-h-64 min-h-32 max-w-64 aspect-square" [src]="googleProfile.picture" alt="Profile Picture" />
+    <img mat-card-image class="items-center min-h-32 max-h-64 aspect-square" [src]="googleProfile.picture" alt="Profile Picture" />
     <mat-card-content>
       <p><strong>Name:</strong> {{ googleProfile.name }}</p>
       <p><strong>First Name:</strong> {{ googleProfile.given_name }}</p>
@@ -14,16 +14,20 @@
     </mat-card-content>
   </mat-card>
 
-  <div *ngIf="userProfile()">
-    <h2>Regular User</h2>
-    <p>First Name: {{ userProfile().firstName }}</p>
-    <p>Last Name: {{ userProfile().lastName }}</p>
-    <p>Email: {{ userProfile().email }}</p>
-    <p>Phone: {{ userProfile().phone }}</p>
-    <p>Address: {{ userProfile().address }}</p>
-  </div>
+
+  <mat-card class="left-0" *ngIf="userProfile">
+    <mat-card-header class="text-center">
+      <mat-card-title class="items-center ">Regular User</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>First Name: {{ userProfile.firstName }}</p>
+      <p>Last Name: {{ userProfile.lastName }}</p>
+      <p>Email: {{ userProfile.email }}</p>
+      <p>Phone: {{ userProfile.phone }}</p>
+      <p>Address: {{ userProfile.address }}</p>
+    </mat-card-content>
+  </mat-card>
 
   <app-order></app-order>
-
-  <button mat-flat-button (click)="logOut()">Logout</button>
+  <button class="float-left" mat-flat-button (click)="logOut()">Logout</button>
 </div>

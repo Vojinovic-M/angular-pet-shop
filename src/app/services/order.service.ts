@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Order} from '../../models/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +11,22 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  createOrder(order: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/create`, order);
+  createOrder(order: any, authHeader: string): Observable<any> {
+    const headers = { Authorization: authHeader};
+    return this.http.post(`${this.baseUrl}/create`, order, { headers });
   }
 
-  getOrders(): Observable<any> {
-    return this.http.get<any[]>(`${this.baseUrl}`);
+  getOrders(): Observable<Order[]> {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const authHeader = 'Basic ' + btoa(`${username}:${password}`);
+    return this.http.get<Order[]>(`${this.baseUrl}`, {
+      headers: new HttpHeaders().set('Authorization', authHeader),
+    });
   }
 
-  getOrdersByUserId(userId: number): Observable<any> {
-    return this.http.get<any[]>(`${this.baseUrl}/users/${userId}`);
-  }
-
-  updateOrderStatus(orderId: number, status: string): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${orderId}/status`, status, {
+  updateOrderStatus(orderId: number, status: string): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/${orderId}/status`, {status}, {
       headers: { 'Content-Type': 'application/json' }
     });
   }

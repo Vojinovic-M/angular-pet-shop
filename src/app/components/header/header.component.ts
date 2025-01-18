@@ -40,7 +40,7 @@ export class HeaderComponent {
   private router= inject(Router);
 
   googleProfile = this.authGoogleService.getGoogleProfile();
-  userProfile = signal<any>(null);
+  userProfile = this.authUserService.getUserProfile();
 
   isNavOpen = false;
   isSidenavOpen = false;
@@ -50,38 +50,17 @@ export class HeaderComponent {
   }
 
   private loadUserProfile() {
-    const storedProfile = this.authUserService.getUserProfile();
+    const storedProfile = this.userProfile;
     if (storedProfile) {
       this.userProfile = storedProfile;
     }
   }
 
-  // ngOnInit() {
-  //   this.authGoogle.getGoogleProfile().subscribe({
-  //     next: (data: any) => {
-  //       this.googleProfile = data;
-  //     },
-  //     error: () => {
-  //       this.userProfile = null;
-  //     }
-  //   });
-  //
-  //   this.userService.getUserProfile().subscribe({
-  //     next: (data: any) => {
-  //       this.userProfile = data;
-  //     },
-  //     error: () => {
-  //       this.userProfile = null;
-  //     }
-  //   });
-  // }
-
-
 
   logOut() {
     this.authGoogleService.logout();
     this.authUserService.logout();
-    this.userProfile.set(null)
+    localStorage.removeItem('userProfile');
     this.router.navigate(['/auth/login']);
   }
 

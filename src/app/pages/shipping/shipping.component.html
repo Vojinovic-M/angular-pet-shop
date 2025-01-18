@@ -1,8 +1,7 @@
-<h3 class="shipping-title">Shipping Prices</h3>
-
-<div class="shipping-container">
-  <div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
-    <span class="shipping-type">{{ shipping.type }}</span>
-    <span class="shipping-price">{{ shipping.price }}</span>
-  </div>
-</div>
+<mat-card class="shipping-container">
+  <mat-card-header class="justify-center font-semibold shipping-title">Shipping Prices</mat-card-header>
+  <mat-card-content class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+    <mat-action-row class="shipping-type">{{ shipping.type }}</mat-action-row>
+    <mat-action-row class="shipping-price">{{ shipping.price }}</mat-action-row>
+  </mat-card-content>
+</mat-card>

@@ -8,10 +8,11 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput type="password" name="password" [(ngModel)]="loginData.password" required />
+      <input matInput type="password" name="password" [(ngModel)]="loginData.password" required minlength="6"/>
     </mat-form-field>
 
-    <button mat-flat-button type="submit">Login</button>
+    <button mat-flat-button type="submit" [disabled]="!loginForm.valid">Login</button>
+<!--    <mat-spinner class="absolute" *ngIf="isLoading"></mat-spinner>-->
   </form>
 
   <div class="divide-x-reverse">

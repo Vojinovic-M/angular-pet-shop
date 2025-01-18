@@ -1,13 +1,33 @@
-<div *ngFor="let order of orders" class="order-card">
-  <p><strong>Order ID:</strong> {{ order.id }}</p>
-  <p><strong>Status:</strong> {{ order.orderStatus }}</p>
-  <button *ngIf="order.orderStatus === 'PENDING'" (click)="changeStatus(order.id, 'IN_PROGRESS')">
-    Mark as In Progress
-  </button>
-  <button *ngIf="order.orderStatus === 'IN_PROGRESS'" (click)="changeStatus(order.id, 'COMPLETED')">
-    Mark as Completed
-  </button>
-  <button *ngIf="order.orderStatus === 'COMPLETED'" disabled>
-    Completed
-  </button>
-</div>
+<button mat-button class="float-left bottom-0" (click)="loadOrders()">View My Orders</button>
+
+<mat-card *ngIf="orders?.length; else noOrders">
+  <mat-header-row>Your Orders</mat-header-row>
+  <mat-list>
+    <mat-card-content *ngFor="let order of orders">
+      <p><strong>Order ID:</strong> {{ order.id }}</p>
+      <p><strong>Status:</strong> {{ order.status }}</p>
+      <p><strong>Price:</strong> {{ order.price }}</p>
+      <p><strong>Pet Name:</strong> {{ order.pet.name }}</p>
+      <p><strong>Description:</strong> {{ order.pet.description }}</p>
+      <p><strong>Breed:</strong> {{ order.pet.breed }}</p>
+      <p><strong>Age:</strong> {{ order.pet.age }} years</p>
+      <p><strong>Size:</strong> {{ order.pet.size }} cm</p>
+      <p><strong>Origin:</strong> {{ order.pet.origin }}</p>
+      <img mat-card-image class="items-center min-h-32 max-h-64 aspect-square" [src]="order.pet.imageUrl" alt="{{order.pet.name}}" width="150"/>
+
+      <button mat-stroked-button *ngIf="order.status === 'PENDING'" (click)="changeStatus(order.id, 'IN_PROGRESS')">
+        Mark as In Progress
+      </button>
+      <button mat-stroked-button *ngIf="order.status === 'IN_PROGRESS'" (click)="changeStatus(order.id, 'COMPLETED')">
+        Mark as Completed
+      </button>
+      <button mat-stroked-button *ngIf="order.status === 'COMPLETED'" disabled>
+        Completed
+      </button>
+    </mat-card-content>
+  </mat-list>
+</mat-card>
+
+<ng-template #noOrders>
+  <p>You have no orders.</p>
+</ng-template>

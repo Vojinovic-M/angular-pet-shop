@@ -1,9 +1,10 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import {provideHttpClient} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, provideHttpClient} from "@angular/common/http";
 import {provideOAuthClient} from 'angular-oauth2-oidc';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {ErrorInterceptor} from './interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,5 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideOAuthClient(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ]};

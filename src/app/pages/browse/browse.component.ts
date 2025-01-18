@@ -81,26 +81,6 @@ export class BrowseComponent implements OnInit {
     );
   }
 
-  // ngOnInit(): void {
-  //   this.getPetData(this.currentPage)
-  // }
-  //
-  // public getPetData(page: number = 0): void {
-  //   this.webService.getPets(page).subscribe(
-  //     (data) => {
-  //       this.data = data;
-  //       this.currentPage = data.pageable.pageNumber;
-  //       this.totalElements = data.totalElements;
-  //       },
-  //     (error) => {console.log('Error fetching pets: ', error);}
-  //   )
-  // }
-
-  // public onPageChange(event: PageEvent): void {
-  //   const { pageIndex } = event;
-  //   this.getPetData(pageIndex);
-  // }
-
 
   // KORISTI ZA JSON
   // public getPetData(page = 0) {

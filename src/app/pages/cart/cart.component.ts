@@ -4,6 +4,9 @@ import { PetModel } from '../../../models/pet.model';
 import {NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {OrderService} from '../../services/order.service';
+import {MatButton} from '@angular/material/button';
+import {AuthUserService} from '../../services/auth-user.service';
+import {AuthGoogleService} from '../../services/auth-google.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +14,8 @@ import {OrderService} from '../../services/order.service';
   imports: [
     NgIf,
     NgForOf,
-    RouterLink
+    RouterLink,
+    MatButton
   ],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
@@ -20,7 +24,9 @@ export class CartComponent implements OnInit {
   items: PetModel[] = [];
 
   constructor(private cartService: CartService,
-              private orderService: OrderService) {}
+              private orderService: OrderService,
+              private authUserService: AuthUserService,
+              private authGoogleService: AuthGoogleService) {}
 
   ngOnInit() {
     this.items = this.cartService.getItems();
@@ -40,15 +46,24 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getItems();
   }
 
-  placeOrder(item: any) {
-    const userId = 1; //popravi ovo
+  placeOrder() {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+
+    if (!username || !password) {
+      alert('You need to log in to place an order!');
+      return;
+    }
+
+    const authHeader = 'Basic ' + btoa(`${username}:${password}`);
+
     this.items.forEach((item) => {
       const order = {
         petId: item.id,
-        userId: userId
+        userId: this.getUserId(),
       };
 
-    this.orderService.createOrder(order).subscribe(
+    this.orderService.createOrder(order, authHeader).subscribe(
       (response) => {
         alert(`${item.name} order has been successfully created!`);
         this.removeItem(this.items.indexOf(item));
@@ -60,4 +75,19 @@ export class CartComponent implements OnInit {
     );
     })
   }
+
+  private getUserId(): number | string | null {
+    const authUser = this.authUserService.getUserProfile();
+    const googleUser = this.authGoogleService.getGoogleProfile()();
+
+    console.log('Auth User:', authUser);
+    console.log('Google User:', googleUser);
+
+    if (authUser) {
+      return authUser.id;
+    } else if (googleUser) {
+      return googleUser.sub;
+    }
+    return null;
+}
 }

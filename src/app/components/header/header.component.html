@@ -28,8 +28,8 @@
         <button mat-flat-button class="w-full text-left" [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
           {{ googleProfile.name }}
         </button>
-        <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile()">
-          {{ userProfile().firstName }}
+        <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile">
+          {{ userProfile.firstName }}
         </button>
 
         <mat-menu #menu="matMenu">
@@ -38,7 +38,7 @@
         </mat-menu>
       </li>
 
-      <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile()" routerLink="/user/login" class="w-full text-left">Login</button></li>
+      <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile" routerLink="/user/login" class="w-full text-left">Login</button></li>
     </ul>
   </mat-sidenav>
 
@@ -76,15 +76,15 @@
           <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
             {{ googleProfile.name }}
           </button>
-          <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile()">
-            {{ userProfile().firstName }}
+          <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile">
+            {{ userProfile.firstName }}
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item routerLink="/user/dashboard">Profile</button>
             <button mat-menu-item (click)="logOut()">Logout</button>
           </mat-menu>
         </li>
-        <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile()" routerLink="/user/login">Login</button></li>
+        <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile" routerLink="/user/login">Login</button></li>
       </ul>
     </mat-toolbar>
   </mat-sidenav-content>

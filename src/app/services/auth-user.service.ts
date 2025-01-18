@@ -28,17 +28,15 @@ export class AuthUserService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  checkAuthentication(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/user/dashboard`, { withCredentials: true });
-  }
-
-  getUserProfile(): any {
-    return computed(() => this.userProfileSignal())
+  getUserProfile(): UserProfile | null {
+    return this.userProfileSignal()
   }
 
   logout() {
     this.userProfileSignal.set(null)
     localStorage.removeItem('user');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
     this.router.navigate(['/']);
   }
 }

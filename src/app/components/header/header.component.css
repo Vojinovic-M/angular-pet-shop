@@ -59,7 +59,7 @@ svg {
 /*}*/
 
 /* Adjust for Responsive View */
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .navbar ul {
     display: none;
   }

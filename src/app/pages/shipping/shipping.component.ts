@@ -2,12 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import { CartService} from '../../services/cart.service';
 import {Observable} from 'rxjs';
 import {AsyncPipe, NgForOf} from '@angular/common';
+import {MatHeaderRow} from '@angular/material/table';
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup} from '@angular/material/card';
+import {MatExpansionPanelActionRow} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-shipping',
   imports: [
     AsyncPipe,
-    NgForOf
+    NgForOf,
+    MatHeaderRow,
+    MatCardTitleGroup,
+    MatCardContent,
+    MatExpansionPanelActionRow,
+    MatCard,
+    MatCardHeader
   ],
   templateUrl: './shipping.component.html',
   styleUrl: './shipping.component.css'
