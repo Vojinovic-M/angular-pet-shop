@@ -1,33 +1,77 @@
-<button mat-button class="float-left bottom-0" (click)="loadOrders()">View My Orders</button>
+<!--<button mat-button class="float-left bottom-0" (click)="loadOrders()">View My Orders</button>-->
 
-<mat-card *ngIf="orders?.length; else noOrders">
-  <mat-header-row>Your Orders</mat-header-row>
-  <mat-list>
-    <mat-card-content *ngFor="let order of orders">
-      <p><strong>Order ID:</strong> {{ order.id }}</p>
-      <p><strong>Status:</strong> {{ order.status }}</p>
-      <p><strong>Price:</strong> {{ order.price }}</p>
-      <p><strong>Pet Name:</strong> {{ order.pet.name }}</p>
-      <p><strong>Description:</strong> {{ order.pet.description }}</p>
-      <p><strong>Breed:</strong> {{ order.pet.breed }}</p>
-      <p><strong>Age:</strong> {{ order.pet.age }} years</p>
-      <p><strong>Size:</strong> {{ order.pet.size }} cm</p>
-      <p><strong>Origin:</strong> {{ order.pet.origin }}</p>
-      <img mat-card-image class="items-center min-h-32 max-h-64 aspect-square" [src]="order.pet.imageUrl" alt="{{order.pet.name}}" width="150"/>
+<!--<mat-card *ngIf="orders?.length; else noOrders">-->
+<!--  <mat-header-row>Your Orders</mat-header-row>-->
+<!--  <mat-list>-->
+<!--    <mat-card-content *ngFor="let order of orders">-->
 
-      <button mat-stroked-button *ngIf="order.status === 'PENDING'" (click)="changeStatus(order.id, 'IN_PROGRESS')">
-        Mark as In Progress
-      </button>
-      <button mat-stroked-button *ngIf="order.status === 'IN_PROGRESS'" (click)="changeStatus(order.id, 'COMPLETED')">
-        Mark as Completed
-      </button>
-      <button mat-stroked-button *ngIf="order.status === 'COMPLETED'" disabled>
-        Completed
-      </button>
-    </mat-card-content>
-  </mat-list>
-</mat-card>
+<!--      <p><strong>Order ID:</strong> {{ order.id }}</p>-->
+<!--      <p><strong>Status:</strong> {{ order.status }}</p>-->
+<!--      <p><strong>Price:</strong> {{ order.price }}</p>-->
+<!--      <p><strong>Pet Name:</strong> {{ order.pet.name }}</p>-->
+<!--      <p><strong>Description:</strong> {{ order.pet.description }}</p>-->
+<!--      <p><strong>Breed:</strong> {{ order.pet.breed }}</p>-->
+<!--      <p><strong>Age:</strong> {{ order.pet.age }} years</p>-->
+<!--      <p><strong>Size:</strong> {{ order.pet.size }} cm</p>-->
+<!--      <p><strong>Origin:</strong> {{ order.pet.origin }}</p>-->
+<!--      <img mat-card-image class="items-center min-h-32 max-h-64 aspect-square" [src]="order.pet.imageUrl" alt="{{order.pet.name}}" width="150"/>-->
 
-<ng-template #noOrders>
-  <p>You have no orders.</p>
-</ng-template>
+
+<!--      <button mat-button *ngIf="order.status === 'IN_PROGRESS'" (click)="changeStatus(order.id, 'COMPLETED')">-->
+<!--        Mark as Completed-->
+<!--      </button>-->
+
+<!--      <button mat-button *ngIf="order.status === 'COMPLETED' && !order.rating" (click)="openRatingDialog(order.id)">-->
+<!--        Rate-->
+<!--      </button>-->
+
+<!--      <p *ngIf="order.status === 'COMPLETED' && order.rating">-->
+<!--        <strong>Your Rating:</strong> {{order.rating}} / 5-->
+<!--      </p>-->
+
+<!--      <button mat-button *ngIf="order.status !== 'CANCELLED' && order.status !== 'COMPLETED'" (click)="cancelOrder(order.id)">-->
+<!--        Cancel Order-->
+<!--      </button>-->
+
+<!--      <p *ngIf="order.status === 'CANCELLED'" class="text-red-500">Order Cancelled</p>-->
+
+<!--    </mat-card-content>-->
+<!--  </mat-list>-->
+<!--</mat-card>-->
+
+<!--<ng-template #noOrders>-->
+<!--  <p>You have no orders.</p>-->
+<!--</ng-template>-->
+<div class="orders-section">
+  <button mat-button class="view-orders-btn" (click)="loadOrders()">View/Hide My Orders</button>
+  <ng-container *ngIf="orders?.length; else noOrders">
+    <mat-card *ngFor="let order of orders" class="order-card">
+      <div class="order-details">
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Status:</strong> <span>{{ order.status }}</span></p>
+        <p><strong>Price:</strong> {{ order.price }} EUR</p>
+        <p><strong>Pet Name:</strong> {{ order.pet.name }}</p>
+      </div>
+      <img mat-card-image class="pet-image" [src]="order.pet.imageUrl" alt="{{ order.pet.name }}" />
+
+      <!-- Actions -->
+      <div class="order-actions">
+        <button mat-flat-button class="mark-completed" *ngIf="order.status === 'IN_PROGRESS'" (click)="changeStatus(order.id, 'COMPLETED')">
+          Mark as Completed
+        </button>
+        <button mat-flat-button class="rate" *ngIf="order.status === 'COMPLETED' && !order.rating" (click)="openRatingDialog(order.id)">
+          Rate
+        </button>
+        <p *ngIf="order.status === 'COMPLETED' && order.rating">
+          <strong>Your Rating:</strong> <span class="rating">{{ order.rating }} / 5</span>
+        </p>
+        <button mat-flat-button *ngIf="order.status !== 'CANCELLED' && order.status !== 'COMPLETED'" (click)="cancelOrder(order.id)">
+          Cancel Order
+        </button>
+      </div>
+    </mat-card>
+  </ng-container>
+  <ng-template #noOrders>
+    <p>You have no orders.</p>
+  </ng-template>
+</div>

@@ -1,14 +1,80 @@
+/*.cart {*/
+/*  background-color:#f2f2f2;*/
+/*  border-radius: 20px;*/
+/*  padding: 20px;*/
+/*  margin: 50px auto;*/
+/*}*/
+
+/*h3 {*/
+/*  text-align: center;*/
+/*  margin-bottom: 20px;*/
+/*  color: #F28705;*/
+/*}*/
+
+/*.cart-table {*/
+/*  width: 100%;*/
+/*  border-collapse: collapse;*/
+/*  margin: 0 auto;*/
+/*}*/
+
+/*.cart-table th,*/
+/*.cart-table td {*/
+/*  padding: 12px;*/
+/*  color: #f2f2f2;*/
+/*  border: 1px solid #ddd;*/
+/*  text-align: center;*/
+/*}*/
+/*.cart-table td {*/
+/*  color: #020873;*/
+/*}*/
+/*.cart-table th {*/
+/*  background-color: #0477BF;*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*.cart-table tr:nth-child(even) {*/
+/*  background-color: #f9f9f9;*/
+/*}*/
+
+/*.cart-summary {*/
+/*  margin-top: 20px;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*  color: black;*/
+/*}*/
+
+/*.cart-summary span {*/
+/*  font-size: 1.2em;*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*.btn {*/
+/*  padding: 8px 12px;*/
+/*  border: none;*/
+/*  border-radius: 4px;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.btn-remove {*/
+/*  background-color: #F28705;*/
+/*  color: #f2f2f2;*/
+/*}*/
+
+/*.btn-clear {*/
+/*  background-color: #0477BF;*/
+/*  color: #f2f2f2;*/
+/*}*/
+
+/*.btn:hover {*/
+/*  opacity: 0.8;*/
+/*}*/
+
 .cart {
-  background-color:#f2f2f2;
+  background-color: #f2f2f2;
   border-radius: 20px;
   padding: 20px;
   margin: 50px auto;
-}
-
-h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #F28705;
 }
 
 .cart-table {
@@ -20,20 +86,8 @@ h3 {
 .cart-table th,
 .cart-table td {
   padding: 12px;
-  color: #f2f2f2;
   border: 1px solid #ddd;
   text-align: center;
-}
-.cart-table td {
-  color: #020873;
-}
-.cart-table th {
-  background-color: #0477BF;
-  font-weight: bold;
-}
-
-.cart-table tr:nth-child(even) {
-  background-color: #f9f9f9;
 }
 
 .cart-summary {
@@ -49,23 +103,33 @@ h3 {
   font-weight: bold;
 }
 
-.btn {
-  padding: 8px 12px;
-  border: none;
+.cart-item input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+}
+
+.cart-item button {
+  margin-top: 5px;
+}
+
+.cart-item button:hover {
+  background-color: #f28705;
+}
+
+.cart-item button mat-icon {
+  margin-right: 5px;
+}
+
+.cart-summary button {
+  background-color: #0477bf;
+  color: white;
+}
+
+.cart-table td img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-remove {
-  background-color: #F28705;
-  color: #f2f2f2;
-}
-
-.btn-clear {
-  background-color: #0477BF;
-  color: #f2f2f2;
-}
-
-.btn:hover {
-  opacity: 0.8;
+  margin: 0 auto;
 }

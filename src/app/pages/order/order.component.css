@@ -1,15 +1,126 @@
+/*.order-card {*/
+/*  border: 1px solid #ccc;*/
+/*  border-radius: 8px;*/
+/*  padding: 16px;*/
+/*  margin-bottom: 16px;*/
+/*  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.order-card p {*/
+/*  margin: 8px 0;*/
+/*}*/
+
+/*.order-card button {*/
+/*  margin-right: 8px;*/
+/*}*/
+
+.orders-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view-orders-btn {
+  margin-bottom: 20px;
+}
+
 .order-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.order-card p {
-  margin: 8px 0;
+.order-details {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
 }
 
-.order-card button {
-  margin-right: 8px;
+.pet-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.order-actions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 125px;
+  justify-content: right;
+}
+
+.order-actions button {
+  margin: 5px 0;
+}
+
+.rating {
+  color: #2fae48;
+  font-weight: bold;
+}
+
+.status-COMPLETED {
+  color: green;
+  font-weight: bold;
+}
+
+.status-IN_PROGRESS {
+  color: blue;
+  font-weight: bold;
+}
+
+.status-CANCELLED {
+  color: red;
+  font-weight: bold;
+}
+
+button {
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #0056a3;
+  color: white;
+}
+
+button.mark-completed {
+  background-color: #28a745;
+  color: white;
+}
+
+button.mark-completed:hover {
+  background-color: #218838;
+}
+
+button.rate {
+  background-color: #ffa500;
+  color: white;
+}
+
+button.rate:hover {
+  background-color: #e69500;
+}
+
+@media (max-width: 768px) {
+  .order-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order-details {
+    text-align: center;
+  }
+
+  .pet-image {
+    margin-top: 10px;
+  }
 }

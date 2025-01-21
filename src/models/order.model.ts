@@ -14,4 +14,5 @@ export interface Order {
   };
   price: number;
   createdAt: Date;
+  rating: number;
 }

@@ -1,37 +1,79 @@
+<!--<div class="cart">-->
+<!--<h3>Your Shopping Cart</h3>-->
+<!--<div *ngIf="items.length > 0; else emptyCart">-->
+<!--  <table class="cart-table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>Pet Name</th>-->
+<!--      <th>Price</th>-->
+<!--      <th>Actions</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr class="cart-item" *ngFor="let item of items; let i = index">-->
+<!--      <td>{{ item.name }}</td>-->
+<!--      <td>{{ item.price.toFixed(2) }} EUR</td>-->
+<!--      <td>-->
+<!--        <button mat-stroked-button (click)="removeItem(i)">Remove</button>-->
+
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+
+<!--  <div class="cart-summary">-->
+<!--    <span>Total: {{ getTotalPrice().toFixed(2) }} EUR</span>-->
+<!--    <button (click)="clearCart()" class="btn btn-clear">Clear Cart</button>-->
+<!--    <button mat-raised-button (click)="placeOrder()">Order</button>-->
+<!--  </div>-->
+<!--  <p>-->
+<!--    <a routerLink="/shipping">Shipping Prices</a>-->
+<!--  </p>-->
+<!--</div>-->
+
+<!--<ng-template #emptyCart>-->
+<!--  <p>Your cart is empty. Add some items to get started!</p>-->
+<!--</ng-template>-->
+<!--</div>-->
 <div class="cart">
-<h3>Your Shopping Cart</h3>
-<div *ngIf="items.length > 0; else emptyCart">
-  <table class="cart-table">
-    <thead>
-    <tr>
-      <th>Pet Name</th>
-      <th>Price</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="cart-item" *ngFor="let item of items; let i = index">
-      <td>{{ item.name }}</td>
-      <td>{{ item.price.toFixed(2) }} EUR</td>
-      <td>
-        <button mat-stroked-button (click)="removeItem(i)">Remove</button>
+  <h3>Your Shopping Cart</h3>
 
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <div *ngIf="items.length > 0; else emptyCart">
+      <table class="cart-table">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Pet Name</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="cart-item" *ngFor="let item of items; let i = index">
+          <td><img [src]="item.imageUrl" alt="{{ item.name }} image"/></td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.price.toFixed(2) }} EUR</td>
+          <td>
+            <button mat-stroked-button (click)="removeItem(i)">
+              <mat-icon>delete</mat-icon> Remove
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
 
-  <div class="cart-summary">
-    <span>Total: {{ getTotalPrice().toFixed(2) }} EUR</span>
-    <button (click)="clearCart()" class="btn btn-clear">Clear Cart</button>
-    <button mat-raised-button (click)="placeOrder()">Order</button>
-  </div>
-  <p>
-    <a routerLink="/shipping">Shipping Prices</a>
-  </p>
-</div>
+      <div class="cart-summary">
+        <span>Total: {{ getTotalPrice().toFixed(2) }} EUR</span>
+<!--        <span *ngIf="shippingCost">Shipping: {{ shippingCost.toFixed(2) }} EUR</span>-->
+        <button mat-raised-button (click)="clearCart()" class="btn-clear">Clear Cart</button>
+        <button mat-raised-button (click)="placeOrder()">Place Order</button>
+      </div>
+      <p>
+        <a routerLink="/shipping">Check Shipping Prices</a>
+      </p>
+    </div>
 
-<ng-template #emptyCart>
-  <p>Your cart is empty. Add some items to get started!</p>
-</ng-template>
+    <ng-template #emptyCart>
+      <p>Your cart is empty. <a routerLink="/shop">Start shopping!</a></p>
+    </ng-template>
 </div>

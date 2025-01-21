@@ -80,14 +80,4 @@ export class BrowseComponent implements OnInit {
       pet.name.toLowerCase().includes(term) || pet.breed.toLowerCase().includes(term)
     );
   }
-
-
-  // KORISTI ZA JSON
-  // public getPetData(page = 0) {
-  //   this.webService.getPets(page).subscribe(
-  //     (data) => {this.data = data},
-  //     (error) => {
-  //       console.log('Error fetching pets: ', error);
-  //     });
-  // }
 }

@@ -1,11 +1,62 @@
-.mat-mdc-raised-button {
-  height: 64px !important;
+/*.mat-mdc-raised-button {*/
+/*  height: 64px !important;*/
+/*}*/
+
+/*.login-container {*/
+/*  background-color: #F2f2f2 !important;*/
+/*  border-radius: 20px !important;*/
+/*  border: #048ABF 1px solid;*/
+/*  padding: 20px !important;*/
+/*  margin-top: 100px !important;*/
+/*}*/
+.login-container {
+  background-color: #F2f2f2;
+  border-radius: 20px;
+  border: #048ABF 1px solid;
+  padding: 20px;
+  margin-top: 100px;
+  max-width: 500px; /* Limit the form width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.login-container {
-  background-color: #F2f2f2 !important;
-  border-radius: 20px !important;
-  border: #048ABF 1px solid;
-  padding: 20px !important;
-  margin-top: 100px !important;
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0477BF;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.mat-mdc-raised-button {
+  height: 48px;
+}
+
+.divide-x-reverse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.divide-x-reverse span {
+  padding: 0 10px;
+}
+
+button.mat-raised-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button mat-icon {
+  margin-right: 8px;
 }

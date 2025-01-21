@@ -26,8 +26,39 @@ export class OrderService {
   }
 
   updateOrderStatus(orderId: number, status: string): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/${orderId}/status`, {status}, {
-      headers: { 'Content-Type': 'application/json' }
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const authHeader = 'Basic ' + btoa(`${username}:${password}`);
+
+    return this.http.put<void>(
+      `${this.baseUrl}/${orderId}/status`,
+      {status},
+      {
+      headers: new HttpHeaders()
+        .set('Authorization', authHeader)
+        .set( 'Content-Type', 'application/json' )
     });
   }
+
+  cancelOrder(orderId: number): Observable<void> {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const authHeader = 'Basic ' + btoa(`${username}:${password}`);
+
+    return this.http.put<void>(`${this.baseUrl}/${orderId}/cancel`, {}, {
+      headers: new HttpHeaders().set('Authorization', authHeader),
+    });
+  }
+
+  rateOrder(orderId: number, rating: number): Observable<void> {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(`${username}:${password}`),
+    });
+
+    return this.http.post<void>(`${this.baseUrl}/${orderId}/rating`, { rating }, { headers, responseType: 'text' as 'json' });
+  }
+
+
 }

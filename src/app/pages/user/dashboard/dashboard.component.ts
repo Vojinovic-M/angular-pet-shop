@@ -8,11 +8,12 @@ import {MatCard, MatCardContent, MatCardHeader, MatCardImage, MatCardTitle} from
 import {OrderComponent} from '../../order/order.component';
 import {HttpClient} from '@angular/common/http';
 import {Order} from '../../../../models/order.model';
+import {MatDivider} from '@angular/material/divider';
 
 
 @Component({
     selector: 'app-dashboard',
-  imports: [CommonModule, MatButton, MatCard, MatCardHeader, MatCardImage, MatCardTitle, MatCardContent, OrderComponent],
+  imports: [CommonModule, MatButton, MatCard, MatCardImage, MatCardTitle, OrderComponent, MatDivider],
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.css'
 })

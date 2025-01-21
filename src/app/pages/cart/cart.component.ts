@@ -7,6 +7,8 @@ import {OrderService} from '../../services/order.service';
 import {MatButton} from '@angular/material/button';
 import {AuthUserService} from '../../services/auth-user.service';
 import {AuthGoogleService} from '../../services/auth-google.service';
+import {FormsModule} from '@angular/forms';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +17,9 @@ import {AuthGoogleService} from '../../services/auth-google.service';
     NgIf,
     NgForOf,
     RouterLink,
-    MatButton
+    MatButton,
+    FormsModule,
+    MatIcon
   ],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']

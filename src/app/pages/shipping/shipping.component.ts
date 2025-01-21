@@ -5,27 +5,28 @@ import {AsyncPipe, NgForOf} from '@angular/common';
 import {MatHeaderRow} from '@angular/material/table';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup} from '@angular/material/card';
 import {MatExpansionPanelActionRow} from '@angular/material/expansion';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-shipping',
   imports: [
     AsyncPipe,
     NgForOf,
-    MatHeaderRow,
-    MatCardTitleGroup,
     MatCardContent,
     MatExpansionPanelActionRow,
     MatCard,
-    MatCardHeader
+    MatCardHeader,
+    MatIcon
   ],
   templateUrl: './shipping.component.html',
   styleUrl: './shipping.component.css'
 })
 export class ShippingComponent implements OnInit {
-  constructor(private cartService: CartService) {
-  }
+
+  constructor(private cartService: CartService) {}
+
   shippingCosts!: Observable<{type: string, price: number}[]>;
-  ngOnInit(): void {
-    this.shippingCosts = this.cartService.getShippingPrices();
-  }
+
+  ngOnInit(): void { this.shippingCosts = this.cartService.getShippingPrices(); }
+
 }

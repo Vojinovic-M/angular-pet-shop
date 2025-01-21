@@ -1,46 +1,102 @@
-<div *ngIf="data"><br><br>
-  <div class="flex items-center divide-blue-500">
-    <mat-paginator [length]="totalElements"
-                   [pageSize]="pageSize"
-                   [pageSizeOptions]="[10]"
-                   [pageIndex]="currentPage"
-                   (page)="onPageChange($event)">
-    </mat-paginator>
-  <mat-divider/>
-  <!-- Search Input -->
-  <div class="search-container divide-blue-500">
-    <input
-      type="text"
-      placeholder="Search by name or breed..."
-      [(ngModel)]="searchTerm"
-      (ngModelChange)="applySearch()"
-    />
-  </div>
+<!--<div class="browse-container" *ngIf="data"><br><br>-->
+<!--  <div class="flex items-center divide-blue-500">-->
+<!--    <mat-paginator [length]="totalElements"-->
+<!--                   [pageSize]="pageSize"-->
+<!--                   [pageSizeOptions]="[10]"-->
+<!--                   [pageIndex]="currentPage"-->
+<!--                   (page)="onPageChange($event)">-->
+<!--    </mat-paginator>-->
+<!--    <mat-divider/>-->
+    <!-- Search Input -->
+<!--    <div class="search-container divide-blue-500">-->
+<!--      <input-->
+<!--        type="text"-->
+<!--        placeholder="Search by name or breed..."-->
+<!--        [(ngModel)]="searchTerm"-->
+<!--        (ngModelChange)="applySearch()"-->
+<!--      />-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="filteredPets && filteredPets.length > 0">-->
+<!--    <div class="container responsive-grid">-->
+<!--      <mat-card *ngFor="let pet of filteredPets">-->
+<!--        <mat-card-header>-->
+<!--          <mat-card-title class="title" routerLink="{{ '/pet/' + pet.id }}">-->
+<!--            {{ pet.name }}, {{ pet.age }}-->
+<!--          </mat-card-title>-->
+<!--          <p class="breed">{{ pet.breed }}</p>-->
+<!--        </mat-card-header>-->
+<!--        <img-->
+<!--          mat-card-image-->
+<!--          routerLink="{{ '/pet/' + pet.id }}"-->
+<!--          [ngSrc]="pet.imageUrl"-->
+<!--          class="card-img-top"-->
+<!--          width="200"-->
+<!--          height="200"-->
+<!--          [alt]="pet.name">-->
+<!--        <mat-card-actions>-->
+<!--          <a mat-button class="actions" routerLink="{{ '/pet/' + pet.id }}">-->
+<!--            <i class="fa-solid fa-up-right-from-square"></i> Details-->
+<!--          </a>-->
+<!--        </mat-card-actions>-->
+<!--      </mat-card>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="browse-container flex flex-col items-center py-10">
+  <!-- Search and Pagination -->
+  <div class="flex flex-col md:flex-row items-center gap-6 w-full max-w-6xl px-4">
+    <!-- Search Input -->
+    <div class="search-container divide-blue-500 w-full md:w-1/2">
+      <input
+        type="text"
+        class="w-full h-12 px-4 text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Search by name or breed..."
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="applySearch()"
+      />
+    </div>
+    <!-- Pagination -->
+    <div class="flex-grow">
+      <mat-paginator
+        [length]="totalElements"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[10]"
+        [pageIndex]="currentPage"
+        (page)="onPageChange($event)"
+        class="w-full h-12 px-4 text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">
+      <!--        class="rounded-lg shadow-md bg-white border border-gray-300">-->
+      </mat-paginator>
+    </div>
   </div>
 
-  <div *ngIf="filteredPets && filteredPets.length > 0">
-    <div class="container responsive-grid">
-      <mat-card *ngFor="let pet of filteredPets">
-        <mat-card-header>
-          <mat-card-title class="title" routerLink="{{ '/pet/' + pet.id }}">
-            {{ pet.name }}, {{ pet.age }}
-          </mat-card-title>
-          <p class="breed">{{ pet.breed }}</p>
-        </mat-card-header>
-        <img
-          mat-card-image
+  <!-- Pet Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 w-full max-w-6xl px-4">
+    <mat-card
+      *ngFor="let pet of filteredPets"
+      class="shadow-lg rounded-lg overflow-hidden transition hover:shadow-xl bg-white">
+      <mat-card-header class="p-4 bg-gray-50">
+        <mat-card-title
+          class="text-lg font-bold text-blue-600 hover:text-blue-800 cursor-pointer"
+          routerLink="{{ '/pet/' + pet.id }}">
+          {{ pet.name }}, {{ pet.age }}
+        </mat-card-title>
+        <p class="text-sm text-gray-600">{{ pet.breed }}</p>
+      </mat-card-header>
+      <img
+        mat-card-image
+        routerLink="{{ '/pet/' + pet.id }}"
+        [src]="pet.imageUrl"
+        alt="{{ pet.name }}"
+        class="h-48 w-full object-cover transition-transform hover:scale-105">
+      <mat-card-actions class="p-4">
+        <a
+          mat-button
           routerLink="{{ '/pet/' + pet.id }}"
-          [ngSrc]="pet.imageUrl"
-          class="card-img-top"
-          width="200"
-          height="200"
-          [alt]="pet.name">
-        <mat-card-actions>
-          <a mat-button class="actions" routerLink="{{ '/pet/' + pet.id }}">
-            <i class="fa-solid fa-up-right-from-square"></i> Details
-          </a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+          class="text-blue-500 font-medium hover:underline">
+          <i class="fa-solid fa-up-right-from-square"></i> Details
+        </a>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>

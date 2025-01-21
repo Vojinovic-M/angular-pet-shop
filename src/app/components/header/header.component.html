@@ -1,93 +1,97 @@
 <div class="container">
-  <div class="wave-container">
-  <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" xmlns="http://www.w3.org/1999/html">
-    <path fill="#048ABF" fill-opacity="1" d="M0,224L48,234.7C96,245,192,267,288,256C384,245,480,203,576,197.3C672,192,768,224,864,240C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-  </svg>
+
+  <div class="header-content">
+    <mat-sidenav-container>
+      <!-- Sidenav -->
+      <mat-sidenav #sidenav mode="over" class="bg-[#a2d9ff] text-white" [opened]="isSidenavOpen">
+
+        <ul class="space-y-4 p-4">
+          <li><button mat-icon-button (click)="sidenav.close()" aria-label="Close menu">
+            <mat-icon>close</mat-icon>
+          </button></li>
+          <li><button mat-flat-button routerLink="/" class="w-full text-left">Home</button></li>
+          <li><button mat-flat-button routerLink="/browse" class="w-full text-left">Browse</button></li>
+          <li><button mat-flat-button routerLink="/about" class="w-full text-left">About</button></li>
+          <li>
+          <button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon>Cart</button></li>
+          <li>
+            <button mat-flat-button class="w-full text-left" [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
+              {{ googleProfile.name }}
+            </button>
+            <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile">
+              {{ userProfile.firstName }}
+            </button>
+
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/user/dashboard" class="block w-full text-left">Profile</button>
+              <button mat-menu-item (click)="logOut()" class="block w-full text-left">Logout</button>
+            </mat-menu>
+          </li>
+
+          <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile" routerLink="/user/login" class="w-full text-left">Login</button></li>
+          <li class="flex items-center">
+            <app-theme-toggle></app-theme-toggle>
+            <span class="ml-2">Light/Dark</span>
+          </li>
+        </ul>
+      </mat-sidenav>
+
+
+      <!-- Main Content -->
+      <mat-sidenav-content>
+        <mat-toolbar class="navbar hidden md:flex">
+          <button mat-icon-button (click)="sidenav.toggle()" aria-label="Open menu" class="md:hidden">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <div class="flex items-center space-x-2">
+            <!--        <i class="fa-solid fa-paw text-2xl"></i>-->
+            <button routerLink="/" class="navbar-brand font-bold text-lg text-white ">Navissos Pet Shop</button>
+          </div>
+          <ul class="hidden md:flex space-x-4">
+            <li><button mat-flat-button routerLink="/">Home</button></li>
+            <li><button mat-flat-button routerLink="/browse">Browse</button></li>
+            <li><button mat-flat-button routerLink="/about">About</button></li>
+            <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button>
+            <li><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button></li>
+            <li>
+              <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
+                {{ googleProfile.name }}
+              </button>
+              <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile">
+                {{ userProfile.firstName }}
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/user/dashboard">Profile</button>
+                <button mat-menu-item (click)="logOut()">Logout</button>
+              </mat-menu>
+            </li>
+            <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile" routerLink="/user/login">Login</button></li>
+            <div class="hs-dropdown [--strategy:absolute] [--flip:false] hs-dropdown-example relative inline-flex">
+              <button id="hs-dropdown-example" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                Actions
+                <svg class="hs-dropdown-open:rotate-180 size-4 text-gray-600 dark:text-neutral-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </button>
+
+              <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-example">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700" href="#">
+                  Newsletter
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700" href="#">
+                  Purchases
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700" href="#">
+                  Downloads
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700" href="#">
+                  Team Account
+                </a>
+              </div>
+            </div>
+          </ul>
+        </mat-toolbar>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
-<div class="header-content">
-<mat-sidenav-container>
-  <!-- Sidenav -->
-  <mat-sidenav #sidenav mode="over" class="bg-[#048ABF] text-white" [opened]="isSidenavOpen">
-
-    <ul class="space-y-4 p-4">
-      <li><button mat-icon-button (click)="sidenav.close()" aria-label="Close menu">
-        <mat-icon>close</mat-icon>
-      </button></li>
-      <li><button mat-flat-button routerLink="/" class="w-full text-left">Home</button></li>
-      <li><button mat-flat-button routerLink="/browse" class="w-full text-left">Browse</button></li>
-      <li><button mat-flat-button routerLink="/about" class="w-full text-left">About</button></li>
-      <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button>
-
-
-
-
-
-
-
-      <li>
-        <button mat-flat-button class="w-full text-left" [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
-          {{ googleProfile.name }}
-        </button>
-        <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile">
-          {{ userProfile.firstName }}
-        </button>
-
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item routerLink="/user/dashboard" class="block w-full text-left">Profile</button>
-          <button mat-menu-item (click)="logOut()" class="block w-full text-left">Logout</button>
-        </mat-menu>
-      </li>
-
-      <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile" routerLink="/user/login" class="w-full text-left">Login</button></li>
-    </ul>
-  </mat-sidenav>
-
-
-
-
-
-
-
-  <!-- Main Content -->
-  <mat-sidenav-content>
-    <mat-toolbar class="navbar hidden md:flex">
-      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Open menu" class="md:hidden">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div class="flex items-center space-x-2">
-<!--        <i class="fa-solid fa-paw text-2xl"></i>-->
-        <button routerLink="/" class="navbar-brand font-bold text-lg text-white ">Navissos Pet Shop</button>
-      </div>
-      <ul class="hidden md:flex space-x-4">
-        <li><button mat-flat-button routerLink="/">Home</button></li>
-        <li><button mat-flat-button routerLink="/browse">Browse</button></li>
-        <li><button mat-flat-button routerLink="/about">About</button></li>
-        <li><button mat-flat-button><app-theme-toggle></app-theme-toggle></button>
-        <li><button mat-flat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button></li>
-
-
-
-
-
-
-
-
-        <li>
-          <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="googleProfile() as googleProfile">
-            {{ googleProfile.name }}
-          </button>
-          <button mat-flat-button [matMenuTriggerFor]="menu" *ngIf="userProfile">
-            {{ userProfile.firstName }}
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/user/dashboard">Profile</button>
-            <button mat-menu-item (click)="logOut()">Logout</button>
-          </mat-menu>
-        </li>
-        <li><button mat-flat-button *ngIf="!googleProfile() && !userProfile" routerLink="/user/login">Login</button></li>
-      </ul>
-    </mat-toolbar>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-</div>
 </div>

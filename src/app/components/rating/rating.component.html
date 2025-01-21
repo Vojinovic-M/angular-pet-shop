@@ -1,0 +1,16 @@
+<div class="rating-container">
+  <h1 mat-dialog-title>Rate Your Pet</h1>
+  <div mat-dialog-content>
+    <p>Please rate your pet from 1 to 5 stars:</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Rating</mat-label>
+      <mat-select [(value)]="rating">
+        <mat-option *ngFor="let star of stars" [value]="star">{{ star }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+  </mat-dialog-actions>
+</div>

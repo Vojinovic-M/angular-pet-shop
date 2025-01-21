@@ -55,23 +55,6 @@
   min-width: 300px; /* Prevent image from shrinking too much */
 }
 
-/*.image-canvas {*/
-/*  width: 100%;*/
-/*  aspect-ratio: 1 / 1;*/
-/*  background-color: #f3f3f3;*/
-/*  border-radius: 10px;*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*}*/
-
-/*.image-canvas img {*/
-/*  width: 100%;*/
-/*  height: auto;*/
-/*  object-fit: cover;*/
-/*  border-radius: 15px;*/
-/*}*/
-
 .right-section {
   flex: 2;
   display: flex;
