@@ -3,24 +3,21 @@ import { RouterLink } from '@angular/router';
 import { WebService } from '../../services/web.service';
 import { PageModel } from '../../../models/page.model';
 import { PetModel } from '../../../models/pet.model';
-import {NgFor, NgIf, NgOptimizedImage} from '@angular/common';
-import {MatPaginator, PageEvent} from '@angular/material/paginator';
+import {NgFor} from '@angular/common';
+import {MatPaginator} from '@angular/material/paginator';
 import {
   MatCard,
   MatCardActions,
-  MatCardContent,
   MatCardHeader,
   MatCardImage,
   MatCardTitle
 } from '@angular/material/card';
 import {MatAnchor} from '@angular/material/button';
-import {SearchComponent} from '../../components/search/search.component';
 import {FormsModule} from '@angular/forms';
-import {MatDivider} from '@angular/material/divider';
 
 @Component({
     selector: 'app-browse',
-  imports: [RouterLink, NgIf, RouterLink, NgFor, NgOptimizedImage, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle, FormsModule, MatDivider],
+  imports: [RouterLink, RouterLink, NgFor, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle, FormsModule],
     templateUrl: './browse.component.html',
     styleUrl: './browse.component.css'
 })
