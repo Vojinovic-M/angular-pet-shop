@@ -64,3 +64,19 @@ a.mat-button:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
+
+.top-blob {
+  position: absolute;
+  margin-top: 30px;
+  left: 0;
+  width: 500px;
+  z-index: -10;
+}
+
+.bottom-blob {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 700px;
+  z-index: -10;
+}

@@ -1,4 +1,4 @@
-import {computed, Injectable, signal} from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
@@ -38,5 +38,9 @@ export class AuthUserService {
     localStorage.removeItem('username');
     localStorage.removeItem('password');
     this.router.navigate(['/']);
+  }
+
+  register(user: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/user/register`, user);
   }
 }

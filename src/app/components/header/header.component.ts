@@ -1,4 +1,4 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {NgIf} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {ThemeToggleComponent} from "../theme-toggle/theme-toggle.component";
@@ -6,11 +6,6 @@ import {AuthGoogleService} from '../../services/auth-google.service';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
 import {MatToolbar} from '@angular/material/toolbar';
-import {
-  MatSidenav,
-  MatSidenavContainer,
-  MatSidenavContent
-} from '@angular/material/sidenav';
 import {MatIcon} from '@angular/material/icon';
 import {AuthUserService} from '../../services/auth-user.service';
 
@@ -25,9 +20,6 @@ import {AuthUserService} from '../../services/auth-user.service';
     MatMenu,
     MatMenuItem,
     MatToolbar,
-    MatSidenavContainer,
-    MatSidenav,
-    MatSidenavContent,
     MatIcon,
     MatIconButton
   ],
@@ -42,9 +34,6 @@ export class HeaderComponent {
   googleProfile = this.authGoogleService.getGoogleProfile();
   userProfile = this.authUserService.getUserProfile();
 
-  isNavOpen = false;
-  isSidenavOpen = false;
-
   constructor() {
     this.loadUserProfile();
   }
@@ -56,7 +45,6 @@ export class HeaderComponent {
     }
   }
 
-
   logOut() {
     this.authGoogleService.logout();
     this.authUserService.logout();
@@ -64,10 +52,10 @@ export class HeaderComponent {
     this.router.navigate(['/auth/login']);
   }
 
-  toggleNav() {
-    this.isNavOpen = !this.isNavOpen;
+  openNav() {
+    document.getElementById('mySidenav')!.style.width = '250px';
   }
-  toggleSidenav() {
-    this.isSidenavOpen = !this.isSidenavOpen;
+  closeNav() {
+    document.getElementById('mySidenav')!.style.width = '0px';
   }
 }

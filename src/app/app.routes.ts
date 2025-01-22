@@ -9,6 +9,7 @@ import {CartComponent} from './pages/cart/cart.component';
 import {ShippingComponent} from './pages/shipping/shipping.component';
 import {OrderComponent} from './pages/order/order.component';
 import {RatingComponent} from './components/rating/rating.component';
+import {SignupComponent} from './pages/user/signup/signup.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ export const routes: Routes = [
     { path: 'cart', component: CartComponent},
     { path: 'shipping', component: ShippingComponent},
     { path: 'user/login', component: LoginComponent },
+    { path: 'user/signup', component: SignupComponent},
     { path: 'user/dashboard', component: DashboardComponent },
     { path: 'user/orders', component: OrderComponent},
     { path: 'order/rating', component: RatingComponent},
