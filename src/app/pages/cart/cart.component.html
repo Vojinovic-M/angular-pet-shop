@@ -1,42 +1,5 @@
-<!--<div class="cart">-->
-<!--<h3>Your Shopping Cart</h3>-->
-<!--<div *ngIf="items.length > 0; else emptyCart">-->
-<!--  <table class="cart-table">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th>Pet Name</th>-->
-<!--      <th>Price</th>-->
-<!--      <th>Actions</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr class="cart-item" *ngFor="let item of items; let i = index">-->
-<!--      <td>{{ item.name }}</td>-->
-<!--      <td>{{ item.price.toFixed(2) }} EUR</td>-->
-<!--      <td>-->
-<!--        <button mat-stroked-button (click)="removeItem(i)">Remove</button>-->
-
-<!--      </td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-
-<!--  <div class="cart-summary">-->
-<!--    <span>Total: {{ getTotalPrice().toFixed(2) }} EUR</span>-->
-<!--    <button (click)="clearCart()" class="btn btn-clear">Clear Cart</button>-->
-<!--    <button mat-raised-button (click)="placeOrder()">Order</button>-->
-<!--  </div>-->
-<!--  <p>-->
-<!--    <a routerLink="/shipping">Shipping Prices</a>-->
-<!--  </p>-->
-<!--</div>-->
-
-<!--<ng-template #emptyCart>-->
-<!--  <p>Your cart is empty. Add some items to get started!</p>-->
-<!--</ng-template>-->
-<!--</div>-->
 <div class="cart">
-  <h3>Your Shopping Cart</h3>
+  <h3 class="-mt-32 -ml-16 text-xl">Your Shopping Cart</h3>
 
     <div *ngIf="items.length > 0; else emptyCart">
       <table class="cart-table">
@@ -74,6 +37,6 @@
     </div>
 
     <ng-template #emptyCart>
-      <p>Your cart is empty. <a routerLink="/shop">Start shopping!</a></p>
+      <p class="mt-40">Your cart is empty. <a routerLink="/browse" class="start-shopping font-bold">Start shopping!</a></p>
     </ng-template>
 </div>

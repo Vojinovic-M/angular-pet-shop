@@ -1,63 +1,60 @@
+<!--<mat-card class="dashboard">-->
+<!--  &lt;!&ndash; User Details Section &ndash;&gt;-->
+<!--  <div class="user-details">-->
+<!--    <div *ngIf="googleProfile as profile" class="details-section">-->
+<!--      <mat-card-title>Google User</mat-card-title>-->
+<!--      <img mat-card-image class="profile-pic" [src]="profile.picture" alt="Profile Picture" />-->
+<!--      <div class="details">-->
+<!--        <p><strong>Name:</strong> {{ profile.name }}</p>-->
+<!--        <p><strong>Email:</strong> {{ profile.email }}</p>-->
+<!--        <p><strong>Google ID:</strong> {{ profile.sub }}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div *ngIf="userProfile" class="details-section">-->
+<!--      <mat-card-title>Regular User</mat-card-title>-->
+<!--      <div class="details">-->
+<!--        <p><strong>First Name:</strong> {{ userProfile.firstName }}</p>-->
+<!--        <p><strong>Last Name:</strong> {{ userProfile.lastName }}</p>-->
+<!--        <p><strong>Email:</strong> {{ userProfile.email }}</p>-->
+<!--        <p><strong>Phone:</strong> {{ userProfile.phone }}</p>-->
+<!--        <p><strong>Address:</strong> {{ userProfile.address }}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <button class="logout-btn" mat-flat-button (click)="logOut()">Logout</button>-->
+<!--  </div>-->
 
-<!--<div class="dashboard flex">-->
-<!--  <h1 class="font-thin">Your Dashboard</h1>-->
-<!--  <mat-card class="profile-card" *ngIf="googleProfile as googleProfile">-->
-<!--    <mat-card-header class="text-center">-->
-<!--      <mat-card-title class="items-center ">Google User</mat-card-title>-->
-<!--    </mat-card-header>-->
-<!--    <img mat-card-image class="items-center min-h-32 max-h-64 aspect-square" [src]="googleProfile.picture" alt="Profile Picture" />-->
-<!--    <mat-card-content>-->
-<!--      <p><strong>Name:</strong> {{ googleProfile.name }}</p>-->
-<!--      <p><strong>First Name:</strong> {{ googleProfile.given_name }}</p>-->
-<!--      <p><strong>Last Name:</strong> {{ googleProfile.family_name }}</p>-->
-<!--      <p><strong>Email:</strong> {{ googleProfile.email }}</p>-->
-<!--      <p><strong>Google ID:</strong> {{ googleProfile.sub }}</p>-->
-<!--    </mat-card-content>-->
-<!--  </mat-card>-->
-
-
-<!--  <mat-card class="left-0" *ngIf="userProfile">-->
-<!--    <mat-card-header class="text-center">-->
-<!--      <mat-card-title class="items-center ">Regular User</mat-card-title>-->
-<!--    </mat-card-header>-->
-<!--    <mat-card-content>-->
-<!--      <p>First Name: {{ userProfile.firstName }}</p>-->
-<!--      <p>Last Name: {{ userProfile.lastName }}</p>-->
-<!--      <p>Email: {{ userProfile.email }}</p>-->
-<!--      <p>Phone: {{ userProfile.phone }}</p>-->
-<!--      <p>Address: {{ userProfile.address }}</p>-->
-<!--    </mat-card-content>-->
-<!--  </mat-card>-->
-
+<!--  &lt;!&ndash; Separator &ndash;&gt;-->
+<!--  <mat-divider></mat-divider>-->
 <!--  <app-order></app-order>-->
-<!--  <button class="float-left" mat-flat-button (click)="logOut()">Logout</button>-->
-<!--</div>-->
-<mat-card class="dashboard">
+<!--</mat-card>-->
+<div class="container">
   <!-- User Details Section -->
-  <div class="user-details">
-    <div *ngIf="googleProfile as profile" class="details-section">
-      <mat-card-title>Google User</mat-card-title>
-      <img mat-card-image class="profile-pic" [src]="profile.picture" alt="Profile Picture" />
+  <div class="user-details bg-white shadow-lg rounded-lg mb-6">
+    <div *ngIf="googleProfile as profile" class="flex items-center space-x-4">
+      <img [src]="profile.picture" alt="Profile Picture" class="w-20 h-20 rounded-full shadow-md">
       <div class="details">
-        <p><strong>Name:</strong> {{ profile.name }}</p>
-        <p><strong>Email:</strong> {{ profile.email }}</p>
-        <p><strong>Google ID:</strong> {{ profile.sub }}</p>
+        <h2 class="text-xl font-semibold">Google User</h2>
+        <p class="text-gray-700"><strong>Name:</strong> {{ profile.name }}</p>
+        <p class="text-gray-700"><strong>Email:</strong> {{ profile.email }}</p>
+        <p class="text-gray-700"><strong>Google ID:</strong> {{ profile.sub }}</p>
       </div>
     </div>
-    <div *ngIf="userProfile" class="details-section">
-      <mat-card-title>Regular User</mat-card-title>
-      <div class="details">
-        <p><strong>First Name:</strong> {{ userProfile.firstName }}</p>
-        <p><strong>Last Name:</strong> {{ userProfile.lastName }}</p>
-        <p><strong>Email:</strong> {{ userProfile.email }}</p>
-        <p><strong>Phone:</strong> {{ userProfile.phone }}</p>
-        <p><strong>Address:</strong> {{ userProfile.address }}</p>
-      </div>
+    <div *ngIf="userProfile" class="details space-y-2">
+      <h2 class="text-xl font-semibold">Regular User</h2>
+      <p class="text-gray-700"><strong>First Name:</strong> {{ userProfile.firstName }}</p>
+      <p class="text-gray-700"><strong>Last Name:</strong> {{ userProfile.lastName }}</p>
+      <p class="text-gray-700"><strong>Email:</strong> {{ userProfile.email }}</p>
+      <p class="text-gray-700"><strong>Phone:</strong> {{ userProfile.phone }}</p>
+      <p class="text-gray-700"><strong>Address:</strong> {{ userProfile.address }}</p>
     </div>
-    <button class="logout-btn" mat-flat-button (click)="logOut()">Logout</button>
+    <button
+      class="mt-4 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600"
+      (click)="logOut()">
+      Logout
+    </button>
   </div>
 
-  <!-- Separator -->
-  <mat-divider></mat-divider>
+  <!-- Orders Section -->
   <app-order></app-order>
-</mat-card>
+</div>
+

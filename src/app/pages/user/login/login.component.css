@@ -1,62 +1,75 @@
-/*.mat-mdc-raised-button {*/
-/*  height: 64px !important;*/
-/*}*/
-
 /*.login-container {*/
-/*  background-color: #F2f2f2 !important;*/
-/*  border-radius: 20px !important;*/
+/*  background-color: #F2f2f2;*/
+/*  border-radius: 20px;*/
 /*  border: #048ABF 1px solid;*/
-/*  padding: 20px !important;*/
-/*  margin-top: 100px !important;*/
+/*  padding: 20px;*/
+/*  margin-top: 100px;*/
+/*  max-width: 500px; !* Limit the form width *!*/
+/*  margin-left: auto;*/
+/*  margin-right: auto;*/
 /*}*/
-.login-container {
-  background-color: #F2f2f2;
-  border-radius: 20px;
-  border: #048ABF 1px solid;
-  padding: 20px;
-  margin-top: 100px;
-  max-width: 500px; /* Limit the form width */
-  margin-left: auto;
-  margin-right: auto;
+
+/*h3 {*/
+/*  text-align: center;*/
+/*  margin-bottom: 20px;*/
+/*  color: #0477BF;*/
+/*}*/
+
+/*mat-form-field {*/
+/*  width: 100%;*/
+/*  margin-bottom: 15px;*/
+/*}*/
+
+/*button {*/
+/*  width: 100%;*/
+/*  margin-top: 15px;*/
+/*}*/
+
+
+/*.divide-x-reverse {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  margin: 20px 0;*/
+/*}*/
+
+/*.divide-x-reverse span {*/
+/*  padding: 0 10px;*/
+/*}*/
+
+/*button.mat-raised-button {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
+
+/*button mat-icon {*/
+/*  margin-right: 8px;*/
+/*}*/
+.svg-top {
+  width: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #0477BF;
-}
-
-mat-form-field {
+.svg-bottom {
   width: 100%;
-  margin-bottom: 15px;
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+}
+.btn-primary {
+  background-color: #6366f1;
+  color: white;
 }
 
-button {
-  width: 100%;
-  margin-top: 15px;
+.btn-primary:hover {
+  background-color: #4f46e5;
 }
 
-.mat-mdc-raised-button {
-  height: 48px;
-}
-
-.divide-x-reverse {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.divide-x-reverse span {
-  padding: 0 10px;
-}
-
-button.mat-raised-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-button mat-icon {
-  margin-right: 8px;
+.btn-secondary {
+  background-color: white;
+  color: #6366f1;
+  border: 1px solid #6366f1;
 }

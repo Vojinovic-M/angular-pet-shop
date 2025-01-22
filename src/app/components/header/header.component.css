@@ -12,6 +12,7 @@
   align-items: center;
   padding: 0.3rem 1rem; /* Thinner header */
   z-index: 1000;
+  background-color: #f9f9ff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -25,10 +26,21 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+.navbar button:hover {
+  color: #7c3aed;
+}
 
 /* Sidenav styling */
 mat-sidenav {
   padding: 1rem;
+  height: 100vh;
+  /*background-color: #a2d9ff;*/
+  color: #101129;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  overflow-y: auto;
   box-shadow: none;
 }
 
@@ -64,16 +76,3 @@ mat-sidenav ul li button:hover {
     padding: 0.3rem 0.6rem; /* Adjust button padding for smaller screens */
   }
 }
-
-mat-sidenav {
-  height: 100vh;
-  /*background-color: #a2d9ff;*/
-  color: #101129;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  overflow-y: auto;
-  box-shadow: none;
-}
-

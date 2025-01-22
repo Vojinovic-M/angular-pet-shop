@@ -4,9 +4,7 @@ import { AuthUserService } from '../../services/auth-user.service';
 import { AuthGoogleService } from '../../services/auth-google.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Order } from '../../../models/order.model';
-import {MatButton} from '@angular/material/button';
 import {NgForOf, NgIf} from '@angular/common';
-import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {HttpClient} from '@angular/common/http';
 import {RatingComponent} from '../../components/rating/rating.component';
@@ -15,11 +13,8 @@ import {RatingComponent} from '../../components/rating/rating.component';
   selector: 'app-order',
   templateUrl: './order.component.html',
   imports: [
-    MatButton,
     NgIf,
     NgForOf,
-    MatCard,
-    MatCardImage,
     MatDialogModule
   ],
   styleUrls: ['./order.component.css']

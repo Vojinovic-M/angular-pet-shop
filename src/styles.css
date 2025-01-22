@@ -5,15 +5,18 @@
 body {
   /*font-family: 'Inter', sans-serif !important;*/
   font-weight: 300 !important;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  grid-template-rows: auto 1fr auto;
+  align-items: center; /* Centers content globally */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(
+    to bottom,
+    #e0f2ff,
+    #ede7ff);
 }
 
 button, mat-card {
@@ -24,10 +27,4 @@ button, mat-card {
 .dark-theme {
   background-color: #101129;
   color: #cdcdcd;
-  mat-card {
-    background-color: #471a1a !important;
-    color: #cdcdcd !important;
-    border: none;
-    text-decoration: none;
-  }
 }
