@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-  /*font-family: 'Inter', sans-serif !important;*/
+  font-family: 'Inter', sans-serif !important;
   font-weight: 300 !important;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers content globally */
+  align-items: center;
   margin: 0;
   padding: 0;
   width: 100%;
