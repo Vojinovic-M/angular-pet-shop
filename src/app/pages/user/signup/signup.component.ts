@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {AuthUserService} from '../../../services/auth-user.service';
 import {NgIf} from '@angular/common';
+import {SignupModel} from '../../../../models/signup.model';
+import {UserModel} from '../../../../models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -33,10 +35,31 @@ export class SignupComponent {
 
   onSubmit() {
     if (this.signupForm.valid) {
-      this.authUserService.register(this.signupForm.value).subscribe({
-        next: () => this.snackBar.open('Registration successful', 'Close', { duration: 3000 }),
+      const signupData: SignupModel = this.signupForm.value;
+
+      // Register the user
+      this.authUserService.register(signupData).subscribe({
+        next: () => {
+          // Automatically log in the user
+          const loginData: UserModel = {
+            email: signupData.email,
+            password: signupData.password
+          };
+
+          this.authUserService.login(loginData).subscribe({
+            next: (response) => {
+              // Save the user session
+              localStorage.setItem('user', JSON.stringify(response));
+              this.snackBar.open('Registration and login successful', 'Close', { duration: 3000 });
+              // Redirect to dashboard
+              window.location.href = '/dashboard';
+            },
+            error: () => this.snackBar.open('Login failed after registration', 'Close', { duration: 3000 })
+          });
+        },
         error: () => this.snackBar.open('Registration failed', 'Close', { duration: 3000 })
       });
     }
   }
+
 }
