@@ -6,19 +6,23 @@
     </path>
   </svg>
 
-  <!-- Signup Card -->
+  <!-- Edit Profile Card -->
   <div class="bg-white rounded-3xl shadow-lg py-8 px-20 max-w-md w-full">
-    <!-- Header -->
-    <h3 class="text-3xl font-semibold text-blue-600 text-center mb-6">Create an Account</h3>
-    <p class="text-center text-gray-500 mb-6">Sign up to get started. <br> Signing in allows you to place orders and more! </p>
 
-    <!-- Form -->
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <!-- Email Header -->
+    <div class="text-center mb-6">
+      <h3 class="text-xl font-bold">Editing Profile</h3>
+      <p class="text-sm text-gray-500">Email: {{ userEmail }}</p>
+
+    </div>
+
+    <!-- Edit Form -->
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       <!-- First Name -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
         <mat-form-field appearance="outline" class="w-full">
-          <input matInput type="text" formControlName="firstName" placeholder="Enter your first name" required />
+          <input matInput type="text" formControlName="firstName" placeholder="Enter your first name" />
         </mat-form-field>
       </div>
 
@@ -26,23 +30,7 @@
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
         <mat-form-field appearance="outline" class="w-full">
-          <input matInput type="text" formControlName="lastName" placeholder="Enter your last name" required />
-        </mat-form-field>
-      </div>
-
-      <!-- Email -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-        <mat-form-field appearance="outline" class="w-full">
-          <input matInput type="email" formControlName="email" placeholder="Enter your email" required />
-        </mat-form-field>
-      </div>
-
-      <!-- Password -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-        <mat-form-field appearance="outline" class="w-full">
-          <input matInput type="password" formControlName="password" placeholder="Enter your password" required minlength="6" />
+          <input matInput type="text" formControlName="lastName" placeholder="Enter your last name" />
         </mat-form-field>
       </div>
 
@@ -62,14 +50,23 @@
         </mat-form-field>
       </div>
 
-      <!-- Signup Button -->
+      <!-- Save Button -->
       <button
         type="submit"
         class="btn-primary w-full py-2 font-medium rounded-lg transition"
-        [disabled]="signupForm.invalid">
-        Sign Up
+        [disabled]="editForm.invalid">
+        Save Changes
+      </button>
+      <!-- Cancel button -->
+      <button
+        class="cancel-button w-full py-2 font-medium rounded-lg transition"
+        aria-label="Cancel edit"
+        (click)="cancelEdit()">
+        Cancel
       </button>
     </form>
+  </div>
+
 
   <!-- Bottom SVG -->
   <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -77,5 +74,4 @@
           d="M0,0L48,5.3C96,11,192,21,288,42.7C384,64,480,96,576,96C672,96,768,64,864,58.7C960,53,1056,75,1152,112C1248,149,1344,203,1392,229.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
     </path>
   </svg>
-</div>
 </div>

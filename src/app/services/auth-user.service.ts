@@ -43,4 +43,25 @@ export class AuthUserService {
   register(user: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/user/register`, user);
   }
+
+
+  // updateUser(user: Partial<UserProfile>, username: string, password: string): Observable<any> {
+  //   const headers = new HttpHeaders({'Content-Type': 'application/json',
+  //     Authorization: `Basic ${btoa(`${username}:${password}`)}`,
+  //   });
+  //   return this.http.put(`${this.baseUrl}/user/update`, user, { headers });
+  // }
+  updateUser(userData: any, username: string, password: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Basic ${btoa(`${username}:${password}`)}`,
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.put('http://localhost:8080/user/update', userData, {
+      headers: headers,
+      responseType: 'text', // Specify the response type as 'text'
+    });
+  }
+
+
 }

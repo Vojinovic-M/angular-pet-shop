@@ -9,6 +9,7 @@ import {AuthUserService} from '../../services/auth-user.service';
 import {AuthGoogleService} from '../../services/auth-google.service';
 import {FormsModule} from '@angular/forms';
 import {MatIcon} from '@angular/material/icon';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-cart',
@@ -22,7 +23,15 @@ import {MatIcon} from '@angular/material/icon';
     MatIcon
   ],
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('800ms ease-out', style({ opacity: 1 }))
+      ])
+    ]),
+  ]
 })
 export class CartComponent implements OnInit {
   items: PetModel[] = [];
@@ -68,7 +77,7 @@ export class CartComponent implements OnInit {
       };
 
     this.orderService.createOrder(order, authHeader).subscribe(
-      (response) => {
+      () => {
         alert(`${item.name} order has been successfully created!`);
         this.removeItem(this.items.indexOf(item));
       },

@@ -8,16 +8,28 @@
   flex-direction: column;
 }
 
-button {
+.edit-button {
   transition: transform 0.2s, background-color 0.2s;
+  background-color: #4f46e5;
+  color: white;
+  width: 120px;
 }
-
-button:hover {
+.edit-button:hover {
   transform: scale(1.05);
-  background-color: #a30000;
-  color: #ffffff;
+  background-color: white;
+  color: #4f46e5;
 }
-
+.logout-button {
+  transition: transform 0.2s, background-color 0.2s;
+  background-color: red;
+  color: white;
+  width: 120px;
+}
+.logout-button:hover {
+  transform: scale(1.05);
+  background-color: white;
+  color: red;
+}
 
 .user-details {
   display: flex;
@@ -40,13 +52,6 @@ button:hover {
   font-size: 1rem;
   color: #333;
   margin: 5px 0;
-}
-
-.logout-btn {
-  margin-top: 20px;
-  background-color: #d32f2f;
-  color: white;
-  width: 150px;
 }
 
 .mat-divider {

@@ -1,15 +1,15 @@
-<div class="bg-gray-50 shadow-md rounded-lg p-6">
+<div class="bg-gray-50 shadow-md rounded-lg p-6 place-items-center">
   <button
-    class="bg-blue-500 text-white py-2 px-4 rounded-md mb-6 hover:bg-blue-600"
+    class="view-orders-btn bg-blue-500 text-white py-2 px-4 rounded-md mb-6 hover:bg-blue-600"
     (click)="loadOrders()">
-    View/Hide My Orders
+    View My Orders
   </button>
   <ng-container *ngIf="orders?.length; else noOrders">
     <div class="grid grid-cols-1 gap-6">
       <div *ngFor="let order of orders" class="bg-white shadow-md rounded-lg p-4 flex items-center">
         <div>
-          <p class="text-gray-700"><strong>Order ID:</strong> {{ order.id }}</p>
           <p class="text-gray-700"><strong>Status:</strong> {{ order.status }}</p>
+          <p class="text-gray-700"><strong>Order ID:</strong> {{ order.id }}</p>
           <p class="text-gray-700"><strong>Price:</strong> {{ order.price }} EUR</p>
           <p class="text-gray-700"><strong>Pet Name:</strong> {{ order.pet.name }}</p>
         </div>

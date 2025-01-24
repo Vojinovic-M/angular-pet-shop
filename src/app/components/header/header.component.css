@@ -71,3 +71,16 @@
   font-size: 36px;
   margin-left: 50px;
 }
+
+.mat-mdc-menu-content {
+  padding: 0 0 !important;
+}
+
+/*.mat-mdc-menu-item {*/
+/*  color: #f1f5f9;*/
+/*  background-color: #6366f1;*/
+/*}*/
+/*.mat-mdc-menu-item:hover {*/
+/*  color: #6366f1;*/
+/*  background-color: #ffffff;*/
+/*}*/

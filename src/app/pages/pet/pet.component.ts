@@ -4,25 +4,27 @@ import { PetModel } from '../../../models/pet.model';
 import { WebService } from '../../services/web.service';
 import { NgIf } from '@angular/common';
 import {CartService} from '../../services/cart.service';
-import {MatButton} from '@angular/material/button';
-import {MatCard, MatCardActions, MatCardContent, MatCardSubtitle, MatCardTitle} from '@angular/material/card';
 import {MatList, MatListItem} from '@angular/material/list';
-import {MatIcon} from '@angular/material/icon';
-import {window} from 'rxjs';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
     selector: 'app-pet-shop',
   imports: [
     RouterLink,
     NgIf,
-    MatButton,
-    MatCard,
     MatList,
     MatListItem,
-    MatIcon
   ],
     templateUrl: './pet.component.html',
-    styleUrl: './pet.component.css'
+    styleUrl: './pet.component.css',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('800ms ease-out', style({ opacity: 1 }))
+      ])
+    ]),
+  ]
 })
 export class PetComponent implements OnInit {
   public pet: PetModel | null = null;

@@ -1,18 +1,27 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {AuthGoogleService} from '../../../services/auth-google.service';
 import {AuthUserService} from '../../../services/auth-user.service';
 import {OrderComponent} from '../../order/order.component';
 import {HttpClient} from '@angular/common/http';
 import {Order} from '../../../../models/order.model';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
     selector: 'app-dashboard',
-  imports: [CommonModule, OrderComponent],
+  imports: [CommonModule, OrderComponent, RouterLink],
     templateUrl: './dashboard.component.html',
-    styleUrl: './dashboard.component.css'
+    styleUrl: './dashboard.component.css',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('800ms ease-out', style({ opacity: 1 }))
+      ])
+    ]),
+  ]
 })
 export class DashboardComponent implements OnInit {
   private authGoogleService = inject(AuthGoogleService);

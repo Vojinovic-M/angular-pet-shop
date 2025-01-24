@@ -1,105 +1,186 @@
-.breadcrumb-item a{
+/*.breadcrumb-item a{*/
+/*  text-decoration: none;*/
+/*  color: #F28705;*/
+/*  list-style: none;*/
+/*}*/
+
+/*.image-canvas {*/
+/*  width: 100%;*/
+/*  min-width: 300px;*/
+/*  aspect-ratio: 1 / 1;*/
+/*  background-color: #F2F2F2;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  overflow: hidden;*/
+/*  border-radius: 10px;*/
+/*}*/
+
+/*.image-canvas img {*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  object-fit: cover;*/
+/*  object-position: center;*/
+/*}*/
+
+/*.pet-card {*/
+/*  max-width: 800px;*/
+/*  margin: 1rem auto;*/
+/*  padding: 1rem;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  gap: 1rem;*/
+/*  box-shadow: none;*/
+/*  border-radius: 10px;*/
+/*  background-color: #f2f2f2;*/
+/*}*/
+
+/*.card-container {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  gap: 1rem;*/
+/*}*/
+
+/*.left-section {*/
+/*  flex: 1;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  min-width: 300px; !* Prevent image from shrinking too much *!*/
+/*}*/
+
+/*.right-section {*/
+/*  flex: 2;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*}*/
+
+/*mat-list {*/
+/*  margin-bottom: 1rem;*/
+/*}*/
+
+/*mat-list-item {*/
+/*  margin-bottom: 0.5rem;*/
+/*  padding: 0.5rem 1rem;*/
+/*  background-color: #f2c166;*/
+/*  border-radius: 10px;*/
+/*}*/
+
+/*.button-group {*/
+/*  display: flex;*/
+/*  gap: 1rem;*/
+/*}*/
+
+/*mat-stroked-button {*/
+/*  flex: 1;*/
+/*  color: #f28705;*/
+/*  border-color: #f28705;*/
+/*}*/
+
+/*mat-stroked-button:hover {*/
+/*  background-color: #f28705;*/
+/*  color: #ffffff;*/
+/*}*/
+
+/*!* Responsive Layout *!*/
+/*@media screen and (max-width: 768px) {*/
+/*  .card-container {*/
+/*    flex-direction: column;*/
+/*  }*/
+
+/*  .left-section {*/
+/*    order: 1; !* Move image above text *!*/
+/*  }*/
+
+/*  .right-section {*/
+/*    order: 2;*/
+/*  }*/
+/*}*/
+/* Breadcrumb Links */
+nav a {
+  color: #4f46e5;
   text-decoration: none;
-  color: #F28705;
-  list-style: none;
 }
 
+nav a:hover {
+  text-decoration: underline;
+}
 
-
-
-
+/* Image Container */
 .image-canvas {
   width: 100%;
-  min-width: 300px;
   aspect-ratio: 1 / 1;
-  background-color: #F2F2F2;
+  background-color: #f8fafc;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 10px;
+  border: 1px solid #e5e7eb;
 }
 
 .image-canvas img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-
-
-.pet-card {
-  max-width: 800px;
-  margin: 1rem auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  box-shadow: none;
-  border-radius: 10px;
-  background-color: #f2f2f2;
+/* Buttons */
+.button-group button {
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.left-section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 300px; /* Prevent image from shrinking too much */
-}
-
-.right-section {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-mat-list {
-  margin-bottom: 1rem;
+button.mat-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 mat-list-item {
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #f2c166;
-  border-radius: 10px;
-}
-
-.button-group {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
 }
 
-mat-stroked-button {
-  flex: 1;
-  color: #f28705;
-  border-color: #f28705;
+mat-list-item:last-child {
+  border-bottom: none;
 }
 
-mat-stroked-button:hover {
-  background-color: #f28705;
-  color: #ffffff;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
 
-/* Responsive Layout */
-@media screen and (max-width: 768px) {
-  .card-container {
+  .button-group {
     flex-direction: column;
   }
+}
 
-  .left-section {
-    order: 1; /* Move image above text */
-  }
 
-  .right-section {
-    order: 2;
-  }
+.home-button {
+  transition: transform 0.2s, background-color 0.2s;
+  background-color: #4f46e5;
+  color: white;
+  width: 125px;
+}
+.home-button:hover {
+  transform: scale(1.05);
+  background-color: white;
+  color: #4f46e5;
+}
+.cart-button {
+  transition: transform 0.2s, background-color 0.2s;
+  background-color: red;
+  color: white;
+  width: 125px;
+}
+.cart-button:hover {
+  transform: scale(1.05);
+  background-color: white;
+  color: red;
 }

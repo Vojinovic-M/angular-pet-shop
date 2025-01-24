@@ -66,3 +66,9 @@
 .start-shopping {
   color: #4f46e5;
 }
+svg {
+  width: 130%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

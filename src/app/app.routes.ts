@@ -10,6 +10,7 @@ import {ShippingComponent} from './pages/shipping/shipping.component';
 import {OrderComponent} from './pages/order/order.component';
 import {RatingComponent} from './components/rating/rating.component';
 import {SignupComponent} from './pages/user/signup/signup.component';
+import {EditComponent} from './pages/user/edit/edit.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ export const routes: Routes = [
     { path: 'user/login', component: LoginComponent },
     { path: 'user/signup', component: SignupComponent},
     { path: 'user/dashboard', component: DashboardComponent },
+    { path: 'user/edit', component: EditComponent },
     { path: 'user/orders', component: OrderComponent},
     { path: 'order/rating', component: RatingComponent},
     { path: '**', redirectTo: '' }

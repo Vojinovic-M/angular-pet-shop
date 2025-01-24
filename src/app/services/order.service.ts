@@ -20,6 +20,7 @@ export class OrderService {
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const authHeader = 'Basic ' + btoa(`${username}:${password}`);
+
     return this.http.get<Order[]>(`${this.baseUrl}`, {
       headers: new HttpHeaders().set('Authorization', authHeader),
     });
@@ -30,9 +31,7 @@ export class OrderService {
     const password = localStorage.getItem('password');
     const authHeader = 'Basic ' + btoa(`${username}:${password}`);
 
-    return this.http.put<void>(
-      `${this.baseUrl}/${orderId}/status`,
-      {status},
+    return this.http.put<void>(`${this.baseUrl}/${orderId}/status`, {status},
       {
       headers: new HttpHeaders()
         .set('Authorization', authHeader)
@@ -49,6 +48,7 @@ export class OrderService {
       headers: new HttpHeaders().set('Authorization', authHeader),
     });
   }
+
 
   rateOrder(orderId: number, rating: number): Observable<void> {
     const username = localStorage.getItem('username');

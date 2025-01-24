@@ -12,14 +12,22 @@ import {
   MatCardImage,
   MatCardTitle
 } from '@angular/material/card';
-import {MatAnchor} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
     selector: 'app-browse',
-  imports: [RouterLink, RouterLink, NgFor, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatAnchor, MatCardTitle, FormsModule],
+  imports: [RouterLink, RouterLink, NgFor, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatCardTitle, FormsModule],
     templateUrl: './browse.component.html',
-    styleUrl: './browse.component.css'
+    styleUrl: './browse.component.css',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('800ms ease-out', style({ opacity: 1 }))
+      ])
+    ]),
+  ]
 })
 
 

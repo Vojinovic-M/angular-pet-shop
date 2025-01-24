@@ -1,7 +1,7 @@
-<div class="cart">
+<div class="cart" @fadeIn>
   <h3 class="-mt-32 -ml-16 text-xl">Your Shopping Cart</h3>
 
-    <div *ngIf="items.length > 0; else emptyCart">
+    <div *ngIf="items.length > 0; else emptyCart" class="pt-8">
       <table class="cart-table">
         <thead>
         <tr>
@@ -17,7 +17,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.price.toFixed(2) }} EUR</td>
           <td>
-            <button mat-stroked-button (click)="removeItem(i)">
+            <button mat-button class="btn-remove" (click)="removeItem(i)">
               <mat-icon>delete</mat-icon> Remove
             </button>
           </td>
@@ -28,8 +28,8 @@
       <div class="cart-summary">
         <span>Total: {{ getTotalPrice().toFixed(2) }} EUR</span>
 <!--        <span *ngIf="shippingCost">Shipping: {{ shippingCost.toFixed(2) }} EUR</span>-->
-        <button mat-raised-button (click)="clearCart()" class="btn-clear">Clear Cart</button>
-        <button mat-raised-button (click)="placeOrder()">Place Order</button>
+        <button  (click)="clearCart()" class="btn-clear">Clear Cart</button>
+        <button (click)="placeOrder()" class="btn-order">Place Order</button>
       </div>
       <p>
         <a routerLink="/shipping">Check Shipping Prices</a>
@@ -39,4 +39,6 @@
     <ng-template #emptyCart>
       <p class="mt-40">Your cart is empty. <a routerLink="/browse" class="start-shopping font-bold">Start shopping!</a></p>
     </ng-template>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#4f46e5" fill-opacity="1" d="M0,128L30,160C60,192,120,256,180,240C240,224,300,128,360,80C420,32,480,32,540,64C600,96,660,160,720,186.7C780,213,840,203,900,181.3C960,160,1020,128,1080,133.3C1140,139,1200,181,1260,176C1320,171,1380,117,1410,90.7L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
 </div>
