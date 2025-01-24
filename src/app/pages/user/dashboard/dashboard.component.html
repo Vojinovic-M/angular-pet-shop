@@ -2,7 +2,7 @@
   <!-- User Details Section -->
   <div class="user-details bg-white shadow-lg rounded-lg mb-6">
     <div *ngIf="googleProfile as profile" class="flex items-center space-x-4">
-      <img [src]="profile.picture" alt="Profile Picture" class="w-20 h-20 rounded-full shadow-md">
+      <img [src]="profile.picture" alt="Profile" class="w-20 h-20 rounded-full shadow-md">
       <div class="details">
         <h2 class="text-xl font-semibold">Google User</h2>
         <p class="text-gray-700"><strong>Name:</strong> {{ profile.name }}</p>

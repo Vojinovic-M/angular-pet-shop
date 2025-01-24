@@ -27,45 +27,48 @@ import {animate, style, transition, trigger} from '@angular/animations';
   ]
 })
 export class SignupComponent implements OnInit {
-  signupForm: FormGroup;
+  signupForm: FormGroup;  // Form group for user signup
 
   ngOnInit() {}
 
   constructor(
-    private fb: FormBuilder,
-    private authUserService: AuthUserService,
-    private snackBar: MatSnackBar
+    private fb: FormBuilder, // For building the reactive form
+    private authUserService: AuthUserService, // Auth service for user registration
+    private snackBar: MatSnackBar // Snackbar for notifications
   ) {
+    // Initialize the form with validation rules
     this.signupForm = this.fb.group({
-      firstName: ['', Validators.required, Validators.pattern('^[A-Za-z]+$')],
-      lastName: ['', Validators.required, Validators.pattern('^[A-Za-z]+$')],
-      phone: ['', Validators.required, Validators.pattern('^[0-9]+$')],
-      address: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      firstName: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]], // Only letters allowed
+      lastName: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]], // Only letters allowed
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Only numbers allowed
+      address: ['', [Validators.required, Validators.minLength(5)]], // At least 5 characters
+      email: ['', [Validators.required, Validators.email]], // Must be a valid email
+      password: ['', [Validators.required, Validators.minLength(6)]], // At least 6 characters
     });
   }
 
+  /**
+   * Handles user registration and automatic login.
+   * Sends the signup data to the backend and, on success, logs the user in.
+   */
   onSubmit() {
     if (this.signupForm.valid) {
-      const signupData: SignupModel = this.signupForm.value;
+      const signupData: SignupModel = this.signupForm.value;  // Extract form values
 
       // Register the user
       this.authUserService.register(signupData).subscribe({
         next: () => {
-          // Automatically log in the user
           const loginData: UserModel = {
             email: signupData.email,
             password: signupData.password
           };
-
+          // Automatically log in after registration
           this.authUserService.login(loginData).subscribe({
             next: (response) => {
               // Save the user session
-              localStorage.setItem('user', JSON.stringify(response));
+              localStorage.setItem('user', JSON.stringify(response)); // Save session
               this.snackBar.open('Registration and login successful', 'Close', { duration: 3000 });
-              // Redirect to dashboard
-              window.location.href = '/dashboard';
+              window.location.href = '/dashboard'; // Redirect to dashboard
             },
             error: () => this.snackBar.open('Login failed after registration', 'Close', { duration: 3000 })
           });
