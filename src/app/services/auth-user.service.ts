@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {UserProfile} from '../../models/profile.model';
+declare var Webchat: any;
 
 @Injectable({
   providedIn: 'root',

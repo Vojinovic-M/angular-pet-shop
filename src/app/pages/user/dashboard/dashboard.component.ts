@@ -8,7 +8,10 @@ import {HttpClient} from '@angular/common/http';
 import {Order} from '../../../../models/order.model';
 import {animate, style, transition, trigger} from '@angular/animations';
 
-
+/**
+ * DashboardComponent is the main hub for logged-in users.
+ * It displays the user's orders and allows them to log out.
+ */
 @Component({
     selector: 'app-dashboard',
   imports: [CommonModule, OrderComponent, RouterLink],
@@ -24,26 +27,35 @@ import {animate, style, transition, trigger} from '@angular/animations';
   ]
 })
 export class DashboardComponent implements OnInit {
+  // Services for authentication and routing
   private authGoogleService = inject(AuthGoogleService);
   private authUserService = inject(AuthUserService);
   private router = inject(Router);
+
+  // Array to store the user's orders
   orders: Order[] = [];
+
+  // Profiles for regular and Google accounts
   userProfile = this.authUserService.getUserProfile();
   googleProfile = this.authGoogleService.getGoogleProfile()();
 
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * Logs the user out of both Google and regular accounts.
+   * Redirects to the login page after logout.
+   */
   logOut() {
     this.authGoogleService.logout();
     this.authUserService.logout();
     this.router.navigate(['/user/login']);
   }
 
-  ngOnInit() {
-    this.fetchOrders();
-  }
 
+  /**
+   * Fetches all orders for the logged-in user from the backend.
+   */
   fetchOrders() {
     const username = localStorage.getItem('username') || '';
     const password = localStorage.getItem('password') || '';
@@ -63,6 +75,13 @@ export class DashboardComponent implements OnInit {
         }
       }
     });
-    }
+  }
+
+  /**
+   * Initializes the component by fetching user orders.
+   */
+  ngOnInit() {
+    this.fetchOrders();
+  }
 
 }

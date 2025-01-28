@@ -1,6 +1,6 @@
 .cart {
   background-color: #f2f2f2;
-  border: 2px solid #4f46e5;
+  border: 1px solid #4f46e5;
   border-radius: 20px;
   padding: 150px;
   margin: 100px auto;
@@ -42,18 +42,10 @@
   margin-top: 5px;
 }
 
-.cart-item button:hover {
-  background-color: #f28705;
-}
-
 .cart-item button mat-icon {
   margin-right: 5px;
 }
 
-.cart-summary button {
-  background-color: #0477bf;
-  color: white;
-}
 
 .cart-table td img {
   width: 100px;
@@ -71,4 +63,45 @@ svg {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.btn-clear{
+  transition: transform 0.2s, background-color 0.2s;
+  background-color: #d64545;
+  color: white;
+}
+
+.btn-clear:hover {
+  background-color: white;
+  color: #d64545;
+  border: 1px solid #d64545;
+}
+
+.btn-order {
+  transition: transform 0.2s, background-color 0.2s;
+  background-color: #54a848;
+  color: #f1f5f9;
+  border: 1px solid #54a848;
+}
+
+.btn-order:hover {
+  background-color: #00cc48;
+}
+
+.btn-remove {
+  color: #d64545;
+  font-weight: bold;
+}
+
+.btn-remove:hover {
+  background: none;
+  color: #b64343;
+}
+
+.top-blob {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 500px;
+  z-index: -1;
 }

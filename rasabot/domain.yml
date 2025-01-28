@@ -1,50 +1,140 @@
 version: "3.1"
-
 intents:
   - greet
   - goodbye
-  - affirm
   - bot_challenge
   - mood_great
-  - mood_unhappy
-  - deny
-
-  - search_pet
+  - search_pets
   - order_pet
-
-responses:
-  utter_greet:
-  - text: "Hey!  How can I help you today? You can search for pets or place an order."
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-  utter_pet_details:
-  - text: "Here are the details for {pet_name}: \nDescription: {description} \nType: {type} \nAge: {age} \nSize: {size} \nPrice: {price} \nReviews: {reviews} \nFor more details, visit {link}"
-
-  utter_ask_for_order:
-  - text: "Would you like to order this pet?"
-
-  utter_happy:
-    - text: "Great to hear!"
-
-  utter_cheer_up:
-    - text: "Don't worry, everything will be okay. God is great and He takes care of us!"
-
-actions:
-  - action_search_pet
-  - action_order_pet
-
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  - login
 
 entities:
+  - breed
+  - age
+  - size
+  - pet_id
   - pet_name
+
+slots:
+  pet_id:
+    type: text
+    mappings:
+    - type: custom
+      entity: pet_id
+  auth_token:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+      entity: authToken
+
+responses:
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+  utter_iamabot:
+    - text: "I’m a bot here to assist you with your pet shop needs!"
+  utter_happy:
+    - text: "I’m glad you’re doing great!"
+
+actions:
+  - action_greet_user
+  - action_search_pets
+  - action_order_pet
+  - action_login
+
+#version: "3.1"
+#
+#intents:
+#  - greet
+#  - goodbye
+#  - affirm
+#  - bot_challenge
+#  - mood_great
+#  - mood_unhappy
+#  - deny
+#  - login
+#  - list_pets
+#  - fetch_pet_details
+#  - order_pet
+#  - check_login
+#
+#slots:
+#  username:
+#    type: text
+#    influence_conversation: false
+#    mappings:
+#    - type: custom
+#  password:
+#    type: text
+#    influence_conversation: false
+#    mappings:
+#    - type: custom
+#  pet_id:
+#    type: text
+#    influence_conversation: false
+#    mappings:
+#    - type: custom
+#  order_status:
+#    type: text
+#    influence_conversation: false
+#    mappings:
+#    - type: custom
+#
+#
+#responses:
+#  utter_greet:
+#  - text: "Hey!  How can I help you today? You can search for pets or place an order."
+#
+#  utter_cheer_up:
+#  - text: "Don't worry, everything will be okay. God is great and He takes care of us!"
+#
+#  utter_happy:
+#  - text: "Great to hear!"
+#
+#  utter_did_that_help:
+#  - text: "Did that help you?"
+#
+#  utter_goodbye:
+#  - text: "Bye"
+#
+#  utter_iamabot:
+#  - text: "I am a bot, powered by Rasa."
+#
+#  utter_pet_details:
+#  - text: "Here are the details for {pet_name}: \nDescription: {description} \nType: {type} \nAge: {age} \nSize: {size} \nPrice: {price} \nReviews: {reviews} \nFor more details, visit {link}"
+#
+#  utter_order_success:
+#  - text: "Your order for {pet_name} has been placed successfully!"
+#
+#  utter_order_failure:
+#  - text: "We couldn't process your order. Please try again."
+#
+#  utter_login_prompt:
+#  - text: "Please log in to proceed."
+#
+#  utter_ask_username:
+#  - text: "What's your username?"
+#
+#  utter_ask_password:
+#  - text: "What's your password?"
+#
+#  utter_ask_pet_id:
+#  - text: "Please provide the pet ID."
+#
+#
+#actions:
+#  - action_set_user_id
+#  - action_check_login
+#  - action_search_pet
+#  - action_order_pet
+#  - action_place_order
+#
+#
+#session_config:
+#  session_expiration_time: 60
+#  carry_over_slots_to_new_session: true
+#
+#entities:
+#  - pet_id
+#  - username
+#  - password

@@ -6,6 +6,10 @@ import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
 import {MatExpansionPanelActionRow} from '@angular/material/expansion';
 import {MatIcon} from '@angular/material/icon';
 
+/**
+ * ShippingComponent is responsible for displaying the available shipping options.
+ * The shipping options are retrieved from a service and displayed as a list.
+ */
 @Component({
   selector: 'app-shipping',
   imports: [
@@ -22,10 +26,16 @@ import {MatIcon} from '@angular/material/icon';
 })
 export class ShippingComponent implements OnInit {
 
-  constructor(private cartService: CartService) {}
-
+  // Observable to store the shipping costs retrieved from the service
   shippingCosts!: Observable<{type: string, price: number}[]>;
 
-  ngOnInit(): void { this.shippingCosts = this.cartService.getShippingPrices(); }
+  constructor(private cartService: CartService) {}
 
+  /**
+   * Lifecycle hook to initialize the component and fetch the shipping costs.
+   */
+  ngOnInit(): void {
+    // Fetch the shipping prices using the CartService
+    this.shippingCosts = this.cartService.getShippingPrices();
+  }
 }

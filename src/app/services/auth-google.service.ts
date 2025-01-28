@@ -4,7 +4,6 @@ import {Router} from '@angular/router';
 import {authConfig} from '../auth-config';
 import {GoogleProfile} from '../../models/google.model';
 import {HttpClient} from '@angular/common/http';
-import {StorageService} from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,7 @@ export class AuthGoogleService {
   // Reactive signal to store the Google profile.
   private profileSignal = signal<GoogleProfile | null>(null);
 
-  constructor(private http: HttpClient, private storageService: StorageService) {
+  constructor(private http: HttpClient) {
     this.initConfiguration();
   }
 

@@ -29,8 +29,6 @@ import {animate, style, transition, trigger} from '@angular/animations';
     ]),
   ]
 })
-
-
 export class BrowseComponent implements OnInit {
   public data: PageModel<PetModel> = {
     content: [],
@@ -52,19 +50,25 @@ export class BrowseComponent implements OnInit {
     first: true,
     empty: true,
   };
-  public pageSize = 10;
-  public currentPage = 0;
-  public totalElements = 0;
+  public pageSize = 10; // Number of pets per page.
+  public currentPage = 0;  // Current page index.
+  public totalElements = 0;  // Total number of pets in the database.
 
-  filteredPets: PetModel[] = [];
-  searchTerm: string = '';
+  filteredPets: PetModel[] = []; // Pets filtered by search term.
+  searchTerm: string = ''; // Search input value.
 
   constructor(private webService: WebService) {}
 
+  /**
+   * Angular lifecycle hook to load pets on component initialization.
+   */
   ngOnInit() {
     this.loadPets();
   }
 
+  /**
+   * Fetches paginated pet data from the backend and updates the local state.
+   */
   loadPets() {
     this.webService.getPets(this.currentPage).subscribe((data) => {
       this.data = data;
@@ -73,16 +77,25 @@ export class BrowseComponent implements OnInit {
     })
   }
 
+  /**
+   * Updates the current page and reloads pet data on pagination change.
+   * @param event - The pagination event containing the new page index and size.
+   */
   onPageChange(event: any) {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
     this.loadPets();
   }
 
+  /**
+   * Filters pets based on the search term.
+   */
   applySearch() {
     const term = this.searchTerm.toLowerCase();
     this.filteredPets = this.data.content.filter((pet) =>
-      pet.name.toLowerCase().includes(term) || pet.breed.toLowerCase().includes(term)
+      pet.name.toLowerCase().includes(term) ||
+      pet.breed.toLowerCase().includes(term)
+      // || pet.description.toLowerCase().includes(term)
     );
   }
 }

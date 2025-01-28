@@ -28,3 +28,12 @@ button, mat-card {
   background-color: #101129;
   color: #cdcdcd;
 }
+
+a {
+  text-decoration: underline;
+  color: #cfd4f3;
+}
+a:hover {
+  text-decoration: none;
+  color: #bebecd;
+}

@@ -1,20 +1,24 @@
 version: "3.1"
 
 rules:
+
 - rule: Greet the user
   steps:
-  - intent: greet
-  - action: utter_greet
+    - intent: greet
+    - action: action_greet_user
+
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
+
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
 
 - rule: Say great when user is good
   steps:
@@ -24,10 +28,36 @@ rules:
 
 - rule: User asks to search for pets
   steps:
-  - intent: search_pet
-  - action: action_search_pet
+  - intent: search_pets
+  - action: action_search_pets
 
-- rule: User asks to order a pet
-  steps:
-  - intent: order_pet
-  - action: action_order_pet
+
+#- rule:  User must log in before placing an order
+#  condition:
+#    - slot_was_set:
+#        - user_id: null
+#  steps:
+#    - intent: order_pet
+#    - action: utter_login_prompt
+#
+#
+#- rule: Order placement succeeds
+#  condition:
+#  - slot_was_set:
+#    - order_status: success
+#    - user_id: not null
+#  steps:
+#  - intent: order_pet
+#  - action: action_order_pet
+#  - action: utter_order_success
+#
+#
+#- rule: Order placement fails
+#  condition:
+#  - slot_was_set:
+#    - order_status: failure
+#    - user_id: not null
+#  steps:
+#  - intent: order_pet
+#  - action: action_order_pet
+#  - action: utter_order_error

@@ -1,32 +1,53 @@
-<div class="chatbot-container">
-  <!-- Toggle Button -->
-  <button class="btn-primary" (click)="toggleChat()" *ngIf="!isChatVisible">
-    <mat-icon>chat</mat-icon>
-  </button>
+<div class="chat-container" id="webchat" [class.hidden]="!isChatVisible">
+  <!-- Chat Header -->
+  <div class="chat-header">
+    <h3>Chatbot. Powered by RasaAI.</h3>
+    <button mat-icon-button (click)="toggleChat()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
 
-  <!-- Chatbox -->
-  <div *ngIf="isChatVisible" class="chatbox chatbox-active">
-    <div class="chatbox-header">
-      <strong>Your AI Assistant</strong>
-      <button mat-icon-button (click)="toggleChat()">
-        <mat-icon>close</mat-icon>
-      </button>
-    </div>
-    <div class="chat-body">
-      <div *ngFor="let message of messages" class="message">
-        <div *ngIf="message.type === 'user'" class="user-message">
-          <span class="badge-primary">{{ message.text }}</span>
-        </div>
-        <div *ngIf="message.type === 'bot'" class="bot-message">
-          <span class="badge-secondary" [innerHTML]="message.text"></span>
-        </div>
+  <!-- Chat Body -->
+  <div class="chat-body" #chatBody>
+    <div *ngFor="let message of messages" class="chat-message" [ngClass]="{'user': message.type === 'user', 'bot': message.type === 'bot'}">
+      <div *ngIf="message.type === 'user'" class="user-message">
+        <span>{{ message.text }}</span>
+      </div>
+      <div *ngIf="message.type === 'bot'" class="bot-message">
+        <span [innerHTML]="message.text | markdown"><br></span>
       </div>
     </div>
-    <div class="chatbox-footer">
-      <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Type a message...</mat-label>
-        <input matInput [(ngModel)]="userMessage" (keyup.enter)="sendMessage()"/>
-      </mat-form-field>
-    </div>
   </div>
+
+  <!-- Chat Footer -->
+  <div class="flex items-center p-3 space-x-2">
+    <input
+      class="flex h-10 w-full rounded-md border border-[#e5e7eb] px-3 py-2 text-sm placeholder-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#9ca3af] disabled:cursor-not-allowed disabled:opacity-50 text-[#030712] focus-visible:ring-offset-2"
+      [(ngModel)]="userMessage" (keydown.enter)="sendMessage()"
+      placeholder="Type your message">
+    <button
+      class="inline-flex items-center justify-center rounded-md text-sm font-medium text-[#f9fafb] disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-[#111827E6] h-10 px-4 py-2"
+      (click)="sendMessage()"> Send </button>
+  </div>
+
 </div>
+
+
+<!-- Chat Toggle Button -->
+<button class="chat-toggle" mat-fab color="primary" *ngIf="!isChatVisible" (click)="toggleChat()">
+  <mat-icon>chat</mat-icon>
+</button>
+<!-- Add this in your Angular app -->
+<!--<div id="rasa-webchat-widget" data-websocket-url="https://your-rasa-url-here/"></div>-->
+<!--<script src="https://unpkg.com/@rasahq/rasa-webchat" type="application/javascript"></script>-->
+<!--<script>-->
+<!--  import * as WebChat from "postcss";-->
+
+<!--  WebChat.default.init({-->
+<!--    selector: "#rasa-chat-widget",-->
+<!--    initPayload: '/greet',-->
+<!--    customData: { language: "en" },-->
+<!--    socketUrl: "http://localhost:5005",-->
+<!--    title: "Pet Assistant",-->
+<!--  });-->
+<!--</script>-->

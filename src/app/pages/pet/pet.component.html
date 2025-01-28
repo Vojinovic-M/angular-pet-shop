@@ -1,3 +1,80 @@
+<!--<div *ngIf="pet" class="container mx-auto my-20 px-6 py-10" @fadeIn>-->
+<!--  &lt;!&ndash; Breadcrumb &ndash;&gt;-->
+<!--  <nav aria-label="breadcrumb" class="mb-4">-->
+<!--    <ol class="flex space-x-2 text-sm text-gray-600">-->
+<!--      <li>-->
+<!--        <a routerLink="/" class="hover:underline text-blue-600">Home</a>-->
+<!--      </li>-->
+<!--      <li>/</li>-->
+<!--      <li>-->
+<!--        <a routerLink="/browse" class="hover:underline text-blue-600">Pets</a>-->
+<!--      </li>-->
+<!--      <li>/</li>-->
+<!--      <li class="text-gray-800">{{ pet.id }}</li>-->
+<!--    </ol>-->
+<!--  </nav>-->
+
+<!--  &lt;!&ndash; Card &ndash;&gt;-->
+<!--  <div class="bg-white shadow-md rounded-lg max-w-5xl mx-auto p-6 flex flex-col md:flex-row gap-6">-->
+<!--    &lt;!&ndash; Left Section: Image &ndash;&gt;-->
+<!--    <div class="w-full md:w-1/3">-->
+<!--      <div class="image-canvas">-->
+<!--        <img [src]="pet.imageUrl" [alt]="pet.name" />-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Right Section: Details &ndash;&gt;-->
+<!--    <div class="w-full md:w-2/3 flex flex-col gap-4">-->
+<!--      <h1 class="text-2xl font-semibold text-gray-800">{{ pet.name }}</h1>-->
+<!--      <p class="text-gray-600">{{ pet.description }}</p>-->
+
+<!--      <mat-list>-->
+<!--        <mat-list-item>-->
+<!--          <strong>Age:</strong> {{ pet.age }}-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--          <strong>Breed:</strong> {{ pet.breed }}-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--          <strong>Size:</strong> {{ pet.size}} cm-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--          <strong>Origin:</strong> {{ pet.origin }}-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--          <strong>Price:</strong> {{ pet.price }} EUR-->
+<!--        </mat-list-item>-->
+<!--      </mat-list>-->
+
+<!--      &lt;!&ndash; Ratings Section &ndash;&gt;-->
+<!--      <div *ngIf="ratings.length > 0" class="mt-6">-->
+<!--        <h2 class="text-xl font-bold text-gray-800">Ratings</h2>-->
+<!--        <ul class="list-disc list-inside mt-2 space-y-2">-->
+<!--          <li *ngFor="let rating of ratings" class="text-gray-600">-->
+<!--            <strong>{{ rating.email }}</strong> rated:-->
+<!--            <span class="font-semibold">{{ rating.rating }}</span> / 5-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <p *ngIf="ratings.length === 0" class="text-gray-500 mt-6">No ratings yet for this pet.</p>-->
+
+<!--      &lt;!&ndash; Buttons &ndash;&gt;-->
+<!--      <div class="button-group flex flex-wrap gap-4 mt-4">-->
+<!--        <button-->
+<!--          class="home-button mt-4 py-2 px-4 rounded-lg"-->
+<!--          routerLink="/">-->
+<!--          Home-->
+<!--        </button>-->
+<!--        <button-->
+<!--          class="cart-button mt-4 py-2 px-4 rounded-lg"-->
+<!--          (click)="addToCart(pet)">-->
+<!--          Add To Cart-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#4f46e5" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,112C384,128,480,128,576,160C672,192,768,256,864,288C960,320,1056,320,1152,282.7C1248,245,1344,171,1392,133.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>-->
+<!--</div>-->
 <div *ngIf="pet" class="container mx-auto my-20 px-6 py-10" @fadeIn>
   <!-- Breadcrumb -->
   <nav aria-label="breadcrumb" class="mb-4">
@@ -15,50 +92,67 @@
   </nav>
 
   <!-- Card -->
-  <div class="bg-white shadow-md rounded-lg max-w-5xl mx-auto p-6 flex flex-col md:flex-row gap-6">
-    <!-- Left Section: Image -->
-    <div class="w-full md:w-1/3">
-      <div class="image-canvas">
-        <img [src]="pet.imageUrl" [alt]="pet.name" />
+  <div class="bg-white shadow-md rounded-lg max-w-5xl mx-auto p-6">
+    <div class="flex flex-col gap-6">
+      <!-- Upper Section: Image and Details -->
+      <div class="flex flex-col md:flex-row gap-6">
+        <!-- Left Section: Image -->
+        <div class="w-full md:w-1/3">
+          <div class="image-canvas">
+            <img [src]="pet.imageUrl" [alt]="pet.name" />
+          </div>
+        </div>
+
+        <!-- Right Section: Details -->
+        <div class="w-full md:w-2/3 flex flex-col gap-4">
+          <h1 class="text-2xl font-semibold text-gray-800">{{ pet.name }}</h1>
+          <p class="text-gray-600">{{ pet.description }}</p>
+
+          <mat-list>
+            <mat-list-item>
+              <strong>Age:</strong> {{ pet.age }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Breed:</strong> {{ pet.breed }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Size:</strong> {{ pet.size }} cm
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Origin:</strong> {{ pet.origin }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Price:</strong> {{ pet.price }} EUR
+            </mat-list-item>
+          </mat-list>
+        </div>
       </div>
-    </div>
 
-    <!-- Right Section: Details -->
-    <div class="w-full md:w-2/3 flex flex-col gap-4">
-      <h1 class="text-2xl font-semibold text-gray-800">{{ pet.name }}</h1>
-      <p class="text-gray-600">{{ pet.description }}</p>
+      <!-- Ratings Section -->
+      <div class="ratings-section w-full">
+        <h2 class="text-xl font-bold text-primary">Ratings</h2>
+        <ul class="list-none list-inside mt-2 space-y-2">
+          <li *ngFor="let rating of ratings" class="text-gray-600">
+            <strong>{{ rating.email }}</strong> rated:
+            <span class="font-semibold">{{ rating.rating }}</span> / 5
+          </li>
+        </ul>
+        <p *ngIf="ratings.length === 0" class="text-gray-500 mt-2">No ratings yet for this pet.</p>
+      </div>
 
-      <mat-list>
-        <mat-list-item>
-          <strong>Age:</strong> {{ pet.age }}
-        </mat-list-item>
-        <mat-list-item>
-          <strong>Breed:</strong> {{ pet.breed }}
-        </mat-list-item>
-        <mat-list-item>
-          <strong>Size:</strong> {{ pet.size}} cm
-        </mat-list-item>
-        <mat-list-item>
-          <strong>Origin:</strong> {{ pet.origin }}
-        </mat-list-item>
-        <mat-list-item>
-          <strong>Price:</strong> {{ pet.price }} EUR
-        </mat-list-item>
-      </mat-list>
-
-      <!-- Buttons -->
-      <div class="button-group flex flex-wrap gap-4 mt-4">
-        <button
-          class="home-button mt-4 py-2 px-4 rounded-lg"
-          routerLink="/">
+      <!-- Buttons Section -->
+      <div class="button-group flex flex-wrap gap-4 mt-4 justify-end">
+        <button class="home-button mt-4 py-2 px-4 rounded-lg" routerLink="/">
           Home
         </button>
-        <button
-          class="cart-button mt-4 py-2 px-4 rounded-lg"
-          (click)="addToCart(pet)">
+        <button class="cart-button mt-4 py-2 px-4 rounded-lg" (click)="addToCart(pet)">
           Add To Cart
         </button>
       </div>
     </div>
   </div>
 </div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#4f46e5" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,112C384,128,480,128,576,160C672,192,768,256,864,288C960,320,1056,320,1152,282.7C1248,245,1344,171,1392,133.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+</svg>

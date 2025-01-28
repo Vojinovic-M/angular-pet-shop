@@ -33,6 +33,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-angular": "19.0.0",
     "google-auth-library": "^9.15.0",
+    "marked": "^15.0.6",
     "ngx-scrollbar": "^16.1.1",
     "ngx-sonner": "^3.0.0",
     "preline": "^2.6.0",

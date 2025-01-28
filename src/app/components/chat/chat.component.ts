@@ -1,15 +1,13 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {MessageModel} from '../../../models/message.model';
 import {WebService} from '../../services/web.service';
-import {AuthUserService} from '../../services/auth-user.service';
 import {RasaModel} from '../../../models/rasa.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {MatIcon} from '@angular/material/icon';
-import {MatIconButton} from '@angular/material/button';
-import {MatFormField, MatLabel} from '@angular/material/form-field';
-import {MatInput} from '@angular/material/input';
+import {MatFabButton, MatIconButton} from '@angular/material/button';
+import {MarkdownPipe} from '../../pipes/markdown.pipe';
 
 @Component({
     selector: 'app-chat',
@@ -19,37 +17,37 @@ import {MatInput} from '@angular/material/input';
     NgIf,
     MatIcon,
     MatIconButton,
-    MatFormField,
-    MatInput,
-    MatLabel
+    MatFabButton,
+    NgClass,
+    MarkdownPipe
   ],
     templateUrl: './chat.component.html',
     styleUrl: './chat.component.css'
 })
-export class ChatComponent {
-  public webService!: WebService;
-  isChatVisible = false;
-  userMessage: string = '';
-  messages: MessageModel[] = [];
+export class ChatComponent implements OnInit, AfterViewChecked {
+  public webService!: WebService; // Service for handling communication with the backend
+  isChatVisible = false; // Tracks whether the chatbox is visible
+  userMessage: string = ''; // Stores the user's input
+  messages: MessageModel[] = []; // List of messages displayed in the chatbox
 
   // ViewChild to access the chat-body element directly
-  @ViewChild('chatBody', { static: false }) chatBody: ElementRef | undefined;
+  // Reference to the chat-body element to enable scrolling
+  @ViewChild('chatBody', {static: false}) chatBody: ElementRef | undefined;
 
 
-  // @ts-ignore
-  constructor(webService: WebService, private authUser: AuthUserService) {
+  // Dependency Injection for services
+  constructor(webService: WebService) {
     this.webService = webService;
   }
 
 
   ngOnInit(): void {
-    // Check if there are any messages saved
-    if (!localStorage.getItem('messages')) {
+    // Initialize chat history from localStorage, or set a default welcome message
+    // if (!localStorage.getItem('messages')) {
       localStorage.setItem('messages', JSON.stringify([
-        { type: 'bot', text: 'How can I help you?' }
+        {type: 'bot', text: 'Hi! I’m your pet assistant. You can search for pets or place an order! To search, reply with \'I am looking for a pet\'. To order, say \'I want to order a pet\''}
       ]));
-    }
-
+    // }
     this.messages = JSON.parse(localStorage.getItem('messages')!);
   }
 
@@ -60,26 +58,29 @@ export class ChatComponent {
     }
   }
 
+  // Toggles the visibility of the chatbox
   toggleChat() {
     this.isChatVisible = !this.isChatVisible;
   }
 
+  // Adds a message to the chat and updates localStorage
   pushMessage(message: MessageModel) {
     this.messages.push(message);
     // Save messages in local storage
     localStorage.setItem('messages', JSON.stringify(this.messages));
   }
 
+  // Sends the user's message to the backend (via Rasa) and handles responses
   sendMessage() {
     if (this.userMessage.trim()) {
-      const trimmedInput = this.userMessage;
-      // Reset user input
-      this.userMessage = '';
+      const trimmedInput = this.userMessage; // Avoid unnecessary whitespace
+      this.userMessage = ''; // Reset user input
+      this.pushMessage({type: 'user', text: trimmedInput}); // Add user message to chat
 
-      this.pushMessage({ type: 'user', text: trimmedInput });
       this.webService.sendRasaMessage(trimmedInput)
         .subscribe((rsp: RasaModel[]) => {
-            if (rsp.length == 0) {
+            // If no response, notify the user
+            if (rsp.length === 0) {
               this.pushMessage({
                 type: 'bot',
                 text: 'Sorry I did not understand your question.'
@@ -87,51 +88,53 @@ export class ChatComponent {
               return;
             }
 
-            rsp.map(msg => {
+            // Process the responses from Rasa
+            rsp.forEach(msg => {
               // Handle bot message (including images, pet cards, etc.)
               if (msg.image) {
-                return `<img ngSrc="${msg.image}" width="200" height="200" alt="">`;
-              }
-              if (msg.attachment) {
-                let html = '';
-                for (const item of msg.attachment) {
-                  html += `
-                  <div class="card card-chat">
-                    <img class="card-img-top" alt="">
-                    <div class="card-body">
-                       <h3 class="card-title"></h3>
-                       <p class="card-text"></p>
-                    </div>
-                    <div class="card-body">
-                      <a class="btn btn-primary" href="/pet/${item.id}">
-                        <i class="fa-solid fa-up-right-from-square"></i> Details
-                      </a>
-                      <a class="btn btn-success ms-1" href="/list">
-                        <i class="fa-solid fa-magnifying-glass"></i> Browse All
-                      </a>
-                    </div>
-                  </div>
-                `;
-                }
-                return html;
-              }
-              return msg.text;
-            })
-              .forEach(msg => {
+                // Handling image message
                 this.pushMessage({
                   type: 'bot',
-                  text: msg!
+                  text: `<img src="${msg.image}" width="200" height="200" alt="Image">`
                 });
-              });
-          },
+              } else if (msg.attachment) {
+                // Handling attachment (cards, buttons, etc.)
+                msg.attachment.forEach(item => {
+                  let attachmentHtml = `
+                  <div class="card">
+                    <img src="${item.image}" class="card-img-top" alt="Pet Image">
+                    <div class="card-body">
+                      <h5 class="card-title">${item.name || 'No title'}</h5>
+                      <p class="card-text">${item.description || 'No description available.'}</p>
+                      <a href="/pet/${item.id}" class="btn btn-primary">View Details</a>
+                      <a href="/list" class="btn btn-success ms-1">Browse All Pets</a>
+                    </div>
+                  </div>
+                    `;
+                  // Push the attachment HTML as a bot message
+                  this.pushMessage({
+                    type: 'bot',
+                    text: attachmentHtml
+                  });
+                });
+
+              } else {
+                // Handling regular text message
+                this.pushMessage({
+                  type: 'bot',
+                  text: msg.text || 'Sorry I did not understand this message.'
+                });
+              }
+            })
+        },
+          // Handle any errors from the backend
           (err: HttpErrorResponse) => {
             this.pushMessage({
               type: 'bot',
-              text: 'Sorry, I am not available at the moment.'
+              text: 'Sorry, I am not available at the moment. Please try again later.'
             });
-          });
+        });
+
     }
   }
-
-  protected readonly outerWidth = outerWidth;
 }

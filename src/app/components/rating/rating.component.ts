@@ -18,7 +18,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   template: `
     <h1 mat-dialog-title>Rate Your Pet (Order #{{data.orderId}})</h1>
     <div mat-dialog-content>
-      <p>Please rate your pet from 1 to 5:</p>
+      <p>Please rate your new pet from 1 to 5:</p>
       <mat-form-field appearance="fill">
         <mat-label>Rating</mat-label>
         <mat-select [(value)]="rating">

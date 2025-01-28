@@ -20,7 +20,7 @@ import {RatingComponent} from '../../components/rating/rating.component';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent {
-  orders: Order[] = [];
+  orders: Order[] = []; // Stores the list of orders.
 
   constructor(
     private authUserService: AuthUserService,
@@ -31,7 +31,10 @@ export class OrderComponent {
     private http: HttpClient
   ) {}
 
-
+  /**
+   * Retrieves the user ID from either a regular user or Google user.
+   * @returns The user ID as a number, string, or throws an error if not available.
+   */
   private getUserId(): number | string {
     const regularUser = this.authUserService.getUserProfile();
     const googleUser = this.authGoogleService.getGoogleProfile()();
@@ -44,6 +47,9 @@ export class OrderComponent {
     throw new Error('User ID is not available. Cannot load orders.');
   }
 
+  /**
+   * Fetches the user's orders from the backend and processes them for display.
+   */
   loadOrders() {
     this.orderService.getOrders().subscribe({
       next: (data: any[]) => {
@@ -64,6 +70,11 @@ export class OrderComponent {
     });
   }
 
+  /**
+   * Updates the status of a specific order.
+   * @param orderId The ID of the order to update.
+   * @param status The new status to set.
+   */
   changeStatus(orderId: number, status: string): void {
     this.orderService.updateOrderStatus(orderId, status).subscribe({
       next: () => {
@@ -76,6 +87,10 @@ export class OrderComponent {
     });
   }
 
+  /**
+   * Cancels a specific order.
+   * @param orderId The ID of the order to cancel.
+   */
   cancelOrder(orderId: number): void {
     this.orderService.cancelOrder(orderId).subscribe({
       next: () => {
@@ -88,6 +103,10 @@ export class OrderComponent {
     });
   }
 
+  /**
+   * Opens a dialog for rating a specific order.
+   * @param orderId The ID of the order to rate.
+   */
   openRatingDialog(orderId: number): void {
     const dialogRef = this.dialog.open(RatingComponent, {
       width: '300px',
@@ -103,6 +122,4 @@ export class OrderComponent {
       }
     });
   }
-
-  protected readonly matchMedia = matchMedia;
 }
