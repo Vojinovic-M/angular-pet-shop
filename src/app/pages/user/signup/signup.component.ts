@@ -7,6 +7,7 @@ import {UserModel} from '../../../../models/user.model';
 import {MatFormField} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,8 @@ import {animate, style, transition, trigger} from '@angular/animations';
   imports: [
     ReactiveFormsModule,
     MatFormField,
-    MatInput
+    MatInput,
+    NgIf
   ],
   styleUrls: ['./signup.component.css'],
   animations: [
@@ -68,7 +70,7 @@ export class SignupComponent implements OnInit {
               // Save the user session
               localStorage.setItem('user', JSON.stringify(response)); // Save session
               this.snackBar.open('Registration and login successful', 'Close', { duration: 3000 });
-              window.location.href = '/dashboard'; // Redirect to dashboard
+              window.location.href = '/user/dashboard'; // Redirect to dashboard
             },
             error: () => this.snackBar.open('Login failed after registration', 'Close', { duration: 3000 })
           });
@@ -76,6 +78,14 @@ export class SignupComponent implements OnInit {
         error: () => this.snackBar.open('Registration failed', 'Close', { duration: 3000 })
       });
     }
+  }
+
+  /**
+   * Helper method to check control errors.
+   */
+  hasError(controlName: string, error: string) {
+    const control = this.signupForm.get(controlName);
+    return control && control.touched && control.hasError(error);
   }
 
 }

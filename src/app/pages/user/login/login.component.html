@@ -2,33 +2,47 @@
   <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,0L48,5.3C96,11,192,21,288,42.7C384,64,480,96,576,96C672,96,768,64,864,58.7C960,53,1056,75,1152,112C1248,149,1344,203,1392,229.3L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
 
   <!-- Login Card -->
-  <div class="bg-white rounded-3xl shadow-lg py-8 px-20 max-w-md w-full">
+  <div class="bg-white rounded-3xl shadow-lg py-8 px-20 w-96 max-w-96">
     <!-- Header -->
     <h3 class="text-3xl font-semibold text-primary text-center mb-6">Welcome Back</h3>
     <p class="text-center text-gray-500 mb-6">Login to your account</p>
 
     <!-- Form -->
-    <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm" class="space-y-6">
+    <form (ngSubmit)="onSubmitLogin()" [formGroup]="loginForm" class="space-y-6">
+
       <!-- Email Field -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
         <mat-form-field appearance="fill" class="w-full">
-          <input matInput type="email" name="email" [(ngModel)]="loginData.email" required />
+          <input matInput formControlName="email" placeholder="Enter your email" type="email"/>
         </mat-form-field>
+        <p *ngIf="hasError('email', 'required')" class="text-red-800 text-sm">
+          Email is required.
+        </p>
+        <p *ngIf="hasError('email', 'email')" class="text-red-800 text-sm">
+          Enter a valid email address.
+        </p>
       </div>
+
 
       <!-- Password Field -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
         <mat-form-field appearance="outline" class="w-full">
-          <input matInput type="password" name="password" [(ngModel)]="loginData.password" required minlength="6" />
+          <input matInput formControlName="password" placeholder="Enter your password" type="password"/>
         </mat-form-field>
+        <p *ngIf="hasError('password', 'required')" class="text-red-800 text-sm">
+          Password is required.
+        </p>
+        <p *ngIf="hasError('password', 'minlength')" class="text-red-800 text-sm">
+          Password must be at least 6 characters long.
+        </p>
       </div>
 
       <!-- Login Button -->
       <button
         type="submit"
-        [disabled]="!loginForm.valid"
+        [disabled]="loginForm.invalid"
         class="btn-primary w-full py-2 font-medium rounded-lg transition">
         Login
       </button>
@@ -52,12 +66,12 @@
       Sign in with Google
     </button>
 
-  <!-- Divider -->
-  <div class="flex items-center my-6">
-    <hr class="flex-1 border-gray-300" />
-    <span class="mx-4 text-gray-400">OR</span>
-    <hr class="flex-1 border-gray-300" />
-  </div>
+    <!-- Divider -->
+    <div class="flex items-center my-6">
+      <hr class="flex-1 border-gray-300" />
+      <span class="mx-4 text-gray-400">OR</span>
+      <hr class="flex-1 border-gray-300" />
+    </div>
 
     <button
       routerLink="/user/signup"
