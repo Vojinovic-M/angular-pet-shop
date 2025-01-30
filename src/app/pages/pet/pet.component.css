@@ -86,9 +86,10 @@ mat-list-item:last-child {
   color: #54a848;
 }
 
-svg {
+.bottom-svg {
   width: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
+  z-index: -1;
 }
