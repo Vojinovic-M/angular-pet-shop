@@ -33,10 +33,6 @@ body {
   color: #7c3aed;
 }
 
-/*.intro-section {*/
-/*  background: linear-gradient(to bottom, #e0f2ff, #ede7ff);*/
-/*}*/
-
 .intro-section h1,h3 {
   color: #4f46e5;
 }
@@ -70,14 +66,14 @@ body {
 
 .svg-top {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
 
 .svg-bottom {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
 }
