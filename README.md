@@ -1,27 +1,109 @@
-# AngularPetShop
+# Angular Pet Shop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+A full-featured pet shop web application built with Angular. This project simulates a real-world pet shop by providing a comprehensive platform for browsing products, managing orders, and handling user accounts — all wrapped in a modern, responsive design.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Overview](#overview)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+  - [Frontend Setup](#frontend-setup)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
 
-## Code scaffolding
+## Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The Angular Pet Shop project is designed to offer a seamless and engaging experience for pet owners. Users can browse a rich catalog of pet products, manage their shopping carts, and place orders using a responsive interface powered by Angular. While this repository contains the frontend application, the backend (Spring Boot) resides in a separate repository: [spring-pet-shop](https://github.com/Vojinovic-M/spring-pet-shop)
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Responsive Design:** Interface built with Tailwind CSS and Preline UI.
+- **User Authentication:** 
+  - Standard email/password login.
+  - Google Sign-In integration.
+- **Product Catalog:** Browse, search, and filter an extensive list of pets with detailed descriptions.
+- **Shopping Cart & Checkout:** Easily add items to your cart and complete purchases.
+- **Order Management:** View order history and track the status of your orders.
+- **Real-Time Data Updates:** Enjoy dynamic content updates for a smooth user experience.
 
-## Running unit tests
+## Technology Stack
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Frontend:** Angular 19, Tailwind CSS, Preline UI
+- **Backend:** Spring Boot, MySQL database
+- **Authentication:** OAuth2 (Google) and BasicAuth custom authentication
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Frontend Setup
 
-## Further help
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/AngularPetShop.git
+   cd AngularPetShop
+2. **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+3. **Run the Development Server:**
+    ```bash
+    ng serve
+    ```
+Open http://localhost:4200/ to view the application. The app will automatically reload if you change any source files.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Usage
+
+With both the frontend and backend applications running, you can:
+- Browse and search for pets.
+- Sign up or log in to manage your account and orders.
+- Add products to your cart and proceed through the checkout process.
+- View order history and track the status of your orders.
+
+## Project Structure
+```bash
+├── rasabot/ # Rasa AI configuration
+├── src/
+│ ├── app/
+│ │ ├── components/
+│ │ │ ├── chat/ # Chatbot
+│ │ │ ├── footer/ # Footer
+│ │ │ ├── header/ # Header
+│ │ │ ├── rating/ # Modal for rating pets
+│ │ │ ├── search/ # Search bar for the browse page
+│ │ │ └── theme-toggle/ # Dark/light theme
+│ │ ├── interceptors/ # Currently has an error interceptor
+│ │ ├── pages/
+│ │ │ ├── about/ # About page
+│ │ │ ├── browse/ # Browse pets
+│ │ │ ├── cart/ # Shopping cart
+│ │ │ ├── home/ # Home page
+│ │ │ ├── order/ # Order section on user's profile
+│ │ │ ├── pet/ # Individual pet pages
+│ │ │ ├── shipping/ # Shipping prices page (placeholder for now)
+│ │ │ └── user/
+│ │ │ │ ├── dashboard/ # User dashboard
+│ │ │ │ ├── edit/ # Edit user profile
+│ │ │ │ ├── login/ # Login page
+│ │ │ │ └── signup/ # Signup page
+│ │ ├── pipes/ # Uses a pipe for translating communication between Angular and Rasa
+│ │ └── services/
+│ │ │ ├── auth-google.service.ts # Google authentication
+│ │ │ ├── auth-user.service.ts # Authentication for users in the database
+│ │ │ ├── axios.service.ts # Axios for communcation with the backend
+│ │ │ ├── cart.service.ts # Enables cart functionalities
+│ │ │ ├── order.service.ts # Enables order functionalities
+│ │ │ ├── storage.service.ts # Local storage configuration
+│ │ │ ├── theme.service.ts # Theme configuration
+│ │ │ └── web.service.ts # Communication with Rasa + backend rendering of pets
+│ ├── assets/ # Images, favicon, shipping.json for shipping prices
+│ └── models/ # Models for mapping different entities
+```
+## Contributing
+
+Contributions are welcome! To contribute:
+
+- Fork the repository.
+- Create a new branch (git checkout -b feature/YourFeature).
+- Commit your changes and push your branch.
+- Open a pull request describing your changes.
