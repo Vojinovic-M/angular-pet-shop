@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {PetModel} from '../../../models/pet.model';
 import {NgForOf} from '@angular/common';
-import {PetService} from '../../pet.service';
+import {PetService} from '../../services/pet.service';
 
 @Component({
   selector: 'app-search',

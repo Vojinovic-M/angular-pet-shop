@@ -6,7 +6,7 @@ import {CartService} from '../../services/cart.service';
 import {MatList, MatListItem} from '@angular/material/list';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {OrderService} from '../../services/order.service';
-import {PetService} from '../../pet.service';
+import {PetService} from '../../services/pet.service';
 
 @Component({
     selector: 'app-pet-shop',

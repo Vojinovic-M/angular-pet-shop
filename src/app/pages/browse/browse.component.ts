@@ -13,7 +13,7 @@ import {
 } from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {PetService} from '../../pet.service';
+import {PetService} from '../../services/pet.service';
 
 @Component({
     selector: 'app-browse',

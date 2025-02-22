@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, Observable, of} from 'rxjs';
-import {PageModel} from '../models/page.model';
-import {PetModel} from '../models/pet.model';
+import {PageModel} from '../../models/page.model';
+import {PetModel} from '../../models/pet.model';
 
 @Injectable({
   providedIn: 'root'
