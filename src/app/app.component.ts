@@ -10,9 +10,11 @@ declare global {
     HSStaticMethods: IStaticMethods;
   }
 }
+// @ts-ignore
+// @ts-ignore
 @Component({
     selector: 'app-root',
-  imports: [FormsModule, FormsModule, FooterComponent, HeaderComponent, RouterOutlet, ChatComponent],
+  imports: [FormsModule, FooterComponent, HeaderComponent, RouterOutlet, ChatComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
