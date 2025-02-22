@@ -1,9 +1,6 @@
 import {Component, OnInit, AfterViewChecked} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
-import {
-  HttpClientModule,
-} from '@angular/common/http';
 import {FooterComponent} from './components/footer/footer.component';
 import {HeaderComponent} from './components/header/header.component';
 import {ChatComponent} from './components/chat/chat.component';
@@ -13,11 +10,9 @@ declare global {
     HSStaticMethods: IStaticMethods;
   }
 }
-// @ts-ignore
-// @ts-ignore
 @Component({
     selector: 'app-root',
-  imports: [FormsModule, FormsModule, HttpClientModule, FooterComponent, HeaderComponent, RouterOutlet, ChatComponent],
+  imports: [FormsModule, FormsModule, FooterComponent, HeaderComponent, RouterOutlet, ChatComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
