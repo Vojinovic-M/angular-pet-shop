@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {PetModel} from '../../../models/pet.model';
-import {WebService} from '../../services/web.service';
 import {NgForOf} from '@angular/common';
+import {PetService} from '../../pet.service';
 
 @Component({
   selector: 'app-search',
@@ -18,14 +18,14 @@ export class SearchComponent {
   pets: PetModel[] = [];
   filteredPets: PetModel[] = [];
 
-  constructor(private webService: WebService) {}
+  constructor(private petService: PetService) {}
 
   ngOnInit() {
     this.loadPets();
   }
 
   loadPets() {
-    this.webService.getPets(0).subscribe((data) => {
+    this.petService.getPets(0).subscribe((data) => {
       this.pets = data.content;
       this.filteredPets = this.pets;
     })

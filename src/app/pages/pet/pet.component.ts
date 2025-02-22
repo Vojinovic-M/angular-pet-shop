@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PetModel } from '../../../models/pet.model';
-import { WebService } from '../../services/web.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {CartService} from '../../services/cart.service';
 import {MatList, MatListItem} from '@angular/material/list';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {OrderService} from '../../services/order.service';
+import {PetService} from '../../pet.service';
 
 @Component({
     selector: 'app-pet-shop',
@@ -34,24 +34,16 @@ export class PetComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, // Provides access to route parameters.
-    private webService: WebService, // Service to fetch pet data.
+    private petService: PetService, // Service to fetch pet data.
     private cartService: CartService, // Service for managing the shopping cart.
     private orderService: OrderService, // Service for fetching order-related data
-  ) {
-    // route.params.subscribe((params) => {
-    //   const id = params['id'];
-    //   this.webService.getPetById(id).subscribe((rsp) => {
-    //     this.pet = rsp
-    //     console.log(this.pet);
-    //   });
-    // });
-  }
+  ) {}
 
   ngOnInit() {
     // Fetch pet by ID from the route params
     this.route.params.subscribe((params) => {
       const id = params['id'];
-      this.webService.getPetById(id).subscribe((petModel) => {
+      this.petService.getPetById(id).subscribe((petModel) => {
         if (petModel) {
           this.pet = petModel;
           console.log(this.pet);
@@ -91,19 +83,4 @@ export class PetComponent implements OnInit {
     this.cartService.addToCart(pet);
     alert('Added to cart!');
   }
-
-  // ngOnInit(): void {
-  //   if (this.pet) {
-  //     this.orderService.getRatingsByPetId(this.pet.id).subscribe({
-  //       next: (data) =>{
-  //         if (Array.isArray(data)) {
-  //           this.ratings = data
-  //         } else {
-  //           console.log('No ratings available: ', data);
-  //         }
-  //       },
-  //       error: (err) => console.error('Failed to load ratings', err),
-  //     });
-  //   }
-  // }
 }

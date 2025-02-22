@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { WebService } from '../../services/web.service';
 import { PageModel } from '../../../models/page.model';
 import { PetModel } from '../../../models/pet.model';
 import {NgFor} from '@angular/common';
@@ -14,6 +13,7 @@ import {
 } from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {PetService} from '../../pet.service';
 
 @Component({
     selector: 'app-browse',
@@ -57,7 +57,7 @@ export class BrowseComponent implements OnInit {
   filteredPets: PetModel[] = []; // Pets filtered by search term.
   searchTerm: string = ''; // Search input value.
 
-  constructor(private webService: WebService) {}
+  constructor(private petService: PetService) {}
 
   /**
    * Angular lifecycle hook to load pets on component initialization.
@@ -70,7 +70,7 @@ export class BrowseComponent implements OnInit {
    * Fetches paginated pet data from the backend and updates the local state.
    */
   loadPets() {
-    this.webService.getPets(this.currentPage).subscribe((data) => {
+    this.petService.getPets(this.currentPage).subscribe((data) => {
       this.data = data;
       this.totalElements = data.totalElements;
       this.filteredPets = data.content;
