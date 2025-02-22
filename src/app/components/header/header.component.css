@@ -13,7 +13,7 @@
   padding: 0.3rem 1rem; /* Thinner header */
   z-index: 100;
   background-color: #f9f9ff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .navbar button {

@@ -2,12 +2,12 @@ import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angul
 import {FormsModule} from '@angular/forms';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {MessageModel} from '../../../models/message.model';
-import {WebService} from '../../services/web.service';
 import {RasaModel} from '../../../models/rasa.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {MatIcon} from '@angular/material/icon';
 import {MatFabButton, MatIconButton} from '@angular/material/button';
 import {MarkdownPipe} from '../../pipes/markdown.pipe';
+import {RasaService} from '../../services/rasa.service';
 
 @Component({
     selector: 'app-chat',
@@ -25,7 +25,7 @@ import {MarkdownPipe} from '../../pipes/markdown.pipe';
     styleUrl: './chat.component.css'
 })
 export class ChatComponent implements OnInit, AfterViewChecked {
-  public webService!: WebService; // Service for handling communication with the backend
+  public rasaService!: RasaService; // Service for handling communication with the backend
   isChatVisible = false; // Tracks whether the chatbox is visible
   userMessage: string = ''; // Stores the user's input
   messages: MessageModel[] = []; // List of messages displayed in the chatbox
@@ -36,8 +36,8 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
 
   // Dependency Injection for services
-  constructor(webService: WebService) {
-    this.webService = webService;
+  constructor(rasaService: RasaService) {
+    this.rasaService = rasaService;
   }
 
 
@@ -77,7 +77,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.userMessage = ''; // Reset user input
       this.pushMessage({type: 'user', text: trimmedInput}); // Add user message to chat
 
-      this.webService.sendRasaMessage(trimmedInput)
+      this.rasaService.sendRasaMessage(trimmedInput)
         .subscribe((rsp: RasaModel[]) => {
             // If no response, notify the user
             if (rsp.length === 0) {
