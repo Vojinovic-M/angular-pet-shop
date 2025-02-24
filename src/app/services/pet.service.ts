@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {catchError, Observable, of} from 'rxjs';
 import {PageModel} from '../../models/page.model';
 import {PetModel} from '../../models/pet.model';
+import {PetDistanceModel} from '../../models/pet-distance.model';
 
 @Injectable({
   providedIn: 'root'
@@ -59,4 +60,16 @@ export class PetService {
         })
       );
   }
+
+  getPetsWithDistance(userLat: number, userLng: number): Observable<PetDistanceModel[]> {
+    return this.http.get<PetDistanceModel[]>(`${this.baseUrl}/with-distance?lat=${userLat}&lng=${userLng}`)
+      .pipe(
+        catchError((error) => {
+          console.error('Error fetching pets with distance: ', error);
+          return of([]);
+        })
+      );
+  }
+
+
 }
