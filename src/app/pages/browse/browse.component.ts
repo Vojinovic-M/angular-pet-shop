@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PageModel } from '../../../models/page.model';
 import { PetModel } from '../../../models/pet.model';
-import {NgFor} from '@angular/common';
+import { PetDistanceModel } from '../../../models/pet-distance.model';
+import {CommonModule, NgFor} from '@angular/common';
 import {MatPaginator} from '@angular/material/paginator';
 import {
   MatCard,
@@ -13,11 +14,22 @@ import {
 } from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {PetService} from '../../pet.service';
+import {PetService} from '../../services/pet.service';
 
 @Component({
     selector: 'app-browse',
-  imports: [RouterLink, RouterLink, NgFor, MatPaginator, MatCard, MatCardHeader, MatCardImage, MatCardActions, MatCardTitle, FormsModule],
+  imports: [
+    RouterLink,
+    NgFor,
+    MatPaginator,
+    MatCard,
+    MatCardHeader,
+    MatCardImage,
+    MatCardActions,
+    MatCardTitle,
+    FormsModule,
+    CommonModule
+  ],
     templateUrl: './browse.component.html',
     styleUrl: './browse.component.css',
   animations: [
@@ -56,14 +68,17 @@ export class BrowseComponent implements OnInit {
 
   filteredPets: PetModel[] = []; // Pets filtered by search term.
   searchTerm: string = ''; // Search input value.
+  petsWithDistance: PetDistanceModel[] = []; // Pets filtered by distance from user
+  petsNearby: PetDistanceModel[] = [];
 
-  constructor(private petService: PetService) {}
+  constructor(private readonly petService: PetService) {}
 
   /**
    * Angular lifecycle hook to load pets on component initialization.
    */
   ngOnInit() {
     this.loadPets();
+    this.getUserLocationAndLoadCarousel();
   }
 
   /**
@@ -97,5 +112,25 @@ export class BrowseComponent implements OnInit {
       pet.breed.toLowerCase().includes(term)
       // || pet.description.toLowerCase().includes(term)
     );
+  }
+
+  getUserLocationAndLoadCarousel() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          this.petService.getPetsWithDistance(lat, lng).subscribe((pets) => {
+            this.petsWithDistance = pets;
+            this.petsNearby = pets.filter(p => p.distance <= 150);
+          });
+        },
+        (err) => {
+          console.log('Error getting geolocation: ', err);
+        }
+      );
+    } else {
+      console.warn('Geolocation is not supported by this browser!');
+    }
   }
 }

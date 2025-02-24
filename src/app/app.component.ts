@@ -10,13 +10,12 @@ declare global {
     HSStaticMethods: IStaticMethods;
   }
 }
-// @ts-ignore
-// @ts-ignore
+
 @Component({
     selector: 'app-root',
   imports: [FormsModule, FooterComponent, HeaderComponent, RouterOutlet, ChatComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, AfterViewChecked {
   title = 'angular-pet-shop';
